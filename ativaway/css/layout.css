@@ -1,0 +1,104 @@
+/*
+ * layout.css
+ * Este arquivo contÃ©m as variÃ¡veis de cor e o layout especÃ­fico da dashboard.
+ * As variÃ¡veis de cor definem o tema escuro padrÃ£o e o tema claro opcional.
+ * O layout define a estrutura principal da pÃ¡gina (cabeÃ§alho, conteÃºdo, rodapÃ©).
+ */
+
+/* --- VariÃ¡veis de Cor (Tema Escuro PadrÃ£o) --- */
+:root {
+	--background-color-base: #121212;      /* Fundo principal */
+	--background-color-container: #1E1E1E;      /* Containers / seÃ§Ãµes */
+	--background-color-card: #2C2C2C;      /* Cards */
+
+	--text-color-title: #FFFFFF;
+	--text-color-body: #E0E0E0;
+	--text-color-inactive: #AAAAAA;
+	--border-color: #6d6d6d;
+
+	/* === COR PRINCIPAL (LARANJA) === */
+	--color-primary: #FF914D;
+	--color-primary-pastel: #FFC085;
+
+	/* === SEMÃFORO E APOIO === */
+	--color-success: #2E7D32;
+	--color-success-pastel: #A5D6A7;
+
+	--color-info: #1976D2;
+	--color-info-pastel: #90CAF9;
+
+	--cor-vermelho: #FF3838;
+	--cor-vermelho-pastel: #EF9A9A;
+
+	--color-warning: #F9A826;
+	--color-warning-pastel: #FFE082;
+
+	/* === CORES DECORATIVAS (viva + pastel) === */
+	--color-pink: #F06292;
+	--color-pink-pastel: #F8BBD0;
+
+	--color-cyan: #4DD0E1;
+	--color-cyan-pastel: #B2EBF2;
+
+	--color-purple: #9575CD;
+	--color-purple-pastel: #D1C4E9;
+
+	--color-lime: #DCE775;
+	--color-lime-pastel: #F0F4C3;
+
+	--color-orange-soft: #FFB74D;
+	--color-orange-soft-pastel: #FFE0B2;
+
+	--color-indigo: #5C6BC0;
+	--color-indigo-pastel: #C5CAE9;
+
+	--color-teal: #26A69A;
+	--color-teal-pastel: #B2DFDB;
+
+	/* === TEXTOS SOBRE FUNDOS COLORIDOS === */
+	--text-on-primary: #111111;
+}
+
+/* --- VariÃ¡veis de Cor (Tema Claro Opcional) --- */
+[data-theme="light*"] {
+	--background-color-base: #FAFAFA;      /* Fundo principal */
+	--background-color-container: #F0F0F0;      /* Containers / seÃ§Ãµes */
+	--background-color-card: #FFFFFF;      /* Cards */
+
+	--text-color-title: #111111;
+	--text-color-body: #333333;
+	--text-color-inactive: #888888;
+	--border-color: #CCCCCC;
+	
+}
+
+/* --- Layout Principal da PÃ¡gina --- */
+body {
+	display: grid;
+	grid-template-columns: 4rem 1fr; /* header + conteÃºdo + rodapÃ© */
+	grid-template-rows: 1fr 2rem; /* header + conteÃºdo + rodapÃ© */
+	grid-template-areas:
+		"header main"
+		"header main"
+		"header footer";
+}
+
+body > aside {
+	grid-area: header;
+	display: flex;
+	border-right: 1px solid var(--border-color);
+}
+body:has(aside[data-open="true"]){
+	grid-template-columns: 20rem 1fr;
+}
+
+body > footer {
+	grid-area: footer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 0.875rem;
+	color: var(--text-color-inactive);
+}
+
+

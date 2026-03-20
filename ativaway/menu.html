@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard Base</title>
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="../arquivos/css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="../arquivos/css/effect1.css">
+<script type="module" src="../arquivos/js/ui.js"></script>
+</head>
+<body>
+	<aside data-open="true" aria-label="Barra lateral">
+  <header>
+    <a href="/" class="brand" aria-label="Ir para a página inicial do AtivaWay">
+      <img src="logo.svg" alt="" aria-hidden="true">
+      <span>ATIVAWAY</span>
+    </a>
+
+    <button
+      type="button"
+      class="toggle"
+      aria-label="Recolher menu"
+      aria-expanded="true"
+      aria-controls="sidebar-nav">
+      <span class="icone" aria-hidden="true">menu_open</span>
+    </button>
+  </header>
+
+  <nav id="sidebar-nav" aria-label="Navegação principal">
+    <ul>
+      <li>
+        <a href="/inicio" aria-current="page">
+          <span class="icone" aria-hidden="true">home</span>
+          <span>Início</span>
+        </a>
+      </li>
+
+      <li>
+        <button
+          type="button"
+          aria-expanded="false"
+          aria-controls="submenu-usuarios">
+          <span class="icone" aria-hidden="true">group</span>
+          <span>Usuários</span>
+        </button>
+
+        <ul id="submenu-usuarios" hidden>
+          <li><a href="/usuarios/dashboard">Dashboard</a></li>
+          <li><a href="/usuarios/area-trabalho">Área de trabalho</a></li>
+          <li><a href="/usuarios/lista">Lista</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <button
+          type="button"
+          aria-expanded="false"
+          aria-controls="submenu-certidoes">
+          <span class="icone" aria-hidden="true">description</span>
+          <span>Certidões</span>
+        </button>
+
+        <ul id="submenu-certidoes" hidden>
+          <li><a href="/certidoes/dashboard">Dashboard</a></li>
+          <li><a href="/certidoes/pendencias">Pendências</a></li>
+          <li><a href="/certidoes/controles">Controles</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <footer>
+    <section aria-label="Operador autenticado">
+      <strong>Higor Meireles</strong>
+      <p>Administrador</p>
+    </section>
+
+    <form action="/logout" method="post">
+      <button type="submit">
+        <span class="icone" aria-hidden="true">logout</span>
+        <span>Sair</span>
+      </button>
+    </form>
+  </footer>
+</aside>
+
+	<main></main>
+
+	<footer>
+		<p>&copy; 2025 - Sistema Dashboard</p>
+	</footer>
+
+</body>
+</html>

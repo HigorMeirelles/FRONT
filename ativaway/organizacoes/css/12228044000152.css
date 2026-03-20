@@ -1,0 +1,58 @@
+@charset "UTF-8"; 
+
+/* DARK THEME */
+
+:root {
+    /* CORES DE FUNDO */
+    --backgroundColorI: #3B3A39;
+    --backgroundColorII: #333332;
+    --backgroundColorIII: #2c2c2c;
+    /* CORES */
+    --primaryColor: #F9A826;
+    --effectColor: var(--primaryColor);
+    /* CORES DE BORDAS */
+    --borderColorI: #575757;
+    /* BUTTON */
+    --buttonColor: #333332;
+    --buttonTextColor: #d4d4d4;
+    --buttonBorder: solid .125rem var(--borderColorI);
+    --buttonPadding: .25rem;
+    /* FILTER */
+    --filter: invert(77%) sepia(75%) saturate(1890%) hue-rotate(339deg) brightness(99%) contrast(97%);
+    /* INPUT */
+    --inputColor: #333332;
+    --inputBorder: solid 0.125rem var(--borderColorI);
+    --inputTextColor: #C4C4C4;
+    /* LABEL */
+    --labelColor: var(--inputColor);
+    --labelTextColor: #b9c2c8;
+    /* CORES DE TEXTOS */
+    --textColorI: #d4d4d4;
+    --textColorII: #f3f2f1;
+    --textColorIII: #b0b0b0;
+    /* TEXTAREA */
+    --textareaColor: #2c2c2c; 
+    /* CORES DE TÍTULOS */
+    --titleColorI: #ffffff; 
+    --titleColorII: #f2f2f2; 
+    --titleColorIII: #e0e0e0;
+    /* RADIUS */
+    --radius: .25rem;
+    /* STROKE */
+    --strokeColor: var(--borderColorI);
+}
+
+/* LIGHT THEME */
+html:has(#tema:checked):root {
+    --backgroundColorI: #E5E4E1;
+    --backgroundColorII: #D9D8D5;
+    --backgroundColorIII: #CCCBC8;
+    
+    --textColorI: #444444;
+    --textColorII: #333333;
+    --textColorIII: #555555;
+
+    --titleColorI: #0f0f0f;
+    --titleColorII: #1a1a1a;
+    --titleColorIII: #242424;
+}

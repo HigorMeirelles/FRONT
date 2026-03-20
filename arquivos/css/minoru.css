@@ -1,0 +1,546 @@
+.minoru {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-flow: column-reverse;
+    width: 100%;
+    gap: 0.25rem;
+    color: var(--textColorI);
+}
+
+.minoru>:where(input, textarea),
+.select:not(:has(>label[contenteditable]))>input:checked+label,
+.select [contenteditable] {
+    width: 100%;
+    background-color: var(--inputColor);
+    padding: var(--inputPadding);
+    border-radius: var(--inputRadius);
+    font-weight: 400;
+}
+
+.minoru>:where(input, textarea):focus+label {
+    color: var(--textColorI);
+}
+
+:where(.minoru, [class^="box-"])>label,
+label:has(+.select-group),
+.select-details::before {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    font-weight: 400;
+    padding-bottom: 0.25rem;
+    text-align: left;
+    color: var(--textColorII);
+}
+
+span.minoru>label::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: calc(100% - 1.75rem);
+    color: var(--primaryColor);
+}
+
+.minoru>:focus+label::after {
+    -webkit-animation: minoru 0.3s forwards;
+    animation: minoru 0.3s forwards;
+}
+
+button {
+    width: 2.5rem;
+    height: 2.5rem;
+    align-self: end;
+    padding: var(--buttonPadding);
+    display: flex;
+    border-radius: var(--buttonRadius);
+    border: var(--buttonBorder);
+    background-color: var(--buttonColor);
+    color: var(--buttonTextColor);
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+button>span:first-of-type {
+    font-family: var(--icone);
+}
+
+.minoru>textarea {
+    height: 6.25rem;
+    padding: 0.5rem;
+}
+
+@-webkit-keyframes minoru {
+    100% {
+        box-shadow: 0 0 2.25rem 2.125rem var(--primaryColor);
+        opacity: 0;
+    }
+}
+
+@keyframes minoru-div {
+    100% {
+        box-shadow: 0px 0px 4rem 1rem var(--primaryColor);
+    }
+}
+
+@keyframes minoru-off {
+    100% {
+        box-shadow: 0px 0px 4rem 1rem transparent;
+    }
+}
+
+/* SELECT */
+.select-group {
+    position: relative;
+}
+
+.select-group::before,
+fieldset .select-group::after {
+    content: "";
+    display: block;
+    width: 100%;
+    z-index: 1 !important;
+}
+
+.select {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    pointer-events: visible;
+    width: auto;
+    height: auto;
+    max-height: 10rem;
+    overflow-y: auto;
+    z-index: 2;
+    cursor: pointer;
+    top: 0;
+    border-radius: var(--inputRadius);
+}
+
+.select:not(:has(>label[contenteditable]))>input:checked+label,
+.select [contenteditable] {
+    order: 1;
+    color: var(--textColorI) !important;
+    text-align: left;
+    display: flex;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    height: 2.5rem;
+    min-height: 2.5rem;
+    padding: 0.5rem .75rem 0.25rem 0.25rem;
+    border: var(--labelBorder);
+    opacity: 1;
+}
+
+.select>label {
+    width: 100%;
+    pointer-events: none;
+    order: 2;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-top: none !important;
+    color: var(--textColorI);
+    height: 0;
+    opacity: 0;
+    padding-right: 2rem;
+}
+
+.select:not(:has(>[contenteditable]))>input:checked+label::before,
+.select>label[contenteditable]:after {
+    content: "expand_more";
+    font-family: 'Material Icons';
+    position: absolute;
+    right: 0;
+    font-size: 1.5rem;
+    background-color: inherit;
+}
+
+.select:has([contentEditable])>input[disabled]+label {
+    display: none;
+}
+
+.select:not(:has(>[contenteditable])):focus>input:checked+label::before,
+.select:focus-within>label[contenteditable]:after {
+    content: "expand_less";
+    color: var(--primaryColor);
+}
+
+.select>[contenteditable],
+.select:not(:has(>[contenteditable])):focus>label,
+.select:has(>label[contenteditable]):focus-within>label:not([contenteditable]) {
+    display: flex;
+    position: relative;
+    pointer-events: all;
+    background-color: var(--labelColor);
+    color: var(--labelTextColor);
+    height: 2.5rem;
+    min-height: 2.5rem;
+    padding: 0.5rem 1.75rem 0.25rem 0.25rem;
+    border: var(--labelBorder);
+    opacity: 1;
+}
+
+.select:has(>[contenteditable])>input:checked+label {
+    color: var(--primaryColor) !important;
+}
+
+.select>input {
+    opacity: 0;
+    position: absolute;
+}
+
+.select-group::after {
+    position: absolute;
+    top: .15rem;
+    bottom: 0px;
+    border-radius: var(--inputRadius);
+}
+
+.select:not(:has(>label[contenteditable])):focus>input:checked+label,
+.select:focus-within>label[contenteditable] {
+    border-color: var(--primaryColor) !important;
+    border-bottom-right-radius: unset !important;
+    border-bottom-left-radius: unset !important;
+}
+
+label:has(+.select-group:focus-within) {
+    color: var(--primaryColor);
+}
+
+.select:not(:has([contentEditable])):focus,
+.select:has([contenteditable]:focus) {
+    -webkit-animation: minoru-div 0.3s forwards, minoru-off 0.3s forwards;
+    animation: minoru-div 0.3s forwards, minoru-off 0.3s forwards;
+}
+
+.select:focus>label:not(:last-of-type) {
+    border-bottom-color: var(--labelborderColorI) !important;
+}
+
+.select:focus-within>label:not([checked]+label):hover {
+    border-bottom-color: var(--primaryColor) !important;
+}
+
+/* SELECT */
+
+/* SELECT DETAILS */
+.select-details {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.select-details::before {
+    content: attr(data-label);
+    margin-bottom: 0.25rem;
+}
+
+.select-details>summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 !important;
+}
+
+.select-details>summary>span:not([contenteditable]) {
+    cursor: pointer;
+}
+
+.select-details>summary>span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 100%;
+    padding: 0.5rem;
+    width: 100%;
+    text-align: left;
+}
+
+.select-details>summary::after {
+    content: 'expand_more';
+    font: 1rem var(--icone);
+    transition: 0.25s;
+    height: 100%;
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: var(--inputBorder);
+    cursor: pointer;
+}
+
+.select-details[open]>summary::after {
+    content: 'expand_less';
+}
+
+.select-details>div {
+    /* display: none; */
+    position: absolute;
+    flex-direction: column;
+    /* flex-wrap: nowrap; */
+    top: calc(100% + 0.5rem);
+    width: 100%;
+    max-height: calc(2rem * 4);
+    overflow-y: auto;
+    background: var(--inputColor);
+    border: var(--inputBorder);
+    color: var(--textColorII);
+    z-index: 2;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, .4);
+}
+
+.select-details[open]>div {
+    display: flex;
+}
+
+.select-details>div>input:checked+label {
+    color: var(--primaryColor);
+}
+
+.select-details>div>label {
+    min-height: 2rem;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: left;
+}
+
+.select-details>div>label:not(:last-of-type) {
+    border-bottom: var(--inputBorder);
+}
+
+.select-details>div>input:not(:checked)+label:hover {
+    background: var(--primaryColor);
+    color: var(--selectLabelHover);
+}
+
+/*Modal*/
+
+dialog[open] {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .1);
+    backdrop-filter: blur(0.125rem);
+    border: none;
+    z-index: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100vw;
+    max-height: 100vh;
+}
+
+dialog[open]>div {
+    display: flex;
+    background-color: var(--modalCor);
+    min-width: 25vw;
+    width: fit-content;
+    max-width: var(--modalMaxWidth);
+    min-height: 20vh;
+    height: fit-content;
+    max-height: 90vh;
+    border: solid 1px var(--borderColorI);
+    border-radius: var(--radius);
+    position: relative;
+    border: solid 0.06rem var(--primaryColor);
+    box-shadow: 0 0 0 0.25rem var(--borderColorI);
+}
+
+dialog[open]>div:has(form) {
+    width: 80vw;
+}
+
+dialog[open]>div>svg {
+    display: none;
+}
+
+dialog[open]>div>button {
+    position: absolute;
+    top: 0.75rem;
+    right: 1rem;
+    z-index: 5;
+    width: 2.5rem;
+    height: 2.5rem;
+    font: 1.25rem var(--icone);
+}
+
+dialog[open]>div>button::before {
+    content: "close";
+    font-family: var(--icone);
+    font-size: 1.5rem;
+}
+
+dialog[open]>div>button:hover {
+    color: var(--primaryColor);
+}
+
+dialog[open]:has(button.girar)>div>button {
+    display: none;
+}
+
+dialog[open]>div>div {
+    width: 100%;
+    min-height: inherit;
+    height: -webkit-fill-available;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--textColorI);
+}
+
+dialog[open]>div>div>:where(h3, div) {
+    width: 100%;
+    padding: 1rem;
+}
+
+dialog[open]>div>div>div:first-of-type,
+dialog[open] .guias,
+dialog[open] div>section,
+dialog[open] form {
+    height: 100%;
+}
+
+dialog[open]>div>div>h3 {
+    padding-right: 5rem;
+    border-bottom: solid .125rem var(--borderColorI);
+}
+
+dialog[open]>div>div>div:last-of-type {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin-top: auto;
+    border-top: solid .125rem var(--borderColorI);
+    gap: .5rem;
+    padding: 1rem .75rem;
+}
+
+dialog[open]>div>div>div:last-of-type>label {
+    background-color: var(--buttonColor);
+    padding: var(--buttonPadding);
+}
+
+dialog[open]>div>div>div:last-of-type>p {
+    font-size: small;
+    color: var(--textColorI);
+}
+
+dialog[open]>div>div>div:last-of-type>button:only-of-type {
+    margin-left: auto;
+}
+
+dialog[open]>section {
+    width: 100%;
+    height: 100%;
+}
+
+dialog>div>div>button:last-of-type {
+    color: var(--textColorI);
+    font-size: 1.2rem;
+    margin: 0px 0px 0px auto;
+}
+
+dialog[open]>div>div>div:last-of-type>button:only-child {
+    margin-left: auto;
+}
+
+/*MODAL*/
+
+/* INPUT */
+
+.minoru> :where(input, textarea, label[contenteditable]),
+.select-details>summary {
+    height: 2.5rem;
+    background: var(--inputColor);
+    border: var(--inputBorder);
+    color: var(--textColorI);
+    padding: 0 0.5rem;
+    font-size: 1rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    cursor: text;
+    border-radius: var(--radius);
+}
+
+.minoru> :where(input, textarea):focus,
+.minoru :where(.checkbox-group, .radio-group) input:checked,
+.select-details[open]>summary,
+.input:focus {
+    border-color: var(--inputBorderActive);
+    box-shadow: 0 0 0 0.25rem var(--inputActiveBoxShadow);
+}
+
+/* CHECKBOX E RADIO */
+
+.minoru:has(.radio-group, .checkbox-group) {
+    flex-flow: column;
+}
+
+.minoru:has([class*='-group']) {
+    gap: .75rem;
+}
+
+.minoru> :where(.checkbox-group, .radio-group) {
+    display: flex;
+    gap: 1rem;
+}
+
+.minoru :where(.checkbox-group, .radio-group) {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: .25rem 0 0 0;
+}
+
+.minoru :where(.checkbox-group, .radio-group) label {
+    color: var(--textColorII);
+    cursor: pointer;
+}
+
+.minoru :where(.checkbox-group, .radio-group) input {
+    min-width: 1.625rem;
+    width: 1.625rem;
+    min-height: 1.625rem;
+    height: 1.625rem;
+    background: transparent;
+    border-radius: 0.25rem;
+    border: var(--inputBorder);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.minoru .radio-group input {
+    border-radius: 100%;
+}
+
+.minoru .radio-group input:checked:before {
+    content: '';
+    width: 0.625rem;
+    height: 0.625rem;
+    border-radius: 100%;
+    background-color: var(--inputCheckBorderColor);
+}
+
+.minoru :where(.checkbox-group, .radio-group) input:checked {
+    background: var(--primaryColor);
+}
+
+.minoru .checkbox-group input:checked::before {
+    content: 'done';
+    font: 1rem var(--icone);
+    color: var(--inputCheckBorderColor);
+}

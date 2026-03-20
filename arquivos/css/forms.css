@@ -1,0 +1,7 @@
+fieldset:has(.data-list, .tag) {
+height: 20rem;
+}
+
+form::-webkit-scrollbar {
+width: 0;
+}

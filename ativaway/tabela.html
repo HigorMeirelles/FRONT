@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard Base</title>
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="../arquivos/css/base.css">
+<link rel="stylesheet" href="../arquivos/css/table.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="../arquivos/css/effect1.css">
+<script type="module" src="../arquivos/js/ui.js"></script>
+</head>
+<body>
+	<header>
+		<h1>Dashboard</h1>
+	</header>
+
+	<main class="guias">
+		<nav role="tablist" aria-label="Telas do sistema">
+			<menu>
+				<li role="presentation">
+					<button type="button" role="tab" id="tab-usuarios"
+						aria-selected="true" aria-controls="panel-usuarios" tabindex="0">
+						<span>Lista - Usuários</span>
+					</button>
+
+					<button type="button" class="icone"
+						aria-label="Fechar guia: Lista - Usuários" data-close>
+						close</button>
+				</li>
+
+				<li role="presentation">
+					<button type="button" role="tab" id="tab-empresas"
+						aria-selected="false" aria-controls="panel-empresas" tabindex="-1">
+						<span>Lista - Empresas</span>
+					</button>
+
+					<button type="button" class="icone"
+						aria-label="Fechar guia: Lista - Empresas" data-close>
+						close</button>
+				</li>
+
+				<li role="presentation">
+					<button type="button" role="tab" id="tab-certidoes"
+						aria-selected="false" aria-controls="panel-certidoes"
+						tabindex="-1">
+						<span>Lista - Certidões</span>
+					</button>
+
+					<button type="button" class="icone"
+						aria-label="Fechar guia: Lista - Certidões" data-close>
+						close</button>
+				</li>
+			</menu>
+		</nav>
+
+		<section role="tabpanel" id="panel-usuarios"
+			aria-labelledby="tab-usuarios">
+			<!-- conteúdo usuários -->
+			<table id="certidao-relatorio-entrada">
+				<caption>
+					Tabela de entrada de certidões [17/01/2026 ]
+				</caption>
+				<thead>
+					<tr>
+						<th>
+							<form autocomplete="off" method="POST" name="">
+								<span class="effect"> <select id="exibicao" name="exibicao" required>
+								<option value="10">10 - linhas</option>
+								<option value="25" selected>25 - linhas</option>
+								<option value="50" >50 - linhas</option>
+								<option value="100" >100 - linhas</option>
+								</select> <label for="exibicao">Exibindo:</label>
+								</span>
+							
+							<div class="box-4">
+						<fieldset class="effect" required>
+							<legend>Escolha uma opção</legend>
+
+							<div class="select-container" tabindex="0" data-select
+								data-name="opcoes">
+									<button type="button" class="icone">expand_circle_up</button>
+								<label> <input type="radio" name="opcoes" value="a"
+									checked> Opção A
+								</label> <label> <input type="radio" name="opcoes" value="b">
+									Opção B
+								</label> <label> <input type="radio" name="opcoes" value="c">
+									Opção C
+								</label>
+								
+							</div>
+
+						</fieldset>
+					</div>
+							</form>
+						</th>
+					</tr>
+					<tr>
+						<th>Selecionar</th>
+						<th>Razão Social</th>
+						<th>CNPJ</th>
+						<th>Certidão</th>
+						<th>Emissao</th>
+						<th>Opções</th>
+					</tr>
+					<tr>
+						<th>
+							<fieldset class="effect" required>
+							<legend>Selecionar tudo</legend>
+							<div class="radio-checkbox-container">
+								<label> <input type="checkbox" name="opcoes" value="true"
+									required> <span></span>
+								</label>
+							</div>
+						</fieldset>	
+						</th>
+						<th><input type="search" placeholder="Razão Social"
+							name="pesquisarColuna"></th>
+						<th><input type="search" placeholder="CNPJ"
+							name="pesquisarColuna"></th>
+						<th><input type="search" placeholder="Certidão"
+							name="pesquisarColuna"></th>
+						<th>
+						<input type="date" placeholder="Emissão"
+							name="pesquisarColuna">
+							<div class="sub-filtro">
+							<label><input type="checkbox"/>d</label>
+								<select id="subFiltroEmissao" name="subFiltroEmissao" multiple required>
+									<option value="ATE">Até</option>
+									<option value="IGUAL" selected>Igual</option>
+									<option value="APARTIR" >A partir</option>
+								</select>
+							</div>
+							</th>
+						<th><input type="search" placeholder="Origem"
+							name="pesquisarColuna"></th>
+						<th></th>
+					</tr>
+
+				</thead>
+				<tbody>
+					<tr tabindex="1" data-id="696aa93f313dca7dddd93e26"
+						data-iddocumento="696aa93f313dca7dddd93e26"
+						data-identificador="MOBILIARIA"
+						data-opcoes="visualizar_documento, certidao_salvar,mini_historico,">
+						<td>
+							<fieldset class="effect" required>
+							<legend></legend>
+							<div class="radio-checkbox-container">
+								<label> <input type="checkbox" name="opcoes" value="idRow"
+									required> <span></span>
+								</label>
+							</div>
+						</fieldset>	
+						</td>
+						<td>CLARO S.A.</td>
+						<td>40.432.544/0845-70</td>
+						<td>MUNICIPAL : BA : SALVADOR : PGM/PREFEITURA : MOBILIÁRIA</td>
+						<td>16/01/2026 18:10</td>
+						<td>
+							<div>
+								<span data-titulo="Visualizar documento">document_scanner</span><span
+									data-titulo="Salvar">save_alt</span><span
+									data-titulo="Histórico">source</span> <label
+									for="opcoesTrEntrada696aa93f313dca7dddd93e26"> <input
+									id="opcoesTrEntrada696aa93f313dca7dddd93e26"
+									name="opcoesTrEntrada" value="true" type="checkbox">
+								</label>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<th>Selecionar</th>
+						<th>Razão Social</th>
+						<th>CNPJ</th>
+						<th>Certidão</th>
+						<th>Emissão</th>
+						<th>Opções</th>
+					</tr>
+					<tr>
+						<th colspan="2"><p>Exibindo de 1 até 2 de 2 registros<p></th>
+						<th colspan="4"><menu><button class="icone">navigate_before</button>
+							<button data-pagina="1" class="ativo">01</button>
+							<button class="icone">navigate_next</button></menu></th>
+					</tr>
+				</tfoot>
+			</table>
+		</section>
+
+		<section role="tabpanel" id="panel-empresas"
+			aria-labelledby="tab-empresas" hidden>
+			<!-- conteúdo empresas -->
+		</section>
+
+		<section role="tabpanel" id="panel-certidoes"
+			aria-labelledby="tab-certidoes" hidden>
+			<!-- conteúdo certidões -->
+		</section>
+	</main>
+
+
+	<footer>
+		<p>&copy; 2025 - Sistema Dashboard</p>
+	</footer>
+	<dialog>
+	<form method="dialog" class="tabs">
+		<header>
+			<h2>Cadastro de Empresa</h2>
+			<button aria-label="Fechar modal">
+				<span>close</span>
+			</button>
+		</header>
+
+		<nav role="tablist" aria-label="Seções do formulário">
+			<button type="button" role="tab" aria-selected="true">
+				<span>badge</span>
+				<p>Identificação</p>
+			</button>
+			<button type="button" role="tab" aria-selected="false">
+				<span>call</span>
+				<p>Contato</p>
+			</button>
+			<button type="button" role="tab" aria-selected="false">
+				<span>location_on</span>
+				<p>Endereço</p>
+			</button>
+			<button type="button" role="tab" aria-selected="false">
+				<span>business_center</span>
+				<p>Atividades</p>
+			</button>
+			<button type="button" role="tab" aria-selected="false">
+				<span>receipt_long</span>
+				<p>Inscrições</p>
+			</button>
+			<button type="button" role="tab" aria-selected="false">
+				<span>upload_file</span>
+				<p>Anexos</p>
+			</button>
+		</nav>
+
+		<main>
+			<!-- Identificação -->
+			<section role="tabpanel">
+				<fieldset>
+					<legend>Identificação</legend>
+					<div class="box-4">
+						<fieldset class="effect" required>
+							<legend>Escolha uma opção</legend>
+
+							<div class="radio-checkbox-container">
+								<label> <input type="radio" name="opcao" value="a"
+									required> <span></span>Opção A
+								</label> <label> <input type="radio" name="opcao" value="b">
+									<span></span>Opção B
+								</label> <label> <input type="radio" name="opcao" value="c">
+									<span></span>Opção C
+								</label>
+							</div>
+
+							<span id="erro-opcao">Escolha uma das opções</span>
+						</fieldset>
+					</div>
+					<div class="box-4">
+						<fieldset class="effect" required>
+							<legend>Escolha uma ou mais opções</legend>
+
+							<div class="radio-checkbox-container">
+								<label> <input type="checkbox" name="opcoes" value="a"
+									required> <span></span>Opção A
+								</label> <label> <input type="checkbox" name="opcoes" value="b">
+									<span></span>Opção B
+								</label> <label> <input type="checkbox" name="opcoes" value="c">
+									<span></span>Opção C
+								</label>
+							</div>
+
+							<span id="erro-opcoes">Escolha uma ou mais opções</span>
+						</fieldset>
+					</div>
+					<div class="box-4">
+						<fieldset class="effect" required>
+							<legend>Escolha uma opção</legend>
+
+							<div class="select-container" tabindex="0" data-select
+								data-name="opcoes">
+
+
+								<label> <input type="radio" name="opcoes" value="a"
+									required checked> Opção A
+								</label> <label> <input type="radio" name="opcoes" value="b">
+									Opção B
+								</label> <label> <input type="radio" name="opcoes" value="c">
+									Opção C
+								</label>
+							</div>
+
+							<span id="erro-opcoes">Escolha uma opção</span>
+						</fieldset>
+					</div>
+
+					<div class="box-4">
+						<span class="effect"> <input type="text" id="razao"
+							name="razao" placeholder="Razão social" required minlength="3"
+							maxlength="150" pattern="^[\wÀ-ÿ\s]{3,150}$"
+							aria-describedby="erro-razao" /> <label for="razao">Razão
+								Social</label> <span id="erro-razao">Informe a razão social (3 a
+								150 caracteres).</span>
+						</span>
+					</div>
+
+					<div class="box-4">
+						<span class="effect"> <input type="text" id="fantasia"
+							name="fantasia" placeholder="Nome fantasia" maxlength="100"
+							pattern="^[\wÀ-ÿ\s]{1,100}$" aria-describedby="erro-fantasia" />
+							<label for="fantasia">Nome Fantasia</label> <span
+							id="erro-fantasia">Informe um nome fantasia com até 100
+								caracteres.</span>
+						</span>
+					</div>
+
+					<div class="box-2">
+						<span class="effect"> <input type="text" id="cnpj"
+							name="cnpj" placeholder="CNPJ" required
+							pattern="\d{2}\.\d{3}\.\d{3}/\d{4}-\d{2}"
+							aria-describedby="erro-cnpj" /> <label for="cnpj">CNPJ</label> <span
+							id="erro-cnpj">Informe um CNPJ válido (ex:
+								00.000.000/0000-00).</span>
+						</span>
+					</div>
+
+					<div class="box-2">
+						<span class="effect"> <select id="natureza" name="natureza"
+							required aria-describedby="erro-natureza">
+								<option hidden selected disabled>Selecione</option>
+								<option value="EMPRESA_INDIVIDUAL">Empresa Individual</option>
+								<option value="SOCIEDADE_LIMITADA">Sociedade Limitada</option>
+								<option value="SOCIEDADE_ANONIMA">Sociedade Anônima</option>
+								<option value="ASSOCIACAO_PRIVADA">Associação Privada</option>
+								<option value="COOPERATIVA">Cooperativa</option>
+						</select> <label for="natureza">Natureza Jurídica</label> <span
+							id="erro-natureza">Selecione a natureza jurídica.</span>
+						</span>
+					</div>
+
+					<div class="box-2">
+						<span class="effect"> <select id="porte" name="porte"
+							required aria-describedby="erro-porte">
+								<option hidden selected disabled>Selecione</option>
+								<option value="MEI">MEI</option>
+								<option value="ME">Micro Empresa</option>
+								<option value="EPP">Empresa de Pequeno Porte</option>
+								<option value="MEDIA">Média</option>
+								<option value="GRANDE">Grande</option>
+								<option value="PUBLICA">Pública</option>
+								<option value="DEMAIS">Demais</option>
+						</select> <label for="porte">Porte</label> <span id="erro-porte">Selecione
+								o porte da empresa.</span>
+						</span>
+					</div>
+					<div class="upload-area">
+						<span class="label">Cartão CNPJ</span> <label for="arquivo">
+							<input type="file" id="arquivo" name="arquivo" hidden> <span
+							class="icone material-symbols-outlined">upload_file</span>
+							<p>Arraste ou clique para enviar</p> <output id="arquivo-nome">Nenhum
+								arquivo</output>
+						</label>
+					</div>
+				</fieldset>
+			</section>
+
+			<!-- Contato -->
+			<section hidden role="tabpanel">
+				<fieldset>
+					<legend>Telefones</legend>
+					<div class="box-4">
+						<span class="effect"> <input type="tel" id="numero"
+							name="numero" required pattern="\(\d{2}\)\s?\d{4,5}-\d{4}"
+							minlength="14" maxlength="15" placeholder="(11) 91234-5678">
+							<label for="numero">Número</label> <span id="erro-numero">Informe
+								um número válido no formato (11) 91234-5678</span>
+						</span>
+					</div>
+
+					<div class="box-2">
+						<span class="effect"> <select id="tipo" name="tipo"
+							required>
+								<option value="">Selecione</option>
+								<option value="FIXO">Fixo</option>
+								<option value="MOVEL">Móvel</option>
+								<option value="WHATSAPP">WhatsApp</option>
+						</select> <label for="tipo">Tipo</label><span id="erro-tipo">Selecione
+								o tipo</span>
+						</span>
+					</div>
+
+					<div class="box-2">
+						<span class="effect"> <select id="categoria"
+							name="categoria" required>
+								<option value="">Selecione</option>
+								<option value="PRIMARIO">Primário</option>
+								<option value="SECUNDARIO">Secundário</option>
+								<option value="CONTATO" data-reflexo="contato">Contato</option>
+						</select> <label for="categoria">Categoria</label> <span
+							id="erro-categoria">Selecione a categoria</span>
+						</span>
+					</div>
+					<div class="box-4">
+						<span class="effect"> <input type="text" id="contato"
+							name="contato" maxlength="100"
+							placeholder="Nome do contato (opcional)"><label
+							for="contato">Contato</label>
+						</span>
+					</div>
+				</fieldset>
+			</section>
+
+			<!-- Endereço -->
+			<section hidden role="tabpanel">
+				<fieldset>
+					<legend>Endereço Principal</legend>
+					<div class="box-2">
+						<span class="effect"> <input type="text" id="cep"
+							name="cep" placeholder="CEP" required pattern="\d{5}-\d{3}"
+							aria-describedby="erro-cep" /> <label for="cep">CEP</label> <span
+							id="erro-cep">Informe o CEP (ex: 00000-000).</span>
+						</span>
+						<button>
+							<span>search</span>
+						</button>
+					</div>
+					<div class="box-3">
+						<span class="effect"> <input type="text" id="logradouro"
+							name="logradouro" placeholder="Rua / Avenida" required
+							minlength="3" maxlength="100" aria-describedby="erro-logradouro" />
+							<label for="logradouro">Logradouro</label> <span
+							id="erro-logradouro">Informe o logradouro (3 a 100
+								caracteres).</span>
+						</span>
+					</div>
+
+					<div class="box-1">
+						<span class="effect"> <input type="text" id="numero"
+							name="numero" placeholder="Número" required minlength="1"
+							maxlength="10" aria-describedby="erro-numero" /> <label
+							for="numero">Número</label> <span id="erro-numero">Informe
+								o número (até 10 caracteres).</span>
+						</span>
+					</div>
+
+					<div class="box-2">
+						<span class="effect"> <input type="text" id="complemento"
+							name="complemento" placeholder="Complemento" maxlength="50"
+							aria-describedby="erro-complemento" /> <label for="complemento">Complemento</label>
+							<span id="erro-complemento">Complemento (opcional, até 50
+								caracteres).</span>
+						</span>
+					</div>
+
+					<div class="box-2">
+						<span class="effect"> <input type="text" id="bairro"
+							name="bairro" placeholder="Bairro" required minlength="3"
+							maxlength="50" aria-describedby="erro-bairro" /> <label
+							for="bairro">Bairro</label> <span id="erro-bairro">Informe
+								o bairro (3 a 50 caracteres).</span>
+						</span>
+					</div>
+					<div class="box-3">
+						<span class="effect"> <input type="text" id="municipio"
+							name="municipio" placeholder="Cidade" required minlength="3"
+							maxlength="50" aria-describedby="erro-municipio" /> <label
+							for="municipio">Município</label> <span id="erro-municipio">Informe
+								a cidade (3 a 50 caracteres).</span>
+						</span>
+					</div>
+
+					<div class="box-1">
+						<span class="effect"> <input type="text" id="uf" name="uf"
+							placeholder="UF" required pattern="[A-Z]{2}" maxlength="2"
+							aria-describedby="erro-uf" /> <label for="uf">UF</label> <span
+							id="erro-uf">Informe a UF (ex: SP, RJ).</span>
+						</span>
+					</div>
+
+				</fieldset>
+			</section>
+		</main>
+
+		<footer>
+			<button type="reset">
+				<span>delete</span>
+				<p>Limpar</p>
+			</button>
+			<span id="erro-formulario">Preencha todas as informações
+				obrigatórias do formulário para liberar a opção de salvar</span>
+			<button type="submit">
+				<span>check</span>
+				<p>Salvar</p>
+			</button>
+		</footer>
+	</form>
+	</dialog>
+	<script>
+
+</script>
+</body>
+</html>
