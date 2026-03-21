@@ -3,94 +3,192 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dashboard Base</title>
+<title>AtivaWay - Menu Base</title>
 <link rel="stylesheet" href="css/layout.css">
 <link rel="stylesheet" href="../arquivos/css/base.css">
-<link rel="stylesheet" href="css/layout.css">
 <link rel="stylesheet" href="../arquivos/css/effect1.css">
-<script type="module" src="../arquivos/js/ui.js"></script>
 </head>
 <body>
-	<aside data-open="true" aria-label="Barra lateral">
-  <header>
-    <a href="/" class="brand" aria-label="Ir para a página inicial do AtivaWay">
-      <img src="logo.svg" alt="" aria-hidden="true">
-      <span>ATIVAWAY</span>
-    </a>
+	<aside class="sidebar" data-open="true" aria-label="Barra lateral principal">
+		<header>
+			<a href="/" class="brand" aria-label="Ir para a página inicial do AtivaWay">
+				<img src="logo.svg" alt="" aria-hidden="true">
+				<span>ATIVAWAY</span>
+			</a>
 
-    <button
-      type="button"
-      class="toggle"
-      aria-label="Recolher menu"
-      aria-expanded="true"
-      aria-controls="sidebar-nav">
-      <span class="icone" aria-hidden="true">menu_open</span>
-    </button>
-  </header>
+			<button
+				type="button"
+				class="toggle"
+				aria-label="Recolher menu lateral"
+				aria-expanded="true"
+				aria-controls="navegacao-sidebar">
+				<span class="icone" aria-hidden="true">menu_open</span>
+				<span>Recolher</span>
+			</button>
+		</header>
 
-  <nav id="sidebar-nav" aria-label="Navegação principal">
-    <ul>
-      <li>
-        <a href="/inicio" aria-current="page">
-          <span class="icone" aria-hidden="true">home</span>
-          <span>Início</span>
-        </a>
-      </li>
+		<nav id="navegacao-sidebar" aria-label="Navegação principal do sistema">
+			<ul>
+				<li>
+					<button type="button" aria-expanded="true" aria-controls="submenu-usuarios">
+						<span class="icone" aria-hidden="true">group</span>
+						<span>Usuários</span>
+					</button>
+					<ul id="submenu-usuarios">
+						<li><a href="/usuarios/dashboard" aria-current="page">Dashboard</a></li>
+						<li><a href="/usuarios/area-trabalho">Área de trabalho</a></li>
+						<li><a href="/usuarios/pendencias">Pendências</a></li>
+						<li><a href="/usuarios/historico">Histórico</a></li>
+					</ul>
+				</li>
+				<li>
+					<button type="button" aria-expanded="false" aria-controls="submenu-equipes">
+						<span class="icone" aria-hidden="true">diversity_3</span>
+						<span>Equipes</span>
+					</button>
+					<ul id="submenu-equipes" hidden>
+						<li><a href="/equipes/dashboard">Dashboard</a></li>
+						<li><a href="/equipes/area-trabalho">Área de trabalho</a></li>
+						<li><a href="/equipes/pendencias">Pendências</a></li>
+						<li><a href="/equipes/historico">Histórico</a></li>
+					</ul>
+				</li>
+				<li>
+					<button type="button" aria-expanded="false" aria-controls="submenu-empresas">
+						<span class="icone" aria-hidden="true">business</span>
+						<span>Empresas</span>
+					</button>
+					<ul id="submenu-empresas" hidden>
+						<li><a href="/empresas/dashboard">Dashboard</a></li>
+						<li><a href="/empresas/area-trabalho">Área de trabalho</a></li>
+						<li><a href="/empresas/pendencias">Pendências</a></li>
+						<li><a href="/empresas/historico">Histórico</a></li>
+					</ul>
+				</li>
+				<li>
+					<button type="button" aria-expanded="false" aria-controls="submenu-certidoes">
+						<span class="icone" aria-hidden="true">description</span>
+						<span>Certidões</span>
+					</button>
+					<ul id="submenu-certidoes" hidden>
+						<li><a href="/certidoes/dashboard">Dashboard</a></li>
+						<li><a href="/certidoes/area-trabalho">Área de trabalho</a></li>
+						<li><a href="/certidoes/pendencias">Pendências</a></li>
+						<li><a href="/certidoes/historico">Histórico</a></li>
+					</ul>
+				</li>
+				<li>
+					<button type="button" aria-expanded="false" aria-controls="submenu-cadins">
+						<span class="icone" aria-hidden="true">fact_check</span>
+						<span>Cadins</span>
+					</button>
+					<ul id="submenu-cadins" hidden>
+						<li><a href="/cadins/dashboard">Dashboard</a></li>
+						<li><a href="/cadins/area-trabalho">Área de trabalho</a></li>
+						<li><a href="/cadins/pendencias">Pendências</a></li>
+						<li><a href="/cadins/historico">Histórico</a></li>
+					</ul>
+				</li>
+				<li>
+					<button type="button" aria-expanded="false" aria-controls="submenu-inscricoes">
+						<span class="icone" aria-hidden="true">how_to_reg</span>
+						<span>Inscrições</span>
+					</button>
+					<ul id="submenu-inscricoes" hidden>
+						<li><a href="/inscricoes/dashboard">Dashboard</a></li>
+						<li><a href="/inscricoes/area-trabalho">Área de trabalho</a></li>
+						<li><a href="/inscricoes/pendencias">Pendências</a></li>
+						<li><a href="/inscricoes/historico">Histórico</a></li>
+					</ul>
+				</li>
+				<li>
+					<button type="button" aria-expanded="false" aria-controls="submenu-taxas">
+						<span class="icone" aria-hidden="true">receipt_long</span>
+						<span>Taxas</span>
+					</button>
+					<ul id="submenu-taxas" hidden>
+						<li><a href="/taxas/dashboard">Dashboard</a></li>
+						<li><a href="/taxas/area-trabalho">Área de trabalho</a></li>
+						<li><a href="/taxas/pendencias">Pendências</a></li>
+						<li><a href="/taxas/historico">Histórico</a></li>
+					</ul>
+				</li>
+				<li>
+					<button type="button" aria-expanded="false" aria-controls="submenu-demandas">
+						<span class="icone" aria-hidden="true">assignment</span>
+						<span>Demandas</span>
+					</button>
+					<ul id="submenu-demandas" hidden>
+						<li><a href="/demandas/dashboard">Dashboard</a></li>
+						<li><a href="/demandas/area-trabalho">Área de trabalho</a></li>
+						<li><a href="/demandas/pendencias">Pendências</a></li>
+						<li><a href="/demandas/historico">Histórico</a></li>
+					</ul>
+				</li>
+				<li>
+					<button type="button" aria-expanded="false" aria-controls="submenu-pagamentos">
+						<span class="icone" aria-hidden="true">payments</span>
+						<span>Pagamentos</span>
+					</button>
+					<ul id="submenu-pagamentos" hidden>
+						<li><a href="/pagamentos/dashboard">Dashboard</a></li>
+						<li><a href="/pagamentos/area-trabalho">Área de trabalho</a></li>
+						<li><a href="/pagamentos/pendencias">Pendências</a></li>
+						<li><a href="/pagamentos/historico">Histórico</a></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
 
-      <li>
-        <button
-          type="button"
-          aria-expanded="false"
-          aria-controls="submenu-usuarios">
-          <span class="icone" aria-hidden="true">group</span>
-          <span>Usuários</span>
-        </button>
+		<footer>
+			<section aria-label="Operador autenticado">
+				<h2>Operador</h2>
+				<p><strong>Higor Meireles</strong></p>
+				<p>Administrador</p>
+			</section>
 
-        <ul id="submenu-usuarios" hidden>
-          <li><a href="/usuarios/dashboard">Dashboard</a></li>
-          <li><a href="/usuarios/area-trabalho">Área de trabalho</a></li>
-          <li><a href="/usuarios/lista">Lista</a></li>
-        </ul>
-      </li>
+			<nav aria-label="Ações da conta e suporte">
+				<ul>
+					<li>
+						<a href="/perfil">
+							<span class="icone" aria-hidden="true">account_circle</span>
+							<span>Perfil</span>
+						</a>
+					</li>
+					<li>
+						<a href="/configuracoes">
+							<span class="icone" aria-hidden="true">settings</span>
+							<span>Configurações</span>
+						</a>
+					</li>
+					<li>
+						<a href="/chamados">
+							<span class="icone" aria-hidden="true">support_agent</span>
+							<span>Chamados</span>
+						</a>
+					</li>
+					<li>
+						<a href="/mensagens">
+							<span class="icone" aria-hidden="true">mail</span>
+							<span>Mensagens</span>
+						</a>
+					</li>
+				</ul>
+			</nav>
 
-      <li>
-        <button
-          type="button"
-          aria-expanded="false"
-          aria-controls="submenu-certidoes">
-          <span class="icone" aria-hidden="true">description</span>
-          <span>Certidões</span>
-        </button>
+			<form action="/logout" method="post">
+				<button type="submit">
+					<span class="icone" aria-hidden="true">logout</span>
+					<span>Sair</span>
+				</button>
+			</form>
+		</footer>
+	</aside>
 
-        <ul id="submenu-certidoes" hidden>
-          <li><a href="/certidoes/dashboard">Dashboard</a></li>
-          <li><a href="/certidoes/pendencias">Pendências</a></li>
-          <li><a href="/certidoes/controles">Controles</a></li>
-        </ul>
-      </li>
-    </ul>
-  </nav>
-
-  <footer>
-    <section aria-label="Operador autenticado">
-      <strong>Higor Meireles</strong>
-      <p>Administrador</p>
-    </section>
-
-    <form action="/logout" method="post">
-      <button type="submit">
-        <span class="icone" aria-hidden="true">logout</span>
-        <span>Sair</span>
-      </button>
-    </form>
-  </footer>
-</aside>
-
-	<main></main>
+	<main aria-label="Conteúdo principal"></main>
 
 	<footer>
 		<p>&copy; 2025 - Sistema Dashboard</p>
 	</footer>
-
 </body>
 </html>
