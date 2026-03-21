@@ -387,3 +387,113 @@ section {
 	border-radius: 1rem; /* Mantido para seÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â§ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Âµes */
 	background-color: var(--background-color-card);
 }
+/* --- Sidebar Effect 1 (Visual) --- */
+.sidebar {
+	background: var(--background-color-base);
+	border-right: 0.125rem solid var(--border-color);
+}
+
+.sidebar .brand,
+.sidebar .toggle,
+.sidebar > nav > ul > li > button,
+.sidebar > nav > ul > li > ul a,
+.sidebar > footer nav a,
+.sidebar > footer form button {
+	border-radius: 0.875rem;
+	transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.sidebar .brand {
+	background-color: var(--background-color-container);
+	font-weight: 700;
+	letter-spacing: 0.08em;
+}
+
+.sidebar .brand img {
+	border-radius: 999px;
+	background-color: var(--background-color-card);
+}
+
+.sidebar .toggle,
+.sidebar > nav > ul > li > button,
+.sidebar > footer nav a,
+.sidebar > footer form button {
+	background-color: transparent;
+	border: 0.125rem solid transparent;
+	color: var(--text-color-body);
+}
+
+.sidebar .toggle:hover,
+.sidebar > nav > ul > li > button:hover,
+.sidebar > footer nav a:hover,
+.sidebar > footer form button:hover,
+.sidebar > nav > ul > li > ul a:hover {
+	background-color: var(--background-color-container);
+}
+
+.sidebar > nav > ul > li > button[aria-expanded="true"] {
+	background-color: var(--background-color-container);
+	color: var(--text-color-title);
+}
+
+.sidebar > nav > ul > li > button[aria-expanded="true"] > .icone {
+	background-color: var(--background-color-card);
+}
+
+.sidebar > nav > ul > li > ul a {
+	color: var(--text-color-inactive);
+	border-left: 0.125rem solid transparent;
+}
+
+.sidebar > nav > ul > li > ul a[aria-current="page"] {
+	background-color: var(--background-color-container);
+	border-left-color: var(--color-primary);
+	color: var(--text-color-title);
+}
+
+.sidebar > footer > section,
+.sidebar > footer > nav {
+	background-color: var(--background-color-container);
+	border-radius: 1rem;
+}
+
+.sidebar > footer > section h2 {
+	font-size: 0.875rem;
+	color: var(--text-color-inactive);
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+}
+
+.sidebar > footer > section strong {
+	color: var(--text-color-title);
+}
+
+.sidebar > footer nav > ul,
+.sidebar > footer form {
+	border-top: 0.125rem solid var(--border-color);
+	padding-top: 0.75rem;
+	margin-top: 0.75rem;
+}
+
+.sidebar > footer form button {
+	color: var(--cor-vermelho-pastel);
+}
+
+.sidebar .brand:focus-visible,
+.sidebar .toggle:focus-visible,
+.sidebar > nav > ul > li > button:focus-visible,
+.sidebar > nav > ul > li > ul a:focus-visible,
+.sidebar > footer nav a:focus-visible,
+.sidebar > footer form button:focus-visible {
+	outline: 0.125rem solid var(--color-primary);
+	outline-offset: 0.125rem;
+}
+
+.sidebar[data-open="false"] .brand,
+.sidebar[data-open="false"] .toggle,
+.sidebar[data-open="false"] > nav > ul > li > button,
+.sidebar[data-open="false"] > footer nav a,
+.sidebar[data-open="false"] > footer form button,
+.sidebar[data-open="false"] > footer > section {
+	border-radius: 1rem;
+}

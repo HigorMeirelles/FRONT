@@ -362,3 +362,61 @@ dialog::backdrop {
 }
 
 
+
+/* --- Sidebar Base (Estrutura) --- */
+.sidebar {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	overflow: hidden;
+}
+
+.sidebar > header,
+.sidebar > footer {
+	display: flex;
+	flex-direction: column;
+}
+
+.sidebar > nav {
+	flex: 1 1 auto;
+	overflow-y: auto;
+}
+
+.sidebar .brand,
+.sidebar .toggle,
+.sidebar > nav > ul > li > button,
+.sidebar > nav > ul > li > ul a,
+.sidebar > footer nav a,
+.sidebar > footer form button {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	width: 100%;
+	min-width: 0;
+}
+
+.sidebar > nav > ul,
+.sidebar > nav > ul > li,
+.sidebar > nav > ul > li > ul,
+.sidebar > footer nav > ul,
+.sidebar > footer > section {
+	display: flex;
+	flex-direction: column;
+}
+
+.sidebar > nav > ul > li > ul[hidden] {
+	display: none;
+}
+
+.sidebar[data-open="false"] .brand > span:last-child,
+.sidebar[data-open="false"] .toggle > span:last-child,
+.sidebar[data-open="false"] > nav > ul > li > button > span:last-child,
+.sidebar[data-open="false"] > footer nav a > span:last-child,
+.sidebar[data-open="false"] > footer form button > span:last-child,
+.sidebar[data-open="false"] > footer > section > :not(:first-child) {
+	display: none;
+}
+
+.sidebar[data-open="false"] > nav > ul > li > ul {
+	display: none !important;
+}

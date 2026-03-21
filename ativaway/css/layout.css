@@ -102,3 +102,106 @@ body > footer {
 }
 
 
+
+/* --- Sidebar Layout --- */
+body {
+	grid-template-columns: var(--sidebar-width-closed, 5.5rem) 1fr;
+}
+
+body:has(.sidebar[data-open="true"]) {
+	grid-template-columns: var(--sidebar-width-open, 21rem) 1fr;
+}
+
+.sidebar {
+	width: var(--sidebar-width-closed, 5.5rem);
+}
+
+.sidebar[data-open="true"] {
+	width: var(--sidebar-width-open, 21rem);
+}
+
+.sidebar > header,
+.sidebar > footer {
+	padding: 1rem;
+	gap: 0.75rem;
+}
+
+.sidebar .brand,
+.sidebar .toggle,
+.sidebar > nav > ul > li > button,
+.sidebar > nav > ul > li > ul a,
+.sidebar > footer nav a,
+.sidebar > footer form button {
+	gap: 0.75rem;
+	padding: 0.875rem 1rem;
+}
+
+.sidebar .brand {
+	min-height: 4.5rem;
+}
+
+.sidebar .brand img {
+	width: 2rem;
+	height: 2rem;
+	flex: 0 0 2rem;
+}
+
+.sidebar .toggle {
+	min-height: 3.25rem;
+}
+
+.sidebar > nav > ul {
+	padding: 0.5rem 1rem 1rem;
+	gap: 0.25rem;
+}
+
+.sidebar > nav > ul > li {
+	gap: 0.25rem;
+}
+
+.sidebar > nav > ul > li > ul {
+	padding-left: 3.75rem;
+	gap: 0.125rem;
+}
+
+.sidebar > nav > ul > li > ul a {
+	min-height: 2.75rem;
+	padding-block: 0.625rem;
+}
+
+.sidebar > footer > section {
+	gap: 0.25rem;
+	padding: 1rem;
+}
+
+.sidebar > footer nav > ul {
+	gap: 0.25rem;
+}
+
+.sidebar > footer form {
+	padding: 0;
+}
+
+.sidebar[data-open="false"] > header,
+.sidebar[data-open="false"] > footer {
+	padding-inline: 0.75rem;
+	align-items: center;
+}
+
+.sidebar[data-open="false"] .brand,
+.sidebar[data-open="false"] .toggle,
+.sidebar[data-open="false"] > nav > ul > li > button,
+.sidebar[data-open="false"] > footer nav a,
+.sidebar[data-open="false"] > footer form button {
+	justify-content: center;
+	padding-inline: 0.5rem;
+}
+
+.sidebar[data-open="false"] > nav > ul {
+	padding-inline: 0.75rem;
+}
+
+.sidebar[data-open="false"] > footer > section {
+	align-items: center;
+	padding: 0.5rem;
+}
