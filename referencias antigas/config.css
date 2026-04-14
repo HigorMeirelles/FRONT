@@ -1,0 +1,223 @@
+@charset "UTF-8";
+:root {
+    --corPrimaria: #F9A826;
+    --buttonPadding: .25rem;
+    --buttonRadius: var(--radius);
+    --buttonFonte: 1rem var(--icone);
+    --tableRadius: var(--radius);
+    --trRadius: var(--radius);
+    --modalMaxWidth: 85vw;
+    --textoTamanhoNormal: 1rem;
+    --textoTamanhoMedio: 1.25rem;
+    --textoTamanhoGrande: 1.75rem;
+    --textoTamanhoEnorme: 2.25rem;
+    --padding: .5rem;
+    --radius: .25rem;
+    --inputRadius: var(--radius);
+    --shadow: 0 .06rem .25rem rgba(0, 0, 0, .5);
+    --icone: 'Material Icons';
+    --filter: var(--corPrimaria);
+    --corAtiva: #f96635;
+    --corMOTIVA: #9E270E;
+    --corClaro: #da291c;
+}
+
+/* light teme */
+html:has(#tema:not(:checked)):root {
+    --buttonAtivoSpan: var(
+            --corPrimaria);
+    --buttonTextoAtivo: #2c2c2c;
+    --buttonCor: #D4D2CF;
+    --inputCor: #E5E5E5;
+    --inputTexto: #555555;
+    --inputBorda: var(
+            --bordaCorI);
+    --inputAtivo: var(
+            --corPrimaria);
+    --tagCor: var(
+            --corPrimaria);
+    --tagTexto: #2c2c2c;
+    --inputInativo: var(
+            --inativo);
+    --labelCor: var(
+            --inputCor);
+    --labelTexto: #555555;
+    --labelBorda: var(
+            --bordaCorI);
+    --textareaCor: #CCCBC8;
+    --strokeCor: var(
+            --inputBorda);
+    --tableCor: #F9F9F9;
+    --tableTexto: var(
+            --textoII);
+    --trTitulo: var(
+            --backgroundIII);
+    --trPar: #BFBEBC;
+    --trImpar: #BAB9B7;
+    --trAtivo: #f9f9f9;
+    --tdCor: inherit;
+    --modalCor: var(
+            --backgroundI);
+    --tituloI: #262626;
+    --tituloII: #1A1A1A;
+    --tituloIII: #303030;
+    --tituloIV: #2C2C2C;
+    --textoI: #444444;
+    --textoII: #333333;
+    --textoIII: #555555;
+    --textoIV: #1c1c1c;
+    --textoAtivo: var(
+            --corPrimaria);
+    --textoInativo: var(
+            --inativo);
+    --mainCor: var(
+            --backgroundI);
+    --headerCor: var(
+            --backgroundI);
+    --navCor: var(
+            --backgroundII);
+    --asideCor: var(
+            --backgroundI);
+    --footerCor: var(
+            --backgroundII);
+    --backgroundI: #E5E4E1;
+    --backgroundII: #D9D8D5;
+    --backgroundIII: #CCCBC8;
+    --backgroundIHover: rgb(154 154 154 / 50%);
+    --inativo: #605E5C;
+    --inativoII: #605E5C;
+    --alerta: #d18300;
+    --vermelho: #DC2626;
+    --vermelhoII: #EF4444;
+    --roxo: #9F7AEA;
+    --amarelo: #e7b130;
+    --vermelhoArquivo: #EF4444;
+    --verde: #0b8452;
+    --verdeII: #2ac210;
+    --verdeIII: #00e76f;
+    --azul: #4a77b4;
+    --azulII: #3B82F6;
+    --azulIII: #6a45f5;
+    --azulIV: #2a98f6;
+    --azulClaro: #00b97f;
+    --laranja: #ff6510;
+    --rosa: #F78EF9;
+    --erro: #DC2626;
+    --efeitoCor: var(
+            --corPrimaria);
+    --bordaCorI: #737271;
+    --bordaCorII: #666564;
+    --listBoxLiAtivo: rgb(0 0 0 / 60%);
+    --buttonTexto: var(
+            --textoI);
+    --buttonBorda: solid .125rem var(--bordaCorI);
+}
+
+/* dark theme */
+html:not(:has(#tema)):root, html:has(#tema:checked):root {
+    --buttonAtivoSpan: var(--corPrimaria);
+    --buttonTextoAtivo: #ffff;
+    --tituloI: #dcdcdc;
+    --tituloII: #f3f2f1;
+    --tituloIII: #cccccc;
+    --tituloIV: #2c2c2c;
+    --textoI: #d4d4d4;
+    --textoII: #f3f2f1;
+    --textoIII: #b0b0b0;
+    --textoIV: #2C2C2C;
+    --backgroundI: #3B3A39;
+    --backgroundII: #333332;
+    --backgroundIII: #2c2c2c;
+    --backgroundIHover: rgb(0 0 0 / 0.5);
+    --bordaCorI: #707070;
+    --bordaCorII: #555554;
+    --inputCor: #333332;
+    --inputTexto: #C4C4C4;
+    --inputBorda: var(--bordaCorI);
+    --inputAtivo: var(--corPrimaria);
+    --inputInativo: var(--inativo);
+    --tagCor: var(--corPrimaria);
+    --tagTexto: #2c2c2c;
+    --labelCor: var(--inputCor);
+    --labelTexto: #b9c2c8;
+    --labelBorda: var(--bordaCorI);
+    --textareaCor: #2c2c2c;
+    --strokeCor: var(--inputBorda);
+    --buttonCor: #2c2c2c;
+    --buttonTexto: var(--textoI);
+    --buttonBorda: solid .125rem var(--bordaCorI);
+    --buttonInativo: var(--inativo);
+    --tableCor: var(--backgroudI);
+    --tableTexto: var(--textoI);
+    --trTitulo: var(--backgroundIII);
+    --trPar: #323131;
+    --trImpar: #353433;
+    --trAtivo: #2f2e2e;
+    --tdCor: inherit;
+    --modalCor: #333332;
+    --textoAtivo: var(--corPrimaria);
+    --textoInativo: var(--inativo);
+    --mainCor: #3b3a39;
+    --headerCor: #3b3a39;
+    --navCor: #2c2c2c;
+    --section: inherit;
+    --asideCor: #333332;
+    --footerCor: #2c2c2c;
+    --inativo: #605E5C;
+    --inativoII: #605E5C;
+    --alerta: #F59E0B;
+    --vermelho: #DC2626;
+    --vermelhoII: #EF4444;
+    --roxo: #7C3AED;
+    --amarelo: #FCD34D;
+    --amareloII: #866807;
+    --vermelhoArquivo: #EF4444;
+    --verde: #10B981;
+    --verdeII: #9DE890;
+    --verdeIII: #00e76f;
+    --azul: #60A5FA;
+    --azulII: #2687da;
+    --azulIII: #c4b5fd;
+    --azulIV: #93C8F5;
+    --azulClaro: #AAFEE4;
+    --laranja: #f96635;
+    --rosa: #EFB3FF;
+    --erro: #DC2626;
+    --efeitoCor: var(--corPrimaria);
+    --listBoxLiAtivo: rgb(0 0 0 / 0.5);
+    --buttonTexto: #d9d9d9;
+}
+
+::selection {
+    background-color: var(--corPrimaria);
+    color: #2c2c2c;
+}
+
+::-webkit-scrollbar {
+    width: .25rem;
+    height: .25rem;
+}
+
+::-webkit-scrollbar-track, ::-webkit-scrollbar-corner {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #707070;
+    border-radius: .625rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--corPrimaria);
+}
+
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(../fontes/icone/MaterialSymbolsOutlined-Regular.ttf) format("opentype");
+}
+
+button > span:first-of-type, dialog:modal > svg + button, .guias nav > ul > li span, tbody > tr > td:last-child > span, .input-button button {
+    font-family: var(--icone);
+}

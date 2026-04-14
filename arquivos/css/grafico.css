@@ -1,0 +1,361 @@
+/*
+ * grafico.css
+ * Estrutura e visual do componente de grafico.
+ * O card recebe poucas classes externas, por exemplo:
+ * - `.grafico barra vertical`
+ * - `.grafico linha horizontal`
+ * - `.grafico circulo horizontal`
+ * - `.grafico setor vertical`
+ *
+ * Variaveis consumidas pelo componente:
+ * - `--chart-surface`, `--chart-surface-overlay`, `--chart-border`, `--chart-shadow`: card principal do grafico.
+ * - `--chart-grid`, `--chart-axis`: grade e eixos do SVG.
+ * - `--chart-text`, `--chart-text-muted`: titulos, rotulos e valores.
+ * - `--chart-control-*`: filtros, select de subfiltro e estados ativos.
+ * - `--chart-track`: trilha de progresso, anel base e marcadores neutros.
+ * - `--chart-scroll-thumb`: scrollbar interna do viewport do grafico.
+ * - `--chart-series-1..6` e `--chart-series-1-soft..6-soft`: series, setores, anel e legenda.
+ *
+ * As atribuicoes destas cores vivem em `layout.css`.
+ */
+
+.grafico {
+	display: grid;
+	min-width: 0;
+	min-height: 20rem;
+	padding: 1.25rem;
+	grid-template-rows: auto auto 1fr;
+	gap: 0.5rem;
+	border: 0.125rem solid var(--chart-border);
+	border-radius: 1rem;
+	background:
+		linear-gradient(180deg, var(--chart-surface-overlay), transparent 35%),
+		var(--chart-surface);
+	box-shadow: var(--chart-shadow);
+}
+
+.grafico > script {
+	display: none !important;
+}
+
+.grafico__topo {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 1rem;
+}
+
+.grafico__topo h2 {
+	font-size: 1.1rem;
+	color: var(--chart-text);
+}
+
+.grafico__subfiltro {
+	min-width: 10rem;
+	min-height: 2.5rem;
+	padding: 0 0.9rem;
+	border: 0.125rem solid var(--chart-control-border);
+	border-radius: 0.8rem;
+	background:
+		linear-gradient(180deg, var(--chart-control-overlay), transparent),
+		var(--chart-control-bg);
+	color: var(--chart-control-text);
+}
+
+.grafico__subfiltro:hover,
+.grafico__subfiltro:focus-visible {
+	border-color: var(--chart-control-active-border);
+}
+
+.grafico__filtros {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	padding: 0;
+}
+
+.grafico__filtros[hidden] {
+	display: none;
+}
+
+.grafico__filtros > input {
+	position: absolute;
+	opacity: 0;
+	pointer-events: none;
+}
+
+.grafico__filtros > label {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	min-height: 1rem;
+	cursor: pointer;
+	transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.grafico__filtros > label::before {
+	content: "";
+	display: block;
+	width: 1.5rem;
+	height: 0.75rem;
+	border-radius: .25rem;
+	background-color: var(--chart-track);
+	box-shadow: inset 0 0 0 0.12rem var(--grafico-cor);
+}
+
+.grafico__filtros > input:checked + label::before {
+	background-color: var(--grafico-cor);
+	box-shadow: 0 0 0 0.2rem var(--grafico-cor-suave, transparent);
+}
+
+.grafico__corpo {
+	display: grid;
+	gap: 1rem;
+	align-items: start;
+	min-height: 0;
+}
+
+.grafico.horizontal:is(.circulo, .setor) .grafico__corpo {
+	grid-template-columns: 40% 1fr;
+	align-items: center;
+}
+
+.grafico__rolagem {
+	position: relative;
+	min-width: 0;
+	min-height: 0;
+	overflow: auto;
+	border-radius: 0.9rem;
+}
+
+.grafico__rolagem::-webkit-scrollbar {
+	width: 0.55rem;
+	height: 0.55rem;
+}
+
+.grafico__rolagem::-webkit-scrollbar-track {
+	background-color: transparent;
+}
+
+.grafico__rolagem::-webkit-scrollbar-thumb {
+	border-radius: 999px;
+	background-color: var(--chart-scroll-thumb);
+}
+
+.grafico__svg {
+	display: block;
+	width: 100%;
+	height: auto;
+	min-height: 18rem;
+	overflow: visible;
+}
+
+.grafico:is(.circulo, .setor) .grafico__svg {
+	min-height: 16rem;
+	max-width: 20rem;
+	margin-inline: auto;
+}
+
+.grafico__grade-linha {
+	stroke: var(--chart-grid);
+	stroke-width: 1;
+}
+
+.grafico__eixo {
+	stroke: var(--chart-axis);
+	stroke-width: 1.25;
+}
+
+.grafico__grade-texto,
+.grafico__rotulo {
+	fill: var(--chart-text-muted);
+	font-size: 0.8rem;
+	font-family: "Segoe UI", sans-serif;
+}
+
+.grafico__valor,
+.grafico__total,
+.grafico__total-subtitulo {
+	font-family: "Segoe UI", sans-serif;
+}
+
+.grafico__valor {
+	fill: var(--chart-text);
+	font-size: 0.78rem;
+	font-weight: 700;
+}
+
+.grafico__barra {
+	transition: transform 0.2s ease, filter 0.2s ease, opacity 0.2s ease;
+	transform-box: fill-box;
+	transform-origin: center bottom;
+}
+
+.grafico__barra:hover {
+	filter: brightness(1.06);
+	transform: translateY(-1px);
+}
+
+.grafico__serie {
+	fill: none;
+	stroke-width: 3;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+
+.grafico__ponto {
+	stroke: var(--chart-surface);
+	stroke-width: 2;
+}
+
+.grafico__anel-base {
+	fill: none;
+	stroke: var(--chart-track);
+	stroke-width: 12;
+}
+
+.grafico__anel-segmento {
+	fill: none;
+	stroke-width: 12;
+	stroke-linecap: round;
+	transition: stroke-dasharray 0.25s ease;
+}
+
+.grafico__setor {
+	transition: transform 0.2s ease, filter 0.2s ease;
+	transform-origin: center;
+}
+
+.grafico__setor:hover {
+	filter: brightness(1.05);
+	transform: scale(1.02);
+}
+
+.grafico__total {
+	fill: var(--chart-text);
+	font-size: 0.95rem;
+	font-weight: 700;
+}
+
+.grafico__total-subtitulo {
+	fill: var(--chart-text-muted);
+	font-size: 0.55rem;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+}
+
+.grafico__legenda {
+	display: grid;
+	gap: 0.75rem;
+	padding: 0;
+}
+
+.grafico__legenda[hidden] {
+	display: none;
+}
+
+.grafico__legenda li {
+	display: grid;
+	grid-template-columns: auto 1fr auto;
+	align-items: center;
+	gap: 0 0.5rem;
+	padding: 0.85rem 0.9rem;
+	border: 0.125rem solid var(--chart-border);
+	border-radius: 0.9rem;
+	background-color: var(--grafico-cor-suave, var(--chart-control-bg));
+}
+
+.grafico__marcador {
+	width: 0.75rem;
+	height: 0.75rem;
+	border-radius: 999px;
+	background-color: var(--grafico-cor);
+	box-shadow: 0 0 0 0.25rem var(--grafico-cor-suave, transparent);
+}
+
+.grafico__legenda-texto {
+	display: grid;
+	gap: 0.15rem;
+	min-width: 0;
+}
+
+.grafico__legenda strong {
+	color: var(--chart-text);
+	font-size: 0.95rem;
+}
+
+.grafico__legenda small {
+	color: var(--chart-text-muted);
+	font-size: 0.8rem;
+}
+
+.grafico__legenda progress {
+	width: 100%;
+	height: 0.55rem;
+	appearance: none;
+	overflow: hidden;
+	border-radius: 999px;
+	background-color: var(--chart-track);
+	grid-row: 2;
+	grid-column: 1/3;
+}
+
+.grafico__legenda progress::-webkit-progress-bar {
+	background-color: var(--chart-track);
+}
+
+.grafico__legenda progress::-webkit-progress-value {
+	background-color: var(--grafico-cor);
+	border-radius: 999px;
+}
+
+.grafico__legenda progress::-moz-progress-bar {
+	background-color: var(--grafico-cor);
+	border-radius: 999px;
+}
+
+.grafico__legenda output {
+	color: var(--chart-text);
+	font-weight: 700;
+	grid-row: 2;
+	grid-column: 3;
+}
+
+.grafico__vazio {
+	position: absolute;
+	inset: 0;
+	display: grid;
+	place-items: center;
+	padding: 1rem;
+	color: var(--chart-text-muted);
+	text-align: center;
+}
+
+@media (max-width: 900px) {
+	.grafico.horizontal:is(.circulo, .setor) .grafico__corpo {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 640px) {
+	.grafico {
+		padding: 1rem;
+	}
+
+	.grafico__topo {
+		flex-direction: column;
+	}
+
+	.grafico__subfiltro {
+		width: 100%;
+	}
+
+	.grafico__legenda li {
+		grid-template-columns: auto 1fr;
+	}
+
+	.grafico__legenda progress,
+	.grafico__legenda output {
+		grid-column: 2;
+	}
+}

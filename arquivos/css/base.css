@@ -102,6 +102,7 @@ main {
 	direction: ltr;
 	-webkit-font-feature-settings: 'liga';
 	-webkit-font-smoothing: antialiased;
+	aspect-ratio: 1 / 1;
 }
 
 /* --- Tipografia --- */
@@ -138,9 +139,11 @@ form {
 	gap: 1rem;
 	padding: 1rem;
 	position: relative;
+	flex-wrap: wrap;
 }
 
 fieldset {
+	width: 100%;
 	border: none;
 	display: flex;
 	flex-wrap: wrap;
@@ -225,9 +228,13 @@ fieldset.grid > [class^="box-"], fieldset:has(.upload-area) > [class^="box-"] {
 	height: 5rem;
 	padding: 0rem .5rem;
 }
+[class^="box-"] > button{
+    margin-top: .75rem;
+}
 
 [class^="box-"]:has([data-reflexo]:not(:checked))+[class^="box-"]{
-	display: none;
+    margin-top: 1.25rem;
+    scale: 1.5;
 }
 
 .box-0-5 { grid-column: span 1; width: 6.25%; min-width: 3.75rem; /* 60px */ }
@@ -246,6 +253,27 @@ fieldset.grid > [class^="box-"], fieldset:has(.upload-area) > [class^="box-"] {
 .box-7 { grid-column: span 14; width: 87.5%; }
 .box-7-5 { grid-column: span 15; width: 93.75%; }
 .box-8 { grid-column: span 16; width: 100%; }
+
+
+.input-button > button {
+  aspect-ratio: 1 / 1;
+  width: 2.75rem;
+  flex: 0 0 auto; 
+}
+.input-button > .effect { 
+  flex: 1 1 0; 
+}
+
+/* --- Paginação Base --- */
+form.paginacao{
+ justify-content: space-between;
+ align-items: center;
+}
+
+form.paginacao nav {
+	display: flex;
+	gap: 0.25rem;
+}
 
 /* --- Modal Base --- */
 dialog {
@@ -419,4 +447,64 @@ dialog::backdrop {
 
 .sidebar[data-open="false"] > nav > ul > li > ul {
 	display: none !important;
+}
+
+/* --- Dashboard Base --- */
+main[data-dashboard] {
+	padding: 1rem;
+	gap: 1rem;
+	align-content: start;
+}
+
+main[data-dashboard] > * {
+	min-width: 0;
+}
+
+main[data-dashboard] .painel {
+	display: grid;
+	gap: 1rem;
+	padding: 1.25rem;
+}
+
+main[data-dashboard] .painel > header {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 1rem;
+}
+
+main[data-dashboard] .metricas {
+	display: grid;
+	gap: 1rem;
+	grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+}
+
+main[data-dashboard] .dupla {
+	display: grid;
+	gap: 1rem;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+main[data-dashboard] .painel > table {
+	width: 100%;
+	min-width: 34rem;
+	border-collapse: collapse;
+}
+
+main[data-dashboard] .painel > table th,
+main[data-dashboard] .painel > table td {
+	padding: 0.85rem 0.75rem;
+	text-align: left;
+}
+
+main[data-dashboard] .status {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.35rem 0.75rem;
+	border-radius: 999px;
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
 }

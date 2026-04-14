@@ -3,15 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AtivaWay - Menu Base</title>
+<title>AtivaWay - Dashboard de Certidoes</title>
 <link rel="stylesheet" href="css/layout.css">
 <link rel="stylesheet" href="../arquivos/css/base.css">
+<link rel="stylesheet" href="../arquivos/css/table.css">
 <link rel="stylesheet" href="../arquivos/css/effect1.css">
+<link rel="stylesheet" href="css/certidoes.css">
 </head>
 <body>
 	<aside class="sidebar" data-open="true" aria-label="Barra lateral principal">
 		<header>
-			<a href="/" class="brand" aria-label="Ir para a página inicial do AtivaWay">
+			<a href="/" class="brand" aria-label="Ir para a pagina inicial do AtivaWay">
 				<img src="logo.svg" alt="" aria-hidden="true">
 				<span>ATIVAWAY</span>
 			</a>
@@ -27,18 +29,18 @@
 			</button>
 		</header>
 
-		<nav id="navegacao-sidebar" aria-label="Navegação principal do sistema">
+		<nav id="navegacao-sidebar" aria-label="Navegacao principal do sistema">
 			<ul>
 				<li>
-					<button type="button" aria-expanded="true" aria-controls="submenu-usuarios">
+					<button type="button" aria-expanded="false" aria-controls="submenu-usuarios">
 						<span class="icone" aria-hidden="true">group</span>
-						<span>Usuários</span>
+						<span>Usuarios</span>
 					</button>
-					<ul id="submenu-usuarios">
-						<li><a href="/usuarios/dashboard" aria-current="page">Dashboard</a></li>
-						<li><a href="/usuarios/area-trabalho">Área de trabalho</a></li>
-						<li><a href="/usuarios/pendencias">Pendências</a></li>
-						<li><a href="/usuarios/historico">Histórico</a></li>
+					<ul id="submenu-usuarios" hidden>
+						<li><a href="/usuarios/dashboard">Dashboard</a></li>
+						<li><a href="/usuarios/area-trabalho">Area de trabalho</a></li>
+						<li><a href="/usuarios/pendencias">Pendencias</a></li>
+						<li><a href="/usuarios/historico">Historico</a></li>
 					</ul>
 				</li>
 				<li>
@@ -48,9 +50,9 @@
 					</button>
 					<ul id="submenu-equipes" hidden>
 						<li><a href="/equipes/dashboard">Dashboard</a></li>
-						<li><a href="/equipes/area-trabalho">Área de trabalho</a></li>
-						<li><a href="/equipes/pendencias">Pendências</a></li>
-						<li><a href="/equipes/historico">Histórico</a></li>
+						<li><a href="/equipes/area-trabalho">Area de trabalho</a></li>
+						<li><a href="/equipes/pendencias">Pendencias</a></li>
+						<li><a href="/equipes/historico">Historico</a></li>
 					</ul>
 				</li>
 				<li>
@@ -60,21 +62,21 @@
 					</button>
 					<ul id="submenu-empresas" hidden>
 						<li><a href="/empresas/dashboard">Dashboard</a></li>
-						<li><a href="/empresas/area-trabalho">Área de trabalho</a></li>
-						<li><a href="/empresas/pendencias">Pendências</a></li>
-						<li><a href="/empresas/historico">Histórico</a></li>
+						<li><a href="/empresas/area-trabalho">Area de trabalho</a></li>
+						<li><a href="/empresas/pendencias">Pendencias</a></li>
+						<li><a href="/empresas/historico">Historico</a></li>
 					</ul>
 				</li>
 				<li>
-					<button type="button" aria-expanded="false" aria-controls="submenu-certidoes">
+					<button type="button" aria-expanded="true" aria-controls="submenu-certidoes">
 						<span class="icone" aria-hidden="true">description</span>
-						<span>Certidões</span>
+						<span>Certidoes</span>
 					</button>
-					<ul id="submenu-certidoes" hidden>
-						<li><a href="/certidoes/dashboard">Dashboard</a></li>
-						<li><a href="/certidoes/area-trabalho">Área de trabalho</a></li>
-						<li><a href="/certidoes/pendencias">Pendências</a></li>
-						<li><a href="/certidoes/historico">Histórico</a></li>
+					<ul id="submenu-certidoes">
+						<li><a href="/certidoes/dashboard" aria-current="page">Dashboard</a></li>
+						<li><a href="/certidoes/area-trabalho">Area de trabalho</a></li>
+						<li><a href="/certidoes/pendencias">Pendencias</a></li>
+						<li><a href="/certidoes/historico">Historico</a></li>
 					</ul>
 				</li>
 				<li>
@@ -84,21 +86,21 @@
 					</button>
 					<ul id="submenu-cadins" hidden>
 						<li><a href="/cadins/dashboard">Dashboard</a></li>
-						<li><a href="/cadins/area-trabalho">Área de trabalho</a></li>
-						<li><a href="/cadins/pendencias">Pendências</a></li>
-						<li><a href="/cadins/historico">Histórico</a></li>
+						<li><a href="/cadins/area-trabalho">Area de trabalho</a></li>
+						<li><a href="/cadins/pendencias">Pendencias</a></li>
+						<li><a href="/cadins/historico">Historico</a></li>
 					</ul>
 				</li>
 				<li>
 					<button type="button" aria-expanded="false" aria-controls="submenu-inscricoes">
 						<span class="icone" aria-hidden="true">how_to_reg</span>
-						<span>Inscrições</span>
+						<span>Inscricoes</span>
 					</button>
 					<ul id="submenu-inscricoes" hidden>
 						<li><a href="/inscricoes/dashboard">Dashboard</a></li>
-						<li><a href="/inscricoes/area-trabalho">Área de trabalho</a></li>
-						<li><a href="/inscricoes/pendencias">Pendências</a></li>
-						<li><a href="/inscricoes/historico">Histórico</a></li>
+						<li><a href="/inscricoes/area-trabalho">Area de trabalho</a></li>
+						<li><a href="/inscricoes/pendencias">Pendencias</a></li>
+						<li><a href="/inscricoes/historico">Historico</a></li>
 					</ul>
 				</li>
 				<li>
@@ -108,9 +110,9 @@
 					</button>
 					<ul id="submenu-taxas" hidden>
 						<li><a href="/taxas/dashboard">Dashboard</a></li>
-						<li><a href="/taxas/area-trabalho">Área de trabalho</a></li>
-						<li><a href="/taxas/pendencias">Pendências</a></li>
-						<li><a href="/taxas/historico">Histórico</a></li>
+						<li><a href="/taxas/area-trabalho">Area de trabalho</a></li>
+						<li><a href="/taxas/pendencias">Pendencias</a></li>
+						<li><a href="/taxas/historico">Historico</a></li>
 					</ul>
 				</li>
 				<li>
@@ -120,9 +122,9 @@
 					</button>
 					<ul id="submenu-demandas" hidden>
 						<li><a href="/demandas/dashboard">Dashboard</a></li>
-						<li><a href="/demandas/area-trabalho">Área de trabalho</a></li>
-						<li><a href="/demandas/pendencias">Pendências</a></li>
-						<li><a href="/demandas/historico">Histórico</a></li>
+						<li><a href="/demandas/area-trabalho">Area de trabalho</a></li>
+						<li><a href="/demandas/pendencias">Pendencias</a></li>
+						<li><a href="/demandas/historico">Historico</a></li>
 					</ul>
 				</li>
 				<li>
@@ -132,63 +134,419 @@
 					</button>
 					<ul id="submenu-pagamentos" hidden>
 						<li><a href="/pagamentos/dashboard">Dashboard</a></li>
-						<li><a href="/pagamentos/area-trabalho">Área de trabalho</a></li>
-						<li><a href="/pagamentos/pendencias">Pendências</a></li>
-						<li><a href="/pagamentos/historico">Histórico</a></li>
+						<li><a href="/pagamentos/area-trabalho">Area de trabalho</a></li>
+						<li><a href="/pagamentos/pendencias">Pendencias</a></li>
+						<li><a href="/pagamentos/historico">Historico</a></li>
 					</ul>
 				</li>
 			</ul>
 		</nav>
 
 		<footer>
-			<section aria-label="Operador autenticado">
-				<h2>Operador</h2>
-				<p><strong>Higor Meireles</strong></p>
-				<p>Administrador</p>
-			</section>
-
-			<nav aria-label="Ações da conta e suporte">
+			<nav aria-label="Acoes da conta e suporte">
 				<ul>
 					<li>
-						<a href="/perfil">
-							<span class="icone" aria-hidden="true">account_circle</span>
-							<span>Perfil</span>
+						<a href="/chamados">
+							<span class="icone" aria-hidden="true">support_agent</span>
+							<span>Suporte</span>
 						</a>
 					</li>
 					<li>
 						<a href="/configuracoes">
 							<span class="icone" aria-hidden="true">settings</span>
-							<span>Configurações</span>
-						</a>
-					</li>
-					<li>
-						<a href="/chamados">
-							<span class="icone" aria-hidden="true">support_agent</span>
-							<span>Chamados</span>
-						</a>
-					</li>
-					<li>
-						<a href="/mensagens">
-							<span class="icone" aria-hidden="true">mail</span>
-							<span>Mensagens</span>
+							<span>Configuracoes</span>
 						</a>
 					</li>
 				</ul>
 			</nav>
 
-			<form action="/logout" method="post">
-				<button type="submit">
-					<span class="icone" aria-hidden="true">logout</span>
-					<span>Sair</span>
-				</button>
-			</form>
+			<section class="user-summary" aria-label="Operador autenticado">
+				<img src="logo.svg" alt="" aria-hidden="true">
+				<div class="user-summary__content">
+					<strong>Higor Meireles</strong>
+					<span>Administrador</span>
+				</div>
+				<form class="user-summary__logout" action="/logout" method="post">
+					<button type="submit" aria-label="Sair da conta">
+						<span class="icone" aria-hidden="true">logout</span>
+					</button>
+				</form>
+			</section>
 		</footer>
 	</aside>
 
-	<main aria-label="Conteúdo principal"></main>
+	<main aria-label="Conteudo principal" data-dashboard="certidoes">
+		<header class="painel">
+			<div>
+				<p>Dashboard operacional</p>
+				<h1>Certidoes</h1>
+				<small>Ultima atualizacao: 11/04/2026 13:05</small>
+			</div>
+
+			<form action="#" method="get" aria-label="Filtros da dashboard de certidoes">
+				<span class="effect">
+					<select id="grupo-certidoes" name="grupo">
+						<option value="geral" selected>Grupo geral</option>
+						<option value="matriz">Grupo Matriz</option>
+						<option value="filiais">Grupo Filiais</option>
+						<option value="expansao">Grupo Expansao</option>
+					</select>
+					<label for="grupo-certidoes">Grupo</label>
+				</span>
+
+				<button type="button">
+					<span class="icone" aria-hidden="true">refresh</span>
+					<p>Atualizar</p>
+				</button>
+			</form>
+		</header>
+
+		<section class="metricas" aria-label="Indicadores principais">
+			<article class="painel" data-tone="total">
+				<p>Total</p>
+				<strong>1.284</strong>
+				<small>Certidoes monitoradas no grupo selecionado.</small>
+			</article>
+
+			<article class="painel" data-tone="validas">
+				<p>Validas</p>
+				<strong>914</strong>
+				<small>Documentos dentro do prazo de validade.</small>
+			</article>
+
+			<article class="painel" data-tone="vencidas">
+				<p>Vencidas</p>
+				<strong>117</strong>
+				<small>Certidoes que ja ultrapassaram a validade.</small>
+			</article>
+
+			<article class="painel" data-tone="alertas">
+				<p>Alertas</p>
+				<strong>83</strong>
+				<small>Carteira com vencimento proximo ou revisao ativa.</small>
+			</article>
+
+			<article class="painel" data-tone="pendencias">
+				<p>Pendencias</p>
+				<strong>92</strong>
+				<small>Itens aguardando acao operacional ou documentos.</small>
+			</article>
+
+			<article class="painel" data-tone="renovando">
+				<p>Renovando</p>
+				<strong>78</strong>
+				<small>Processos com renovacao em andamento controlado.</small>
+			</article>
+		</section>
+
+		<section class="metricas" data-mes aria-label="Movimentacao do mes">
+			<article class="painel" data-tone="mes-total">
+				<p>Total</p>
+				<strong>138</strong>
+				<small>Registros movimentados em abril de 2026.</small>
+			</article>
+
+			<article class="painel" data-tone="mes-importadas">
+				<p>Importadas no mes</p>
+				<strong>54</strong>
+				<small>Novas certidoes incorporadas na carteira.</small>
+			</article>
+
+			<article class="painel" data-tone="mes-pendencias">
+				<p>Pendencias no mes</p>
+				<strong>19</strong>
+				<small>Ocorrencias abertas desde 01/04/2026.</small>
+			</article>
+
+			<article class="painel" data-tone="mes-revisao">
+				<p>Em revisao no mes</p>
+				<strong>11</strong>
+				<small>Itens em validacao manual ou documental.</small>
+			</article>
+
+			<article class="painel" data-tone="mes-falhas">
+				<p>Falhas no mes</p>
+				<strong>4</strong>
+				<small>Consultas interrompidas por rejeicao ou retorno vazio.</small>
+			</article>
+		</section>
+
+		<section class="dupla" aria-label="Pendencias antigas e visao rapida">
+			<article class="painel">
+				<header>
+					<div>
+						<p>Pendencias mais antigas em aberto</p>
+						<small>Fila priorizada para ataque imediato do time.</small>
+					</div>
+				</header>
+
+				<ol>
+					<li>
+						<div>
+							<strong>Empresa X</strong>
+							<span>Certidao negativa federal</span>
+						</div>
+						<small>18 dias em aberto</small>
+					</li>
+					<li>
+						<div>
+							<strong>Empresa Z</strong>
+							<span>Certidao estadual de regularidade</span>
+						</div>
+						<small>14 dias em aberto</small>
+					</li>
+					<li>
+						<div>
+							<strong>Empresa A</strong>
+							<span>Certidao municipal de tributos</span>
+						</div>
+						<small>11 dias em aberto</small>
+					</li>
+				</ol>
+			</article>
+
+			<aside class="painel">
+				<span class="status" data-tone="success">Visualizar</span>
+				<p>Carteira pronta</p>
+				<strong>72%</strong>
+				<p>das certidoes do grupo estao validas ou com renovacao acompanhada.</p>
+
+				<dl>
+					<div>
+						<dt>Validas</dt>
+						<dd>914</dd>
+					</div>
+					<div>
+						<dt>Em revisao</dt>
+						<dd>53</dd>
+					</div>
+					<div>
+						<dt>Renovando</dt>
+						<dd>78</dd>
+					</div>
+					<div>
+						<dt>Falhas criticas</dt>
+						<dd>12</dd>
+					</div>
+				</dl>
+			</aside>
+		</section>
+
+		<article class="painel" data-listagem="entrada-mensal">
+			<header>
+				<div>
+					<p>Entrada mensal por CNPJ base</p>
+					<small>Comparativo resumido da importacao por carteira base.</small>
+				</div>
+			</header>
+
+			<table>
+				<thead>
+					<tr>
+						<th scope="col">CNPJ base</th>
+						<th scope="col">Razao social</th>
+						<th scope="col">Qtde mes Jan</th>
+						<th scope="col">Qtde mes Fev</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>12.345.678/0001-90</td>
+						<td>Empresa Alpha</td>
+						<td>34</td>
+						<td>34</td>
+					</tr>
+					<tr>
+						<td>98.765.432/0001-10</td>
+						<td>Empresa Beta</td>
+						<td>21</td>
+						<td>34</td>
+					</tr>
+					<tr>
+						<td>11.222.333/0001-44</td>
+						<td>Empresa Gama</td>
+						<td>18</td>
+						<td>34</td>
+					</tr>
+				</tbody>
+			</table>
+		</article>
+
+		<section class="tabela-container">
+			<form autocomplete="off" method="get" aria-label="Consulta da tabela de certidoes">
+				<fieldset>
+					<legend>Certidoes</legend>
+					<p>Tabela baseada no modelo ja utilizado no sistema.</p>
+				</fieldset>
+
+				<span class="effect">
+					<input type="search" id="pesquisar-certidoes" name="pesquisar" placeholder="Pesquisar"
+						maxlength="100" aria-label="Pesquisar certidoes da dashboard">
+					<label for="pesquisar-certidoes">Pesquisar</label>
+				</span>
+
+				<span class="effect">
+					<select id="status-certidoes" name="status">
+						<option value="todos" selected>Todos</option>
+						<option value="validas">Validas</option>
+						<option value="alerta">Alertas</option>
+						<option value="pendentes">Pendencias</option>
+						<option value="vencidas">Vencidas</option>
+					</select>
+					<label for="status-certidoes">Status</label>
+				</span>
+
+				<button type="button">
+					<span class="icone" aria-hidden="true">tune</span>
+					<p>Filtrar</p>
+				</button>
+			</form>
+
+			<div class="tabela">
+				<table id="certidoes-dashboard" data-name="certidoes-dashboard">
+					<caption>Carteira de certidoes</caption>
+					<thead>
+						<tr>
+							<th scope="col">Selecionar</th>
+							<th scope="col" aria-sort="none">Empresa</th>
+							<th scope="col" aria-sort="none">Certidao</th>
+							<th scope="col" aria-sort="descending">Status</th>
+							<th scope="col" aria-sort="none">Emissor</th>
+							<th scope="col" aria-sort="none">Validade</th>
+							<th scope="col" aria-sort="none">Atualizacao</th>
+							<th scope="col">Acoes</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="tr-odd">
+							<td>
+								<div class="radio-checkbox-container">
+									<label><input type="checkbox" name="linha-1"><span></span></label>
+								</div>
+							</td>
+							<td>Empresa Alpha</td>
+							<td>CND Federal</td>
+							<td data-status="verde">valida</td>
+							<td>Receita Federal</td>
+							<td>14/07/2026</td>
+							<td>11/04/2026 13:05</td>
+							<td>
+								<nav aria-label="Acoes da certidao da Empresa Alpha">
+									<button type="button" aria-label="Visualizar certidao da Empresa Alpha" title="Visualizar">
+										<span class="icone" aria-hidden="true">visibility</span>
+									</button>
+									<button type="button" aria-label="Editar certidao da Empresa Alpha" title="Editar">
+										<span class="icone" aria-hidden="true">edit</span>
+									</button>
+									<button type="button" aria-label="Acompanhar certidao da Empresa Alpha" title="Acompanhar">
+										<span class="icone" aria-hidden="true">schedule</span>
+									</button>
+								</nav>
+							</td>
+						</tr>
+						<tr class="tr-even tr-ativa">
+							<td>
+								<div class="radio-checkbox-container">
+									<label><input type="checkbox" name="linha-2"><span></span></label>
+								</div>
+							</td>
+							<td>Empresa Beta</td>
+							<td>CND Estadual SP</td>
+							<td data-status="laranja">em renovacao</td>
+							<td>SEFAZ/SP</td>
+							<td>19/04/2026</td>
+							<td>11/04/2026 12:48</td>
+							<td>
+								<nav aria-label="Acoes da certidao da Empresa Beta">
+									<button type="button" aria-label="Visualizar certidao da Empresa Beta" title="Visualizar">
+										<span class="icone" aria-hidden="true">visibility</span>
+									</button>
+									<button type="button" aria-label="Editar certidao da Empresa Beta" title="Editar">
+										<span class="icone" aria-hidden="true">edit</span>
+									</button>
+									<button type="button" aria-label="Acompanhar certidao da Empresa Beta" title="Acompanhar">
+										<span class="icone" aria-hidden="true">schedule</span>
+									</button>
+								</nav>
+							</td>
+						</tr>
+						<tr class="tr-odd">
+							<td>
+								<div class="radio-checkbox-container">
+									<label><input type="checkbox" name="linha-3"><span></span></label>
+								</div>
+							</td>
+							<td>Empresa Gama</td>
+							<td>CNDT</td>
+							<td data-status="vermelho">pendente</td>
+							<td>TST</td>
+							<td>02/04/2026</td>
+							<td>10/04/2026 18:22</td>
+							<td>
+								<nav aria-label="Acoes da certidao da Empresa Gama">
+									<button type="button" aria-label="Visualizar certidao da Empresa Gama" title="Visualizar">
+										<span class="icone" aria-hidden="true">visibility</span>
+									</button>
+									<button type="button" aria-label="Editar certidao da Empresa Gama" title="Editar">
+										<span class="icone" aria-hidden="true">edit</span>
+									</button>
+									<button type="button" aria-label="Acompanhar certidao da Empresa Gama" title="Acompanhar">
+										<span class="icone" aria-hidden="true">schedule</span>
+									</button>
+								</nav>
+							</td>
+						</tr>
+						<tr class="tr-even tr-inativa">
+							<td>
+								<div class="radio-checkbox-container">
+									<label><input type="checkbox" name="linha-4"><span></span></label>
+								</div>
+							</td>
+							<td>Empresa Delta</td>
+							<td>Certidao municipal</td>
+							<td data-status="vermelho">vencida</td>
+							<td>Prefeitura local</td>
+							<td>29/03/2026</td>
+							<td>09/04/2026 16:11</td>
+							<td>
+								<nav aria-label="Acoes da certidao da Empresa Delta">
+									<button type="button" aria-label="Visualizar certidao da Empresa Delta" title="Visualizar">
+										<span class="icone" aria-hidden="true">visibility</span>
+									</button>
+									<button type="button" aria-label="Editar certidao da Empresa Delta" title="Editar">
+										<span class="icone" aria-hidden="true">edit</span>
+									</button>
+									<button type="button" aria-label="Acompanhar certidao da Empresa Delta" title="Acompanhar">
+										<span class="icone" aria-hidden="true">schedule</span>
+									</button>
+								</nav>
+							</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<th colspan="8">Exibindo 4 de 1.284 certidoes monitoradas.</th>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+
+			<form class="paginacao">
+				<span>Exibindo de 1 ate 4 de 1284 registros</span>
+				<nav aria-label="Paginacao da tabela">
+					<button type="button" aria-label="Pagina anterior">navigate_before</button>
+					<button type="button" aria-current="page">01</button>
+					<button type="button">02</button>
+					<button type="button">03</button>
+					<button type="button">04</button>
+					<button type="button" aria-label="Proxima pagina">navigate_next</button>
+				</nav>
+			</form>
+		</section>
+	</main>
 
 	<footer>
-		<p>&copy; 2025 - Sistema Dashboard</p>
+		<p>&copy; 2026 - Sistema Dashboard</p>
 	</footer>
 </body>
 </html>

@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="./grafico-higor-styles.css" rel="stylesheet">
+<link href="./grafico-higor-grafico.css" rel="stylesheet">
+<link href="./personalizados/css/config.css" rel="stylesheet">
+<script src="./personalizados/javascript/grafico.js"></script>
+</head>
+<script>
+	document.addEventListener("DOMContentLoaded", function() {
+
+		// Inicializar o gráfico
+		const valoresPorArea = {
+			titulo : "Visão - Abertas X Fechadas por Operador",
+			filtros : [ "Abertas", "Fechadas" ],
+			subfiltros : true,
+			valores : [ {
+				label : "Hoje",
+				valores : [ {
+					label : "Núria",
+					valores : [ 12, 5 ]
+				}, {
+					label : "Anderson",
+					valores : [ 12, 2 ]
+				} ]
+			}, {
+				label : "Semana",
+				valores : [ {
+					label : "Núria",
+					valores : [ 2, 51 ]
+				}, {
+					label : "Anderson",
+					valores : [ 18, 21 ]
+				} ]
+			}
+			//mes, ano1, ano2, ano3
+			]
+		};
+
+		const valoresAbertas = {
+			titulo : "Total atribuídos x total concluídos",
+			filtros : [ "Abertas", "Fechadas" ],
+			valores : [ {
+				label : "Ano",
+				valores : [ 20, 15 ]
+			}, {
+				label : "Bimestre",
+				valores : [ 27, 33 ]
+			}, ]
+		};
+
+		const valoresSituacoesOperadores = {
+			titulo : "Situações por operador",
+			filtros : [ "Ativa", "Cliente", "Órgão"],
+			subfiltros : false,
+			valores : [ {
+					label : "Núria",
+					valores : [ 20, 15, 70 ]
+				}, {
+					label : "Samira",
+					valores : [ 27, 33,10 ]
+				}, {
+					label : "Matheus",
+					valores : [ 45, 30, 5 ]
+				}, {
+					label : "Anderson",
+					valores : [ 50, 50, 20 ]
+				}, ]
+			};
+
+		const valoresCronograma = {
+			titulo : "Total de abertas e fechadas por tipo de demanda",
+			filtros : [ "Abertas", "Fechadas" ],
+			valores : [ {
+				label : "Núria",
+				valores : [ 20, 15 ]
+			}, {
+				label : "Samira",
+				valores : [ 27, 33 ]
+			}, {
+				label : "Matheus",
+				valores : [ 45, 30 ]
+			}, {
+				label : "Anderson",
+				valores : [ 50, 50 ]
+			}, ]
+		};
+		
+		const valoresLocais = {
+				titulo : "Locais",
+				filtros : [ "ATIVA", "CLIENTE", "ORGÃO" ],
+				valores : [ {
+					label : "ATIVA",
+					valores : [15]
+				}, {
+					label : "CLIENTE",
+					valores : [33]
+				}, {
+					label : "ORGÃO",
+					valores : [45]
+				} ]
+			};
+		const valoresOrgaos = {
+				titulo : "Órgãos",
+				filtros : [ "SEFAZ", "PGE", "PREFEITURA", "SUFRAMA" ],
+				valores : [ {
+					label : "SEFAZ",
+					valores : [15]
+				}, {
+					label : "PGE",
+					valores : [33]
+				}, {
+					label : "PREFEITURA",
+					valores : [45]
+				}, {
+					label : "SUFRAMA",
+					valores : [50]
+				}, ]
+			};
+
+		new Grafico("graficoDemandasLocais", valoresLocais);
+		new Grafico("graficoDemandasOrgaos", valoresOrgaos);
+		new Grafico("graficoDemandasSituacoesColaboradores", valoresSituacoesOperadores);
+		//new Grafico("graficoDemandasOrgaos", valoresOrgaos);
+		//new Grafico("graficoDemandasOperadores", valoresOperadores);
+		//new Grafico("graficoCronogramaDemandas", valoresCronograma);
+
+	});
+    </script>
+<body>
+	<main id="sectionDemandasDash">
+	
+		<div id="demandasDashStatus">
+			<h2>Status das demandas</h2>
+			<ul>
+				<li><span>100</span> <p>Total</p>
+					<div class="progress-bar-circle">
+						<progress max="100" value="100" aria-label="Progresso"></progress>
+						<svg viewBox="0 0 120 120" role="img" aria-hidden="true"> 
+                       <!-- trilha --> 
+                       		<circle cx="60" cy="60" r="54"></circle> 
+                       <!-- progresso --> 
+                       		<circle cx="60" cy="60" r="54"></circle> 
+                       </svg>
+						<!-- label central (opcional) -->
+						<span></span>
+					</div></li>
+				<li><span>75</span> <p>Abertas</p>
+					<div class="progress-bar-circle">
+						<progress max="100" value="75" aria-label="Progresso"></progress>
+						<svg viewBox="0 0 120 120" role="img" aria-hidden="true"> 
+                       <!-- trilha --> 
+                       		<circle cx="60" cy="60" r="54"></circle> 
+                       <!-- progresso --> 
+                       		<circle cx="60" cy="60" r="54"></circle> 
+                       </svg>
+						<!-- label central (opcional) -->
+						<span></span>
+					</div></li>
+				<li><span>50</span> <p>No prazo</p>
+					<div class="progress-bar-circle">
+						<progress max="75" value="50" aria-label="Progresso"></progress>
+						<svg viewBox="0 0 120 120" role="img" aria-hidden="true"> 
+                       <!-- trilha --> 
+                       		<circle cx="60" cy="60" r="54"></circle> 
+                       <!-- progresso --> 
+                       		<circle cx="60" cy="60" r="54"></circle> 
+                       </svg>
+						<!-- label central (opcional) -->
+						<span></span>
+					</div></li>
+				<li><span>10</span> <p>Atrasando</p>
+					<div class="progress-bar-circle">
+						<progress max="75" value="10" aria-label="Progresso"></progress>
+						<svg viewBox="0 0 120 120" role="img" aria-hidden="true"> 
+                       <!-- trilha --> 
+                       		<circle cx="60" cy="60" r="54"></circle> 
+                       <!-- progresso --> 
+                       		<circle cx="60" cy="60" r="54"></circle> 
+                       </svg>
+						<!-- label central (opcional) -->
+						<span></span>
+					</div></li>
+				<li><span>15</span> <p>Atrasadas</p>
+					<div class="progress-bar-circle">
+						<progress max="75" value="15" aria-label="Progresso"></progress>
+						<svg viewBox="0 0 120 120" role="img" aria-hidden="true"> 
+                       <!-- trilha --> 
+                       		<circle cx="60" cy="60" r="54"></circle> 
+                       <!-- progresso --> 
+                       		<circle cx="60" cy="60" r="54"></circle> 
+                       </svg>
+						<!-- label central (opcional) -->
+						<span></span>
+					</div></li>
+				<li><span>15</span> <p>Conclúidas</p>
+					<div class="progress-bar-circle">
+						<progress max="25" value="15" aria-label="Progresso"></progress>
+						<svg viewBox="0 0 120 120" role="img" aria-hidden="true"> 
+                       <!-- trilha --> 
+                       		<circle cx="60" cy="60" r="54"></circle> 
+                       <!-- progresso --> 
+                       		<circle cx="60" cy="60" r="54"></circle> 
+                       </svg>
+						<!-- label central (opcional) -->
+						<span></span>
+					</div></li>
+				<li><span>10</span> <p>Canceladas</p>
+					<div class="progress-bar-circle">
+						<progress max="25" value="10" aria-label="Progresso"></progress>
+						<svg viewBox="0 0 120 120" role="img" aria-hidden="true"> 
+                       <!-- trilha --> 
+                       		<circle cx="60" cy="60" r="54"></circle> 
+                       <!-- progresso --> 
+                       		<circle cx="60" cy="60" r="54"></circle> 
+                       </svg>
+						<!-- label central (opcional) -->
+						<span></span>
+					</div></li>
+			</ul>
+		</div>
+		<div id="graficoDemandasSituacoesColaboradores" class="grafico barra vertical"></div>
+		<div id="graficoDemandasLocais" class="grafico circulo horizontal"></div>
+		<div id="graficoDemandasOrgaos" class="grafico barra vertical"></div>
+		
+	<!--	<div id="totalAbertasFechadasDemandas" id="grafico03">
+			<h2>Total de abertas e fechadas</h2>
+			<ul>
+				<li class="entradaDiaria">
+					<P>
+						<span>today</span> Hoje
+					</P> <span>22</span>
+					<p>
+						<span>check_small</span> 21
+					</p>
+					<p>
+						<span>close_small</span> 01
+					</p>
+				</li>
+				<li class="entradaSemanal" data-titulo="Exibir entradas: semana"
+					data-data="2025-06-29">
+					<P>
+						<span>date_range</span> Semana
+					</P> <span>238</span>
+					<p>
+						<span>check_small</span> 200
+					</p>
+					<p>
+						<span>close_small</span> 38
+					</p>
+				</li>
+				<li class="entradaMensal" data-titulo="Exibir entradas: mês"
+					data-data="2025-07-01">
+					<P>
+						<span>calendar_month</span> Mês
+					</P> <span>300</span>
+					<p>
+						<span>check_small</span> 250
+					</p>
+					<p>
+						<span>close_small</span> 50
+					</p>
+				</li>
+				<li class="entradaBimestral" data-titulo="Exibir entradas: bimestre"
+					data-data="2025-07-01">
+					<P>
+						<span>calendar_add_on</span> Bimestre
+					</P> <span>400</span>
+					<p>
+						<span>check_small</span> 300
+					</p>
+					<p>
+						<span>close_small</span> 100
+					</p>
+				</li>
+				<li class="entradaProximas"
+					data-titulo="Exibir: próximos vencimentos" data-data="2025-07-13">
+					<P>
+						<span>calendar_today</span> Ano
+					</P> <span>550</span>
+					<p>
+						<span>check_small</span> 350
+					</p>
+					<p>
+						<span>close_small</span> 150
+					</p>
+				</li>
+			</ul>
+		</div>
+		<div id="graficoAreaResponsavel" class="grafico barra vertical"
+			id="grafico04"></div>
+		<div id="graficoDemandasOperadores" class="grafico barra vertical"
+			id="grafico01"></div>
+		<div id="graficoCronogramaDemandas" class="grafico barra vertical"
+			id="grafico02"></div>
+		<div id="grafico05" class="">
+			<h2>Local</h2>
+			<ul>
+				<li data-titulo="Exibir todos"><span>archive</span>
+					<div>
+						<p>700</p>
+						<p>Total</p>
+					</div> <progress max="700" value="700"></progress></li>
+				<li><span>domain</span>
+					<div>
+						<p>100</p>
+						<p>Ativa</p>
+					</div> <progress max="700" value="100"></progress></li>
+				<li><span>account_balance</span>
+					<div>
+						<p>400</p>
+						<p>Órgão</p>
+					</div> <progress max="700" value="400"></progress></li>
+				<li><span>account_circle</span>
+					<div>
+						<p>200</p>
+						<p>Cliente</p>
+					</div> <progress max="700" value="200"></progress></li>
+			</ul>
+		</div>
+		<div id="grafico06" class="grafico barra vertical"></div>
+		<div id="grafico07">
+			<div id="dashCertidoesVencidas">
+				<h2>Demandas por operadores</h2>
+				<p>Operadores - 6</p>
+				<div>
+					<ul>
+						<li data-referencia="" class="ativo">
+							<p>Nome completo do operador</p> <progress value="3" max="6">3</progress>
+							<span>3</span>
+						</li>
+					</ul>
+				</div>
+				<div>
+					<ul class="lista-details-observacao">
+						<li data-referencia="" class="ativo"><details>
+								<summary>
+									<div>
+										<p>Número da demanda</p>
+										<p>0001</p>
+									</div>
+									<div>
+										<p>Atividade</p>
+										<p>Alteração cadastral Caixa Econômica Federal</p>
+									</div>
+									<div>
+										<p>Início</p>
+										<p>00/00/0000</p>
+									</div>
+								</summary>
+								<div class="caixa-observacoes">Gráfico aqui dentro</div>
+							</details></li>
+						<li data-referencia="" class="ativo"><details>
+								<summary>
+									<div>
+										<p>Número da demanda</p>
+										<p>0002</p>
+									</div>
+									<div>
+										<p>Atividade</p>
+										<p>Outra atividade</p>
+									</div>
+									<div>
+										<p>Início</p>
+										<p>11/11/1111</p>
+									</div>
+								</summary>
+								<div class="caixa-observacoes">Gráfico aqui dentro</div>
+							</details></li>
+					</ul>
+				</div>
+			</div>
+		</div> -->	</main>
+		<script>
+/**
+ * Liga um .progress-bar-circle:
+ * - Lê <progress max / value>
+ * - Atualiza o 2º <circle> (barra) com stroke-dashoffset
+ * - Atualiza o <span> com o percentual
+ */
+function setupProgressCircle(root) {
+  if (!root) return;
+
+  const progress = root.querySelector('progress');
+  const svg = root.querySelector('svg');
+  const circles = svg ? svg.querySelectorAll('circle') : [];
+  const track = circles[0];
+  const bar = circles[1];
+  const label = root.querySelector('span');
+
+  if (!progress || !bar) return;
+
+  // Calcula a circunferência com base no raio do círculo do progresso
+  const r = parseFloat(bar.getAttribute('r')) || 54;
+  const circumference = 2 * Math.PI * r;
+
+  // Garante stroke-dasharray conforme o SVG atual
+  bar.style.strokeDasharray = String(circumference);
+
+  // Função de renderização (chame sempre que value/max mudarem)
+  function render() {
+    const max = Number(progress.max) || 100;
+    const val = Math.min(Math.max(Number(progress.value) || 0, 0), max);
+    const pct = (val / max) * 100;
+
+    const offset = circumference - (circumference * pct / 100);
+    bar.style.strokeDashoffset = String(offset);
+
+    if (label) label.textContent = Math.round(pct) + '%';
+  }
+
+  // Observa mudanças de atributos no <progress> (value/max)
+  const mo = new MutationObserver(render);
+  mo.observe(progress, { attributes: true, attributeFilter: ['value', 'max'] });
+
+  // Também reage a eventos comuns de formulário
+  progress.addEventListener('input', render);
+  progress.addEventListener('change', render);
+
+  // Render inicial
+  render();
+
+  // API opcional: helper para atualizar valor via código
+  root.setProgressValue = (newValue) => {
+    progress.value = newValue;
+    // garantir disparo do MutationObserver caso o atributo não seja atualizado
+    progress.setAttribute('value', String(newValue));
+    render();
+  };
+
+  return { render };
+}
+
+// Auto-init para todos os elementos existentes na página
+document.querySelectorAll('.progress-bar-circle').forEach(setupProgressCircle);
+</script>
+		
+</body>
+</html>

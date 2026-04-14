@@ -1,0 +1,395 @@
+
+.grafico {
+    background-color: var(--backgroundII);
+    padding: 1rem;
+    border-radius: 1rem;
+    display: grid;
+    position: relative;
+    height: auto;
+}
+
+.grafico > svg line {
+    stroke-width: 1px;
+}
+.grafico > svg>  line {
+    stroke: var(--bordaCorII);
+}
+.grafico > svg > g > text {
+    fill: var(--textoIII);
+}
+
+.grafico > svg {
+    position: absolute;
+    z-index: 1;
+}
+.grafico > div {
+	  z-index: 2;
+}
+.grafico:where(.barra, .linha).vertical {
+    grid-template-rows: 2.5rem 2.5rem 1fr auto;
+    grid-template-columns: 1fr;
+}
+
+.grafico:where(.barra, .linha).vertical > h2 {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.grafico > form {
+    grid-column: 1;
+    grid-row: 2;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.grafico > form > input {
+    display: none;
+}
+
+.grafico > form > label {
+    display: flex;
+    align-items: center;
+    gap: .25rem;
+    cursor: pointer;
+}
+
+.grafico > form > label:before {
+	content: " ";
+    display: block;
+    border-radius: .1rem;
+    width: 1.5rem;
+    height: .5rem;
+    border: .125rem solid var(--backgoundIII);
+    background-color: white;
+}
+
+.grafico > form > input:checked + label:before {
+    background-color: var(--backgoundIII);
+}
+
+.grafico:where(.barra, .linha).vertical > svg {
+    width: calc(100% - 4rem);
+    height: 60%;
+    left: 2rem;
+    grid-row: 3;
+    margin-top: 1rem;
+}
+
+.grafico:where(.barra, .linha).vertical > svg > g > text {
+    text-anchor: end;
+    dominant-baseline: middle;
+}
+
+.grafico:where(.barra, .linha).vertical > div {
+    grid-row: 3/-1;
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: calc(100% - 4rem);
+    margin-left: 3rem;
+}
+
+.grafico:where(.barra, .linha).vertical > svg > g > line {
+    transform: translate(0, calc(1rem + (100% - 2rem) * var(--i) / 10));
+}
+
+.grafico:where(.barra, .linha).vertical > svg > g > text {
+    transform: translate(0, calc(1rem + (100% - 2rem) * var(--i) / 10));
+}
+
+.grafico:where(.barra, .linha).vertical > div > svg > g > text:not(:last-of-type) {
+    text-anchor: middle;
+    fill: var(--textoII);
+}
+
+.grafico > div > svg > g > rect {
+    stroke: green;
+    stroke-width: .125rem;
+}
+
+.grafico > div > svg > g > text:last-of-type {
+    fill: var(--textoII);
+    font-size: small;
+    user-select: none;
+    text-anchor: end;
+}
+
+.grafico:where(.barra, .linha).vertical > div > svg > g > text:last-of-type {
+    rotate: -60deg;
+}
+
+.grafico > div > svg > g > line {
+    stroke: transparent;
+    stroke-width: 1px;
+}
+
+.grafico:where(.barra, .linha).horizontal {
+    grid-template-rows: 3rem 3rem 1fr;
+    grid-template-columns: 1fr 65%;
+}
+
+.grafico:where(.barra, .linha).horizontal > h2 {
+    grid-column: span 2;
+    grid-row: 1;
+}
+
+.grafico:where(.barra, .linha).horizontal > form {
+    grid-column: span 2;
+    grid-row: 2;
+}
+
+.grafico:where(.barra, .linha).horizontal > svg {
+    grid-column: 2;
+    grid-row: 3;
+    width: calc(100% - 3rem);
+    height: 75%;
+}
+
+.grafico:where(.barra, .linha).horizontal > div {
+    grid-column: span 2;
+    grid-row: 3;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 70%;
+    margin-top: .5rem;
+}
+
+.grafico > div.ativo {
+    cursor: grabbing;
+    user-select: none;
+}
+
+.grafico:where(.barra, .linha).horizontal > div::-webkit-scrollbar, .grafico.setor > form > ul::-webkit-scrollbar {
+    width: .25rem;
+    /* width of the entire scrollbar */
+}
+
+.grafico:where(.barra, .linha).horizontal > div::-webkit-scrollbar-thumb, .grafico.setor > form > ul::-webkit-scrollbar-thumb {
+    background-color: var(--corPrimaria);
+    /* color of the scroll thumb */
+    border-radius: 1rem;
+    /* roundness of the scroll thumb */
+}
+
+.grafico:where(.barra, .linha).horizontal > svg > g > text {
+    text-anchor: middle;
+}
+
+.grafico:where(.barra, .linha).horizontal > div > svg > g > text:last-of-type {
+    text-anchor: end;
+    rotate: -30deg;
+}
+
+.grafico:where(.barra, .linha).horizontal > svg > g > line {
+    transform: translate(calc(.25rem + (100% - 1.5rem) * var(--i) / 10), 0);
+}
+
+.grafico:where(.barra, .linha).horizontal > svg > g > text {
+    transform: translate(calc(.25rem + (100% - 1.5rem) * var(--i) / 10), 0);
+    transform-origin: center; /* Garante que o texto seja girado em torno de seu próprio centro */
+    text-anchor: middle; /* Centraliza o texto em relação ao ponto de rotação */
+    dominant-baseline: central; /* Ajusta o alinhamento vertical do texto */
+}
+
+.grafico:where(.circulo, .setor).vertical{
+    grid-template-rows: 2.5rem 2.5rem 50% 1fr;
+    grid-template-columns: 1fr;
+}
+.grafico:where(.circulo, .setor).horizontal{
+    grid-template-rows: 2.5rem 2.5rem 1fr;
+    grid-template-columns: 45% 55%;
+}
+.grafico.circulo > h2 {
+	grid-column: 1;
+    grid-row: 1;
+    
+}
+.grafico:where(.circulo, .setor).horizontal > :where(h2, form) {
+    grid-column: span 2 !important;
+}
+.grafico:where(.circulo, .setor) > div{
+	position: relative;
+	aspect-ratio: 1 / 1;
+	width: -webkit-fill-available;
+}
+
+
+.grafico.circulo > div > svg > circle {
+    fill: none;
+    stroke-width: 5;
+    transition: stroke-dasharray 1s ease-in-out, stroke-dashoffset 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.grafico.circulo > div > svg > circle:first-child {
+    stroke: var(--backgroundII);
+    stroke-width: 15;
+}
+.grafico.circulo > div > svg > circle:not(:first-child):hover {
+        stroke-width: 7;
+}
+.grafico.circulo > div > svg > text {
+    font-size: 1.5rem;
+    text-anchor: middle;
+    fill: var(--textoI);
+}
+.grafico > ul{
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	width: 100%;
+	padding: 0 1rem;
+	overflow-x: scroll;
+}
+.grafico > ul > li {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    flex-wrap: wrap;
+}
+.grafico.horizontal > ul > li {
+	width: 100%;
+}
+
+.grafico > ul > li::before {
+	content: " ";
+	font-family: 'Material Icons';
+	font-size: 2rem;
+}
+.grafico > ul > li > p{
+	flex-grow: 1;
+}
+
+.grafico > ul > li > progress {
+	width: 100%;
+	height: 0.5rem;
+	background-color: inherit;
+	border-radius: 1rem;
+}
+
+.grafico > ul > li > progress::-webkit-progress-bar,
+.grafico > ul > li > progress::-moz-progress-bar,
+.grafico > ul > li > progress::-webkit-progress-value{
+	border-radius: 0.5rem;
+	background: var(--backgroundIII);
+}
+.grafico > ul > li > p:last-of-type{
+	text-align: right;
+}
+.grafico.setor > div > svg > path {
+        z-index: 1;
+}
+.grafico.setor > div > svg > path:hover {
+	transform: scale(1.05);
+}
+
+
+.grafico select{
+	margin-left: auto;
+    appearance: none; /* Remove o estilo padrão do sistema */
+  	background-color: var(--backgroundII);
+    border-radius: .5rem;
+    padding: .5rem;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Efeito hover e foco */
+.grafico select:hover {
+    background-color: var(--backgroundII);
+}
+
+.grafico select:focus {
+    background-color: var(--backgroundII);
+}
+
+/* Setinha do select */
+.grafico select{
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1rem;
+    color: var(--textoII);
+    padding-right: 2rem; /* Para não sobrepor o texto */
+}
+
+/* Estilizando os options (LIMITADO) */
+.grafico select option {
+    background-color: var(--backgroundIII);
+    color: white;
+    font-size: 16px;
+}
+.grafico select option:hover {
+    background-color: var(--backgroundII);
+}
+/* Opcional: se quiser que o select tenha um efeito de "desativado" */
+.grafico select:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+}
+
+
+/* progress circle */
+/* wrapper: ocupa 100% do espaço disponível do pai e mantém quadrado */
+.progress-bar-circle {
+  --track-color: #e6e6e6;   /* cor da trilha */
+  --bar-color:   #4caf50;   /* cor do progresso */
+  --text-color:  #333;      /* cor do texto central */
+  --thickness:   8;        /* espessura do traço em unidades do viewBox (0..120) */
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  display: grid;
+  place-items: center;
+}
+
+/* escondemos o <progress> visualmente (vamos usar no JS depois) */
+.progress-bar-circle > progress {
+  display: none;
+}
+
+/* o SVG acompanha o tamanho do wrapper */
+.progress-bar-circle > svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);       /* começa no topo (12h) */
+  transform-origin: 50% 50%;
+}
+
+/* círculos: trilha e barra */
+.progress-bar-circle > svg circle {
+  fill: none;
+  stroke-linecap: round;
+  stroke-width: var(--thickness);
+}
+
+/* trilha (primeiro círculo do SVG) */
+.progress-bar-circle > svg circle:first-of-type {
+  stroke: var(--track-color);
+}
+
+/* barra de progresso (segundo círculo do SVG) */
+.progress-bar-circle > svg circle:last-of-type {
+  stroke: var(--bar-color);
+
+  /* valores iniciais (0%) — usaremos JS pra atualizar o offset */
+  /* Circunferência do r=54 no viewBox 120 => ~339.292 */
+  stroke-dasharray: 339.292;
+  stroke-dashoffset: 339.292;
+
+  transition: stroke-dashoffset 0.5s ease;
+}
+
+/* label central (percentual) */
+.progress-bar-circle > span {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--text-color);
+
+  /* tamanho do texto responsivo ao container */
+  font-weight: 700;
+  font-size: clamp(0.75rem, 12%, 1.5rem);
+  user-select: none;
+}

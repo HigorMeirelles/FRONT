@@ -1,31 +1,377 @@
-table{
-	width: 100%;
-	height: auto;
-	overflow: scroll;
+/*
+ * table.css
+ * Estrutura do componente de tabela.
+ * Esta folha cuida do esqueleto: scroll, sticky, filtros, menus de acoes e paginacao.
+ *
+ * Variaveis consumidas pelo componente:
+ * - `--table-surface`: fundo do viewport da tabela.
+ * - `--table-header-bg` / `--table-header-text`: cabecalho fixo.
+ * - `--table-footer-bg` / `--table-footer-text`: rodape fixo.
+ * - `--table-row-odd-bg`, `--table-row-even-bg`, `--table-row-active-bg`, `--table-row-inactive-bg`: tons das linhas.
+ * - `--table-row-odd-hover`, `--table-row-even-hover`, `--table-row-active-hover`, `--table-row-inactive-hover`: hover das linhas.
+ * - `--table-filter-*`: botao e painel dos filtros da tabela.
+ * - `--table-menu-*`: menu de acoes por linha.
+ * - `--table-status-danger`, `--table-status-warning`, `--table-status-success`: estados textuais.
+ *
+ * As atribuicoes destas cores ficam em `layout.css`.
+ * A camada visual atual da tabela continua em `effect1.css`, mas usando este mesmo contrato.
+ */
+.tabela-container {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    height: 100%;
+    min-height: 0;
 }
 
-table>caption{
-	text-align: left;
+.tabela-container form:first-child {
+    padding: 0;
 }
-table .radio-checkbox-container{
-	border: none !important;
+
+.tabela-container > .tabela {
+    min-height: 0;
+    min-width: 0;
+    overflow: auto;
 }
-table > tbody > tr > :where(:first-child, :last-child){
-	position: fixed;
+
+.tabela-container > .tabela > table {
+    width: max-content;
+    min-width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    padding: 1rem;
 }
-table > tbody > tr:nth-child(even){
-	background-color: inherit;
+
+.tabela caption {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
 }
-table > tbody > tr:nth-child(odd){
-	
+
+.tabela th,
+.tabela td {
+    padding: 0.5rem 1rem;
+    white-space: nowrap;
+    vertical-align: middle;
 }
-table>tfoot>tr:last-child>th:first-child>p{
-	width: 100%;
-	text-align: left;
+
+.tabela thead th {
+    position: sticky;
+    top: 0;
+    z-index: 5;
 }
-table>tfoot>tr:last-child>th:last-child>menu{
-	width: 100%;
-	display: flex;
-	justify-content: end;
-	gap: .5rem;
+
+.tabela :is(thead, tfoot) tr:first-child th {
+    padding: 0.7rem;
+    text-align: start;
+}
+
+.tabela thead tr:first-child th[aria-sort] {
+    cursor: pointer;
+    user-select: none;
+    padding-right: 2.8rem;
+}
+
+.tabela thead tr:first-child th[aria-sort]::before,
+.tabela thead tr:first-child th[aria-sort]::after {
+    content: "";
+    position: absolute;
+    right: 2rem;
+    border-left: 0.28rem solid transparent;
+    border-right: 0.28rem solid transparent;
+}
+
+.tabela thead tr:first-child th[aria-sort]::before {
+    top: calc(50% - 0.55rem);
+}
+
+.tabela thead tr:first-child th[aria-sort]::after {
+    top: calc(50% + 0.05rem);
+}
+
+.tabela thead tr:last-child th {
+    padding-top: 0.65rem;
+    padding-bottom: 1rem;
+    vertical-align: top;
+}
+
+.tabela tfoot th,
+.tabela tfoot td {
+    position: sticky;
+    bottom: 0;
+    z-index: 4;
+}
+
+.tabela th:first-child,
+.tabela td:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 4;
+}
+
+.tabela th:last-child,
+.tabela td:last-child {
+    position: sticky;
+    right: 0;
+    z-index: 4;
+}
+
+.tabela thead th:first-child,
+.tabela thead th:last-child,
+.tabela tfoot th:first-child,
+.tabela tfoot th:last-child {
+    z-index: 6;
+}
+
+.tabela tbody tr.tabela-vazia > td {
+    text-align: center;
+}
+
+.tabela tbody td:last-child {
+    min-width: 18rem;
+}
+
+.tabela-filter {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 2.5rem;
+    align-items: center;
+    gap: 0.55rem;
+    min-width: 0;
+}
+
+.tabela-filter.ativo,
+.tabela-filter[data-open] {
+    z-index: 13;
+}
+
+.tabela-filter > input {
+    width: 100%;
+    min-width: 0;
+    height: 2.75rem;
+    padding: 0 0.2rem;
+}
+
+.tabela-filter > input[type="search"],
+.tabela-filter > input[type="number"] {
+    padding-right: 0.15rem;
+}
+
+.tabela-filter-toggle {
+    width: 2rem;
+    height: 2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tabela-filter-panel {
+    display: none;
+    position: absolute;
+    top: calc(100% + 0.45rem);
+    right: 0;
+    z-index: 12;
+    width: 15rem;
+    max-width: min(18rem, calc(100vw - 2rem));
+    padding: 0.8rem;
+}
+
+.tabela-filter[data-open] > .tabela-filter-panel {
+    display: block;
+}
+
+.sub-filtro-antigo {
+    display: none !important;
+}
+
+.sub-filtro[hidden] {
+    display: none;
+}
+
+.sub-filtro.ativo,
+.sub-filtro.ativo[hidden],
+.tabela-filter.ativo > .sub-filtro,
+.tabela-filter.ativo > .sub-filtro[hidden],
+.tabela-filter[data-open] > .sub-filtro,
+.tabela-filter[data-open] > .sub-filtro[hidden] {
+    display: flex;
+    flex-direction: column;
+}
+
+.sub-filtro {
+    gap: 0.55rem;
+}
+
+.tabela-filter-range[hidden] {
+    display: none !important;
+}
+
+.sub-filtro > legend {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.sub-filtro .radio-checkbox-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.35rem;
+    padding: 0 !important;
+    width: 100%;
+}
+
+.sub-filtro .radio-checkbox-container + .radio-checkbox-container {
+    padding-top: 0.5rem !important;
+}
+
+.sub-filtro .radio-checkbox-container label {
+    min-height: 2.25rem;
+    padding: 0.55rem 0.65rem;
+}
+
+.sub-filtro .radio-checkbox-container span {
+    width: 1.1rem;
+}
+
+.tabela-filter-range {
+    display: grid;
+    gap: 0.45rem;
+}
+
+.tabela-filter-range > label {
+    display: grid;
+    gap: 0.35rem;
+    width: 100%;
+}
+
+.tabela-filter-range > label > input {
+    width: 100%;
+    min-width: 0;
+    height: 2.5rem;
+}
+
+.tabela-filter-panel__title {
+    margin-bottom: 0.55rem;
+}
+
+.tabela-filter__options {
+    display: grid;
+    gap: 0.4rem;
+}
+
+.tabela-filter__options label {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.7rem 0.75rem;
+}
+
+.tabela-acoes {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0;
+    flex-wrap: nowrap;
+}
+
+.tabela-acoes__lista {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.45rem;
+    min-width: 0;
+}
+
+.tabela-acoes__cabecalho {
+    display: none;
+}
+
+.tabela-acoes__lista > button,
+.tabela-acoes__toggle,
+.tabela-acoes__fechar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 0;
+}
+
+.tabela-acoes__lista > button > .icone {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.tabela-acoes__lista > button > .icone + span {
+    display: none;
+}
+
+.tabela-acoes:not([data-open]) .tabela-acoes__lista > button:nth-child(n + 5) {
+    display: none;
+}
+
+.tabela-acoes[data-open]:not(.menu) .tabela-acoes__lista {
+    position: absolute;
+    top: 50%;
+    right: 2.9rem;
+    z-index: 10;
+    transform: translateY(-50%);
+    padding: 0.45rem;
+}
+
+.tabela-acoes[data-open]:not(.menu) .tabela-acoes__lista > button {
+    display: inline-flex;
+}
+
+.tabela-acoes.menu[data-open] .tabela-acoes__lista {
+    position: absolute;
+    top: calc(100% + 0.6rem);
+    right: 0;
+    z-index: 11;
+    flex-direction: column;
+    align-items: stretch;
+    min-width: 18rem;
+    padding: 0.8rem;
+}
+
+.tabela-acoes.menu[data-open] .tabela-acoes__cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding-bottom: 0.8rem;
+    margin-bottom: 0.45rem;
+}
+
+.tabela-acoes.menu[data-open] .tabela-acoes__toggle {
+    display: none;
+}
+
+.tabela-acoes.menu[data-open] .tabela-acoes__lista > button {
+    width: 100%;
+    height: auto;
+    justify-content: flex-start;
+    gap: 0.75rem;
+    padding: 0.7rem 0.1rem;
+}
+
+.tabela-acoes.menu[data-open] .tabela-acoes__lista > button:last-child {
+    padding-bottom: 0.1rem;
+}
+
+.tabela-acoes.menu[data-open] .tabela-acoes__lista > button > .icone + span {
+    display: inline;
+}
+
+td:has(.tabela-acoes.menu[data-open]) {
+    z-index: 12;
 }

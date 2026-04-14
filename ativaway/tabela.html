@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-BR" data-theme="light">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dashboard Base</title>
-<link rel="stylesheet" href="css/layout.css">
-<link rel="stylesheet" href="../arquivos/css/base.css">
-<link rel="stylesheet" href="../arquivos/css/table.css">
-<link rel="stylesheet" href="css/layout.css">
-<link rel="stylesheet" href="../arquivos/css/effect1.css">
-<script type="module" src="../arquivos/js/ui.js"></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Dashboard Base</title>
+	<link rel="stylesheet" href="css/layout.css">
+	<link rel="stylesheet" href="../arquivos/css/base.css">
+	<link rel="stylesheet" href="../arquivos/css/table.css">
+	<link rel="stylesheet" href="../arquivos/css/effect1.css">
+	<script type="module" src="../arquivos/js/ui.js"></script>
 </head>
+
 <body>
 	<header>
 		<h1>Dashboard</h1>
@@ -20,490 +21,892 @@
 		<nav role="tablist" aria-label="Telas do sistema">
 			<menu>
 				<li role="presentation">
-					<button type="button" role="tab" id="tab-usuarios"
-						aria-selected="true" aria-controls="panel-usuarios" tabindex="0">
-						<span>Lista - Usuários</span>
+					<button type="button" role="tab" id="tab-usuarios" aria-selected="true"
+						aria-controls="panel-usuarios" tabindex="0">
+						<span>Lista - Usuarios</span>
 					</button>
-
-					<button type="button" class="icone"
-						aria-label="Fechar guia: Lista - Usuários" data-close>
-						close</button>
+					<button type="button" class="icone" aria-label="Fechar guia: Lista - Usuarios" data-close>close</button>
 				</li>
 
 				<li role="presentation">
-					<button type="button" role="tab" id="tab-empresas"
-						aria-selected="false" aria-controls="panel-empresas" tabindex="-1">
+					<button type="button" role="tab" id="tab-empresas" aria-selected="false"
+						aria-controls="panel-empresas" tabindex="-1">
 						<span>Lista - Empresas</span>
 					</button>
-
-					<button type="button" class="icone"
-						aria-label="Fechar guia: Lista - Empresas" data-close>
-						close</button>
+					<button type="button" class="icone" aria-label="Fechar guia: Lista - Empresas" data-close>close</button>
 				</li>
 
 				<li role="presentation">
-					<button type="button" role="tab" id="tab-certidoes"
-						aria-selected="false" aria-controls="panel-certidoes"
-						tabindex="-1">
-						<span>Lista - Certidões</span>
+					<button type="button" role="tab" id="tab-certidoes" aria-selected="false"
+						aria-controls="panel-certidoes" tabindex="-1">
+						<span>Lista - Certidoes</span>
 					</button>
-
-					<button type="button" class="icone"
-						aria-label="Fechar guia: Lista - Certidões" data-close>
-						close</button>
+					<button type="button" class="icone" aria-label="Fechar guia: Lista - Certidoes" data-close>close</button>
 				</li>
 			</menu>
 		</nav>
 
-		<section role="tabpanel" id="panel-usuarios"
-			aria-labelledby="tab-usuarios">
-			<!-- conteúdo usuários -->
-			<table id="certidao-relatorio-entrada">
-				<caption>
-					Tabela de entrada de certidões [17/01/2026 ]
-				</caption>
-				<thead>
-					<tr>
-						<th>
-							<form autocomplete="off" method="POST" name="">
-								<span class="effect"> <select id="exibicao" name="exibicao" required>
-								<option value="10">10 - linhas</option>
-								<option value="25" selected>25 - linhas</option>
-								<option value="50" >50 - linhas</option>
-								<option value="100" >100 - linhas</option>
-								</select> <label for="exibicao">Exibindo:</label>
-								</span>
-							
-							<div class="box-4">
-						<fieldset class="effect" required>
-							<legend>Escolha uma opção</legend>
+		<section class="tabela-container">
+			<form autocomplete="off" method="post">
+				<fieldset><legend>Usuarios</legend></fieldset>
+				<div class="box-2 input-button">
+					<button type="submit" class="icone" aria-label="Pesquisar na tabela">search</button>
+					<span class="effect">
+						<input type="search" id="pesquisar-certidoes" name="pesquisar" placeholder="Pesquisar"
+							maxlength="100" aria-label="Pesquisar registros da tabela">
+						<label for="pesquisar-certidoes">Pesquisar</label>
+					</span>
+				</div>
+				<div class="box-1">
+					<fieldset class="effect">
+						<legend>Filtro</legend>
+						<div class="select-container" tabindex="0" data-select data-name="filtro-geral">
+							<button type="button" class="icone" aria-label="Expandir filtros">filter_alt</button>
+							<label><input type="radio" name="filtro-geral" value="todos" checked> Todos</label>
+							<label><input type="radio" name="filtro-geral" value="em-dia"> Em dia</label>
+							<label><input type="radio" name="filtro-geral" value="alerta"> Em alerta</label>
+							<label><input type="radio" name="filtro-geral" value="vencido"> Vencidos</label>
+						</div>
+					</fieldset>
+				</div>
+				<div class="box-1">
+					<fieldset class="effect">
+						<legend>Exibindo</legend>
+						<div class="select-container" tabindex="0" data-select data-name="exibir">
+							<button type="button" class="icone" aria-label="Expandir opcoes de exibicao">expand_circle_up</button>
+							<label><input type="radio" name="exibir" value="10" checked> 10 linhas</label>
+							<label><input type="radio" name="exibir" value="25"> 25 linhas</label>
+							<label><input type="radio" name="exibir" value="50"> 50 linhas</label>
+						</div>
+					</fieldset>
+				</div>
+			</form>
 
-							<div class="select-container" tabindex="0" data-select
-								data-name="opcoes">
-									<button type="button" class="icone">expand_circle_up</button>
-								<label> <input type="radio" name="opcoes" value="a"
-									checked> Opção A
-								</label> <label> <input type="radio" name="opcoes" value="b">
-									Opção B
-								</label> <label> <input type="radio" name="opcoes" value="c">
-									Opção C
+			<div class="tabela">
+				<table id="certidao-area-trabalho" data-name="certidao-area-trabalho">
+					<caption>Usuarios</caption>
+					<thead>
+						<tr>
+							<th scope="col">Selecionar</th>
+							<th scope="col" aria-sort="none">Razao social</th>
+							<th scope="col" aria-sort="none">CNPJ</th>
+							<th scope="col" aria-sort="none">Certidao</th>
+							<th scope="col" aria-sort="none">Tipo</th>
+							<th scope="col" aria-sort="none">Situacao</th>
+							<th scope="col" aria-sort="none">Emissao</th>
+							<th scope="col" aria-sort="descending">Validade</th>
+							<th scope="col" aria-sort="none">Status</th>
+							<th scope="col" aria-sort="none">Cod.</th>
+							<th scope="col" aria-sort="none">Pasta</th>
+							<th scope="col" aria-sort="none">Metodo</th>
+							<th scope="col" aria-sort="none">Obtida</th>
+							<th scope="col" aria-sort="none">Periodicidade</th>
+							<th scope="col" aria-sort="none">Modo</th>
+							<th scope="col" aria-sort="none">Renovacao</th>
+							<th scope="col" aria-sort="none">Intervalo</th>
+							<th scope="col" aria-sort="none">Aguardando</th>
+							<th scope="col" aria-sort="none">Referencia</th>
+							<th scope="col" aria-sort="none">Consulta</th>
+							<th scope="col" aria-sort="none">Mensagem</th>
+							<th scope="col" aria-sort="none">Agenda</th>
+							<th scope="col">Opcoes</th>
+						</tr>
+						<tr>
+							<th>
+								<label aria-label="Selecionar todos os registros">
+									<input type="checkbox" name="selecionar-todos">
+									<span></span>
 								</label>
-								
-							</div>
-
-						</fieldset>
-					</div>
-							</form>
-						</th>
-					</tr>
-					<tr>
-						<th>Selecionar</th>
-						<th>Razão Social</th>
-						<th>CNPJ</th>
-						<th>Certidão</th>
-						<th>Emissao</th>
-						<th>Opções</th>
-					</tr>
-					<tr>
-						<th>
-							<fieldset class="effect" required>
-							<legend>Selecionar tudo</legend>
-							<div class="radio-checkbox-container">
-								<label> <input type="checkbox" name="opcoes" value="true"
-									required> <span></span>
-								</label>
-							</div>
-						</fieldset>	
-						</th>
-						<th><input type="search" placeholder="Razão Social"
-							name="pesquisarColuna"></th>
-						<th><input type="search" placeholder="CNPJ"
-							name="pesquisarColuna"></th>
-						<th><input type="search" placeholder="Certidão"
-							name="pesquisarColuna"></th>
-						<th>
-						<input type="date" placeholder="Emissão"
-							name="pesquisarColuna">
-							<div class="sub-filtro">
-							<label><input type="checkbox"/>d</label>
-								<select id="subFiltroEmissao" name="subFiltroEmissao" multiple required>
-									<option value="ATE">Até</option>
-									<option value="IGUAL" selected>Igual</option>
-									<option value="APARTIR" >A partir</option>
-								</select>
-							</div>
 							</th>
-						<th><input type="search" placeholder="Origem"
-							name="pesquisarColuna"></th>
-						<th></th>
-					</tr>
+							<th>
+								<div class="tabela-filter">
+									<input type="search" name="filtro-razao-social" placeholder="Razao social" aria-label="Filtrar por razao social">
+									<button type="button" class="icone tabela-filter-toggle" aria-controls="sub-filtro-razao-social" aria-expanded="false" aria-label="Abrir opcoes do filtro de razao social">filter_alt</button>
+									<fieldset id="sub-filtro-razao-social" class="tabela-filter-panel sub-filtro" data-ready="1" hidden>
+										<legend>Opcoes do filtro de razao social</legend>
+										<div class="radio-checkbox-container">
+											<label><input type="radio" name="filtro-razao-social-criterio" value="CONTEM" checked><span></span>Contem</label>
+											<label><input type="radio" name="filtro-razao-social-criterio" value="NAO_CONTEM"><span></span>Nao contem</label>
+											<label><input type="radio" name="filtro-razao-social-criterio" value="IGUAL"><span></span>Igual</label>
+										</div>
+										<div class="radio-checkbox-container">
+											<label><input type="checkbox" name="filtro-razao-social-especial" value="IGNORAR"><span></span>Ignorar caracteres especiais</label>
+										</div>
+									</fieldset>
+								</div>
+							</th>
+							<th>
+								<div class="tabela-filter">
+									<input type="search" name="filtro-cnpj" placeholder="CNPJ" aria-label="Filtrar por CNPJ">
+									<button type="button" class="icone tabela-filter-toggle" aria-controls="sub-filtro-cnpj" aria-expanded="false" aria-label="Abrir opcoes do filtro de CNPJ">filter_alt</button>
+									<fieldset id="sub-filtro-cnpj" class="tabela-filter-panel sub-filtro" data-ready="1" hidden>
+										<legend>Opcoes do filtro de CNPJ</legend>
+										<div class="radio-checkbox-container">
+											<label><input type="radio" name="filtro-cnpj-criterio" value="CONTEM" checked><span></span>Contem</label>
+											<label><input type="radio" name="filtro-cnpj-criterio" value="NAO_CONTEM"><span></span>Nao contem</label>
+											<label><input type="radio" name="filtro-cnpj-criterio" value="IGUAL"><span></span>Igual</label>
+										</div>
+										<div class="radio-checkbox-container">
+											<label><input type="checkbox" name="filtro-cnpj-especial" value="IGNORAR"><span></span>Ignorar caracteres especiais</label>
+										</div>
+									</fieldset>
+								</div>
+							</th>
+							<th>
+								<div class="tabela-filter">
+									<input type="search" name="filtro-certidao" placeholder="Certidao" aria-label="Filtrar por certidao">
+									<button type="button" class="icone tabela-filter-toggle" aria-controls="sub-filtro-certidao" aria-expanded="false" aria-label="Abrir opcoes do filtro de certidao">filter_alt</button>
+									<fieldset id="sub-filtro-certidao" class="tabela-filter-panel sub-filtro" data-ready="1" hidden>
+										<legend>Opcoes do filtro de certidao</legend>
+										<div class="radio-checkbox-container">
+											<label><input type="radio" name="filtro-certidao-criterio" value="CONTEM" checked><span></span>Contem</label>
+											<label><input type="radio" name="filtro-certidao-criterio" value="NAO_CONTEM"><span></span>Nao contem</label>
+											<label><input type="radio" name="filtro-certidao-criterio" value="IGUAL"><span></span>Igual</label>
+										</div>
+										<div class="radio-checkbox-container">
+											<label><input type="checkbox" name="filtro-certidao-especial" value="IGNORAR"><span></span>Ignorar caracteres especiais</label>
+										</div>
+									</fieldset>
+								</div>
+							</th>
+							<th>
+								<div class="tabela-filter">
+									<input type="search" name="filtro-tipo" placeholder="Tipo" aria-label="Filtrar por tipo">
+									<button type="button" class="icone tabela-filter-toggle" aria-controls="sub-filtro-tipo" aria-expanded="false" aria-label="Abrir opcoes do filtro de tipo">filter_alt</button>
+									<fieldset id="sub-filtro-tipo" class="tabela-filter-panel sub-filtro" data-ready="1" hidden>
+										<legend>Opcoes do filtro de tipo</legend>
+										<div class="radio-checkbox-container">
+											<label><input type="radio" name="filtro-tipo-criterio" value="CONTEM" checked><span></span>Contem</label>
+											<label><input type="radio" name="filtro-tipo-criterio" value="NAO_CONTEM"><span></span>Nao contem</label>
+											<label><input type="radio" name="filtro-tipo-criterio" value="IGUAL"><span></span>Igual</label>
+										</div>
+										<div class="radio-checkbox-container">
+											<label><input type="checkbox" name="filtro-tipo-especial" value="IGNORAR"><span></span>Ignorar caracteres especiais</label>
+										</div>
+									</fieldset>
+								</div>
+							</th>
+							<th>
+								<div class="tabela-filter">
+									<input type="search" name="filtro-situacao" placeholder="Situacao" aria-label="Filtrar por situacao">
+									<button type="button" class="icone tabela-filter-toggle" aria-controls="sub-filtro-situacao" aria-expanded="false" aria-label="Abrir opcoes do filtro de situacao">filter_alt</button>
+									<fieldset id="sub-filtro-situacao" class="tabela-filter-panel sub-filtro" data-ready="1" hidden>
+										<legend>Opcoes do filtro de situacao</legend>
+										<div class="radio-checkbox-container">
+											<label><input type="radio" name="filtro-situacao-criterio" value="CONTEM" checked><span></span>Contem</label>
+											<label><input type="radio" name="filtro-situacao-criterio" value="NAO_CONTEM"><span></span>Nao contem</label>
+											<label><input type="radio" name="filtro-situacao-criterio" value="IGUAL"><span></span>Igual</label>
+										</div>
+										<div class="radio-checkbox-container">
+											<label><input type="checkbox" name="filtro-situacao-especial" value="IGNORAR"><span></span>Ignorar caracteres especiais</label>
+										</div>
+									</fieldset>
+								</div>
+							</th>
+							<th>
+								<div class="tabela-filter">
+									<input type="date" name="filtro-emissao" aria-label="Filtrar por emissao">
+									<button type="button" class="icone tabela-filter-toggle" aria-controls="sub-filtro-emissao" aria-expanded="false" aria-label="Abrir opcoes do filtro de emissao">filter_alt</button>
+									<fieldset id="sub-filtro-emissao" class="tabela-filter-panel sub-filtro" data-ready="1" hidden>
+										<legend>Opcoes do filtro de emissao</legend>
+										<div class="radio-checkbox-container">
+											<label><input type="radio" name="filtro-emissao-criterio" value="ANTES"><span></span>Antes</label>
+											<label><input type="radio" name="filtro-emissao-criterio" value="IGUAL" checked><span></span>Igual</label>
+											<label><input type="radio" name="filtro-emissao-criterio" value="DEPOIS"><span></span>Depois</label>
+											<label><input type="radio" name="filtro-emissao-criterio" value="ENTRE"><span></span>Entre</label>
+										</div>
+										<div class="tabela-filter-range" hidden>
+											<label>
+												<span>Ate</span>
+												<input type="date" name="filtro-emissao-fim" aria-label="Data final do filtro de emissao" data-range-end disabled>
+											</label>
+										</div>
+									</fieldset>
+								</div>
+							</th>
+							<th>
+								<div class="tabela-filter">
+									<input type="date" name="filtro-validade" aria-label="Filtrar por validade">
+									<button type="button" class="icone tabela-filter-toggle" aria-controls="sub-filtro-validade" aria-expanded="false" aria-label="Abrir opcoes do filtro de validade">filter_alt</button>
+									<fieldset id="sub-filtro-validade" class="tabela-filter-panel sub-filtro" data-ready="1" hidden>
+										<legend>Opcoes do filtro de validade</legend>
+										<div class="radio-checkbox-container">
+											<label><input type="radio" name="filtro-validade-criterio" value="ANTES"><span></span>Antes</label>
+											<label><input type="radio" name="filtro-validade-criterio" value="IGUAL" checked><span></span>Igual</label>
+											<label><input type="radio" name="filtro-validade-criterio" value="DEPOIS"><span></span>Depois</label>
+											<label><input type="radio" name="filtro-validade-criterio" value="ENTRE"><span></span>Entre</label>
+										</div>
+										<div class="tabela-filter-range" hidden>
+											<label>
+												<span>Ate</span>
+												<input type="date" name="filtro-validade-fim" aria-label="Data final do filtro de validade" data-range-end disabled>
+											</label>
+										</div>
+									</fieldset>
+								</div>
+							</th>
+							<th>
+								<div class="tabela-filter">
+									<input type="search" name="filtro-status" placeholder="Status" aria-label="Filtrar por status">
+									<button type="button" class="icone tabela-filter-toggle" aria-controls="sub-filtro-status" aria-expanded="false" aria-label="Abrir opcoes do filtro de status">filter_alt</button>
+									<fieldset id="sub-filtro-status" class="tabela-filter-panel sub-filtro" data-ready="1" hidden>
+										<legend>Opcoes do filtro de status</legend>
+										<div class="radio-checkbox-container">
+											<label><input type="radio" name="filtro-status-criterio" value="CONTEM" checked><span></span>Contem</label>
+											<label><input type="radio" name="filtro-status-criterio" value="NAO_CONTEM"><span></span>Nao contem</label>
+											<label><input type="radio" name="filtro-status-criterio" value="IGUAL"><span></span>Igual</label>
+										</div>
+										<div class="radio-checkbox-container">
+											<label><input type="checkbox" name="filtro-status-especial" value="IGNORAR"><span></span>Ignorar caracteres especiais</label>
+										</div>
+									</fieldset>
+								</div>
+							</th>
+							<th>
+								<div class="tabela-filter">
+									<input type="number" name="filtro-codigo" placeholder="Cod." aria-label="Filtrar por codigo">
+									<button type="button" class="icone tabela-filter-toggle" aria-controls="sub-filtro-codigo" aria-expanded="false" aria-label="Abrir opcoes do filtro de codigo">filter_alt</button>
+									<fieldset id="sub-filtro-codigo" class="tabela-filter-panel sub-filtro" data-ready="1" hidden>
+										<legend>Opcoes do filtro de codigo</legend>
+										<div class="radio-checkbox-container">
+											<label><input type="radio" name="filtro-codigo-criterio" value="MENOR"><span></span>Menor</label>
+											<label><input type="radio" name="filtro-codigo-criterio" value="IGUAL" checked><span></span>Igual</label>
+											<label><input type="radio" name="filtro-codigo-criterio" value="MAIOR"><span></span>Maior</label>
+											<label><input type="radio" name="filtro-codigo-criterio" value="ENTRE"><span></span>Entre</label>
+										</div>
+										<div class="tabela-filter-range" hidden>
+											<label>
+												<span>Ate</span>
+												<input type="number" name="filtro-codigo-fim" placeholder="Valor final" aria-label="Valor final do filtro de codigo" data-range-end disabled>
+											</label>
+										</div>
+									</fieldset>
+								</div>
+							</th>
+							<th>
+								<div class="tabela-filter">
+									<input type="search" name="filtro-pasta" placeholder="Pasta" aria-label="Filtrar por pasta">
+									<button type="button" class="icone tabela-filter-toggle" aria-controls="sub-filtro-pasta" aria-expanded="false" aria-label="Abrir opcoes do filtro de pasta">filter_alt</button>
+									<fieldset id="sub-filtro-pasta" class="tabela-filter-panel sub-filtro" data-ready="1" hidden>
+										<legend>Opcoes do filtro de pasta</legend>
+										<div class="radio-checkbox-container">
+											<label><input type="radio" name="filtro-pasta-criterio" value="CONTEM" checked><span></span>Contem</label>
+											<label><input type="radio" name="filtro-pasta-criterio" value="NAO_CONTEM"><span></span>Nao contem</label>
+											<label><input type="radio" name="filtro-pasta-criterio" value="IGUAL"><span></span>Igual</label>
+										</div>
+										<div class="radio-checkbox-container">
+											<label><input type="checkbox" name="filtro-pasta-especial" value="IGNORAR"><span></span>Ignorar caracteres especiais</label>
+										</div>
+									</fieldset>
+								</div>
+							</th>
+							<th>
+								<div class="tabela-filter">
+									<input type="search" name="filtro-metodo" placeholder="Metodo" aria-label="Filtrar por metodo">
+									<button type="button" class="icone tabela-filter-toggle" aria-controls="sub-filtro-metodo" aria-expanded="false" aria-label="Abrir opcoes do filtro de metodo">filter_alt</button>
+									<fieldset id="sub-filtro-metodo" class="tabela-filter-panel sub-filtro" data-ready="1" hidden>
+										<legend>Opcoes do filtro de metodo</legend>
+										<div class="radio-checkbox-container">
+											<label><input type="radio" name="filtro-metodo-criterio" value="CONTEM" checked><span></span>Contem</label>
+											<label><input type="radio" name="filtro-metodo-criterio" value="NAO_CONTEM"><span></span>Nao contem</label>
+											<label><input type="radio" name="filtro-metodo-criterio" value="IGUAL"><span></span>Igual</label>
+										</div>
+										<div class="radio-checkbox-container">
+											<label><input type="checkbox" name="filtro-metodo-especial" value="IGNORAR"><span></span>Ignorar caracteres especiais</label>
+										</div>
+									</fieldset>
+								</div>
+							</th>
+							<th>
+								<div class="tabela-filter">
+									<input type="date" name="filtro-obtida" aria-label="Filtrar por data obtida">
+									<button type="button" class="icone tabela-filter-toggle" aria-controls="sub-filtro-obtida" aria-expanded="false" aria-label="Abrir opcoes do filtro de data obtida">filter_alt</button>
+									<fieldset id="sub-filtro-obtida" class="tabela-filter-panel sub-filtro" data-ready="1" hidden>
+										<legend>Opcoes do filtro de data obtida</legend>
+										<div class="radio-checkbox-container">
+											<label><input type="radio" name="filtro-obtida-criterio" value="ANTES"><span></span>Antes</label>
+											<label><input type="radio" name="filtro-obtida-criterio" value="IGUAL" checked><span></span>Igual</label>
+											<label><input type="radio" name="filtro-obtida-criterio" value="DEPOIS"><span></span>Depois</label>
+											<label><input type="radio" name="filtro-obtida-criterio" value="ENTRE"><span></span>Entre</label>
+										</div>
+										<div class="tabela-filter-range" hidden>
+											<label>
+												<span>Ate</span>
+												<input type="date" name="filtro-obtida-fim" aria-label="Data final do filtro de data obtida" data-range-end disabled>
+											</label>
+										</div>
+									</fieldset>
+								</div>
+							</th>
+							<th>
+								<div class="tabela-filter">
+									<input type="search" name="filtro-periodicidade" placeholder="Periodicidade" aria-label="Filtrar por periodicidade">
+									<button type="button" class="icone tabela-filter-toggle" aria-controls="sub-filtro-periodicidade" aria-expanded="false" aria-label="Abrir opcoes do filtro de periodicidade">filter_alt</button>
+									<fieldset id="sub-filtro-periodicidade" class="tabela-filter-panel sub-filtro" data-ready="1" hidden>
+										<legend>Opcoes do filtro de periodicidade</legend>
+										<div class="radio-checkbox-container">
+											<label><input type="radio" name="filtro-periodicidade-criterio" value="CONTEM" checked><span></span>Contem</label>
+											<label><input type="radio" name="filtro-periodicidade-criterio" value="NAO_CONTEM"><span></span>Nao contem</label>
+											<label><input type="radio" name="filtro-periodicidade-criterio" value="IGUAL"><span></span>Igual</label>
+										</div>
+										<div class="radio-checkbox-container">
+											<label><input type="checkbox" name="filtro-periodicidade-especial" value="IGNORAR"><span></span>Ignorar caracteres especiais</label>
+										</div>
+									</fieldset>
+								</div>
+							</th>
+							<th>
+								<div class="tabela-filter">
+									<input type="search" name="filtro-modo" placeholder="Modo" aria-label="Filtrar por modo">
+									<button type="button" class="icone tabela-filter-toggle" aria-controls="sub-filtro-modo" aria-expanded="false" aria-label="Abrir opcoes do filtro de modo">filter_alt</button>
+									<fieldset id="sub-filtro-modo" class="tabela-filter-panel sub-filtro" data-ready="1" hidden>
+										<legend>Opcoes do filtro de modo</legend>
+										<div class="radio-checkbox-container">
+											<label><input type="radio" name="filtro-modo-criterio" value="CONTEM" checked><span></span>Contem</label>
+											<label><input type="radio" name="filtro-modo-criterio" value="NAO_CONTEM"><span></span>Nao contem</label>
+											<label><input type="radio" name="filtro-modo-criterio" value="IGUAL"><span></span>Igual</label>
+										</div>
+										<div class="radio-checkbox-container">
+											<label><input type="checkbox" name="filtro-modo-especial" value="IGNORAR"><span></span>Ignorar caracteres especiais</label>
+										</div>
+									</fieldset>
+								</div>
+							</th>
+							<th>
+								<div class="tabela-filter">
+									<input type="search" name="filtro-renovacao" placeholder="Renovacao" aria-label="Filtrar por renovacao">
+									<button type="button" class="icone tabela-filter-toggle" aria-controls="sub-filtro-renovacao" aria-expanded="false" aria-label="Abrir opcoes do filtro de renovacao">filter_alt</button>
+									<fieldset id="sub-filtro-renovacao" class="tabela-filter-panel sub-filtro" data-ready="1" hidden>
+										<legend>Opcoes do filtro de renovacao</legend>
+										<div class="radio-checkbox-container">
+											<label><input type="radio" name="filtro-renovacao-criterio" value="CONTEM" checked><span></span>Contem</label>
+											<label><input type="radio" name="filtro-renovacao-criterio" value="NAO_CONTEM"><span></span>Nao contem</label>
+											<label><input type="radio" name="filtro-renovacao-criterio" value="IGUAL"><span></span>Igual</label>
+										</div>
+										<div class="radio-checkbox-container">
+											<label><input type="checkbox" name="filtro-renovacao-especial" value="IGNORAR"><span></span>Ignorar caracteres especiais</label>
+										</div>
+									</fieldset>
+								</div>
+							</th>
+							<th>
+								<div class="tabela-filter">
+									<input type="number" name="filtro-intervalo" placeholder="Intervalo" aria-label="Filtrar por intervalo">
+									<button type="button" class="icone tabela-filter-toggle" aria-controls="sub-filtro-intervalo" aria-expanded="false" aria-label="Abrir opcoes do filtro de intervalo">filter_alt</button>
+									<fieldset id="sub-filtro-intervalo" class="tabela-filter-panel sub-filtro" data-ready="1" hidden>
+										<legend>Opcoes do filtro de intervalo</legend>
+										<div class="radio-checkbox-container">
+											<label><input type="radio" name="filtro-intervalo-criterio" value="MENOR"><span></span>Menor</label>
+											<label><input type="radio" name="filtro-intervalo-criterio" value="IGUAL" checked><span></span>Igual</label>
+											<label><input type="radio" name="filtro-intervalo-criterio" value="MAIOR"><span></span>Maior</label>
+											<label><input type="radio" name="filtro-intervalo-criterio" value="ENTRE"><span></span>Entre</label>
+										</div>
+										<div class="tabela-filter-range" hidden>
+											<label>
+												<span>Ate</span>
+												<input type="number" name="filtro-intervalo-fim" placeholder="Valor final" aria-label="Valor final do filtro de intervalo" data-range-end disabled>
+											</label>
+										</div>
+									</fieldset>
+								</div>
+							</th>
+							<th>
+								<div class="tabela-filter">
+									<input type="number" name="filtro-aguardando" placeholder="Aguardando" aria-label="Filtrar por aguardando">
+									<button type="button" class="icone tabela-filter-toggle" aria-controls="sub-filtro-aguardando" aria-expanded="false" aria-label="Abrir opcoes do filtro de aguardando">filter_alt</button>
+									<fieldset id="sub-filtro-aguardando" class="tabela-filter-panel sub-filtro" data-ready="1" hidden>
+										<legend>Opcoes do filtro de aguardando</legend>
+										<div class="radio-checkbox-container">
+											<label><input type="radio" name="filtro-aguardando-criterio" value="MENOR"><span></span>Menor</label>
+											<label><input type="radio" name="filtro-aguardando-criterio" value="IGUAL" checked><span></span>Igual</label>
+											<label><input type="radio" name="filtro-aguardando-criterio" value="MAIOR"><span></span>Maior</label>
+											<label><input type="radio" name="filtro-aguardando-criterio" value="ENTRE"><span></span>Entre</label>
+										</div>
+										<div class="tabela-filter-range" hidden>
+											<label>
+												<span>Ate</span>
+												<input type="number" name="filtro-aguardando-fim" placeholder="Valor final" aria-label="Valor final do filtro de aguardando" data-range-end disabled>
+											</label>
+										</div>
+									</fieldset>
+								</div>
+							</th>
+							<th>
+								<div class="tabela-filter">
+									<input type="search" name="filtro-referencia" placeholder="Referencia" aria-label="Filtrar por referencia">
+									<button type="button" class="icone tabela-filter-toggle" aria-controls="sub-filtro-referencia" aria-expanded="false" aria-label="Abrir opcoes do filtro de referencia">filter_alt</button>
+									<fieldset class="sub-filtro-antigo" hidden disabled>
+										<legend>Opcoes do filtro de referencia</legend>
+										<div class="radio-checkbox-container">
+											<label> <input type="radio" name="opcoes" value="CONTEM"
+												required> <span></span>Contém
+											</label> <label> <input type="radio" name="opcoes" value="NAO_CONTEM">
+												<span></span>Não contém
+											</label> <label> <input type="radio" name="opcoes" value="IGUAL">
+												<span></span>Igual
+											</label>
+										</div>
+										<div class="radio-checkbox-container">
+											<label> <input type="checkbox" name="opcao" value="true"
+												required> <span></span>Ignorar caracteres especiais
+											</label>
+										</div>
+									</fieldset>
+									<fieldset id="sub-filtro-referencia" class="tabela-filter-panel sub-filtro" data-ready="1" hidden>
+										<legend>Opcoes do filtro de referencia</legend>
+										<div class="radio-checkbox-container">
+											<label><input type="radio" name="filtro-referencia-criterio" value="CONTEM" checked><span></span>Contem</label>
+											<label><input type="radio" name="filtro-referencia-criterio" value="NAO_CONTEM"><span></span>Nao contem</label>
+											<label><input type="radio" name="filtro-referencia-criterio" value="IGUAL"><span></span>Igual</label>
+										</div>
+										<div class="radio-checkbox-container">
+											<label><input type="checkbox" name="filtro-referencia-especial" value="IGNORAR"><span></span>Ignorar caracteres especiais</label>
+										</div>
+									</fieldset>
+								</div>
+							</th>
+							<th>
+								<div class="tabela-filter">
+									<input type="date" name="filtro-consulta" aria-label="Filtrar por consulta">
+									<button type="button" class="icone tabela-filter-toggle" aria-controls="sub-filtro-consulta" aria-expanded="false" aria-label="Abrir opcoes do filtro de consulta">filter_alt</button>
+									<fieldset class="sub-filtro-antigo" hidden disabled>
+										<legend>Opcoes do filtro de consulta</legend>
+										<div class="radio-checkbox-container">
+											<label> <input type="radio" name="opcoes" value="ANTES"
+												required> <span></span>Antes
+											</label> <label> <input type="radio" name="opcoes" value="DEPOIS">
+												<span></span>Depois
+											</label> <label> <input type="radio" name="opcoes" value="IGUAL">
+												<span></span>Igual
+											</label>
+										</div>
+										
+									</fieldset>
+									<fieldset id="sub-filtro-consulta" class="tabela-filter-panel sub-filtro" data-ready="1" hidden>
+										<legend>Opcoes do filtro de consulta</legend>
+										<div class="radio-checkbox-container">
+											<label><input type="radio" name="filtro-consulta-criterio" value="ANTES"><span></span>Antes</label>
+											<label><input type="radio" name="filtro-consulta-criterio" value="IGUAL" checked><span></span>Igual</label>
+											<label><input type="radio" name="filtro-consulta-criterio" value="DEPOIS"><span></span>Depois</label>
+											<label><input type="radio" name="filtro-consulta-criterio" value="ENTRE"><span></span>Entre</label>
+										</div>
+										<div class="tabela-filter-range" hidden>
+											<label>
+												<span>Ate</span>
+												<input type="date" name="filtro-consulta-fim" aria-label="Data final do filtro de consulta" data-range-end disabled>
+											</label>
+										</div>
+									</fieldset>
+								</div>
+							</th>
+							<th>
+								<div class="tabela-filter">
+									<input type="search" name="filtro-mensagem" placeholder="Mensagem" aria-label="Filtrar por mensagem">
+									<button type="button" class="icone tabela-filter-toggle" aria-controls="sub-filtro-mensagem" aria-expanded="false" aria-label="Abrir opcoes do filtro de mensagem">filter_alt</button>
+									<fieldset id="sub-filtro-mensagem" class="tabela-filter-panel sub-filtro" data-ready="1" hidden>
+										<legend>Opcoes do filtro de mensagem</legend>
+										<div class="radio-checkbox-container">
+											<label><input type="radio" name="filtro-mensagem-criterio" value="CONTEM" checked><span></span>Contem</label>
+											<label><input type="radio" name="filtro-mensagem-criterio" value="NAO_CONTEM"><span></span>Nao contem</label>
+											<label><input type="radio" name="filtro-mensagem-criterio" value="IGUAL"><span></span>Igual</label>
+										</div>
+										<div class="radio-checkbox-container">
+											<label><input type="checkbox" name="filtro-mensagem-especial" value="IGNORAR"><span></span>Ignorar caracteres especiais</label>
+										</div>
+									</fieldset>
+								</div>
+							</th>
+							<th>
+								<div class="tabela-filter">
+									<input type="search" name="filtro-agenda" placeholder="Agenda" aria-label="Filtrar por agenda">
+									<button type="button" class="icone tabela-filter-toggle" aria-controls="sub-filtro-agenda" aria-expanded="false" aria-label="Abrir opcoes do filtro de agenda">filter_alt</button>
+									<fieldset id="sub-filtro-agenda" class="tabela-filter-panel sub-filtro" data-ready="1" hidden>
+										<legend>Opcoes do filtro de agenda</legend>
+										<div class="radio-checkbox-container">
+											<label><input type="radio" name="filtro-agenda-criterio" value="CONTEM" checked><span></span>Contem</label>
+											<label><input type="radio" name="filtro-agenda-criterio" value="NAO_CONTEM"><span></span>Nao contem</label>
+											<label><input type="radio" name="filtro-agenda-criterio" value="IGUAL"><span></span>Igual</label>
+										</div>
+										<div class="radio-checkbox-container">
+											<label><input type="checkbox" name="filtro-agenda-especial" value="IGNORAR"><span></span>Ignorar caracteres especiais</label>
+										</div>
+									</fieldset>
+								</div>
+							</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr tabindex="1" data-id="696d24201e5afc772fca67b4" data-iddocumento="695324861474d716005d65f2"
+							data-filtro="vencido" data-tipo="VENCIDO" data-identificador="DEBITOS_TRIBUTARIOS"
+							data-opcoes="painel_certidao,visualizar_documento,consultar_certidao,certidao_salvar,mini_historico,declarar_pendencias,certidao_observacoes,editar_controle,editar_certidao,desativar_certidao,">
+							<td>
+								<div class="radio-checkbox-container">
+									<label><input type="checkbox" name="opcoes" value="a"><span></span></label>
+								</div>
+							</td>
+							<td>BC CONCESSOES E<p hidden>BC CONCESSOES E PARTICIPACOES LTDA</p></td>
+							<td>33.644.865/0001-40</td>
+							<td>ESTADUAL : RJ : Procuradoria</td>
+							<td>Tributaria</td>
+							<td>CPEN</td>
+							<td>30/03/2023</td>
+							<td>26/09/2023</td>
+							<td data-status="vermelho">vencido</td>
+							<td>2500</td>
+							<td>ESTADUAL</td>
+							<td>Automatizado</td>
+							<td>29/12/2025 22:01</td>
+							<td>SEMESTRAL</td>
+							<td>CICLO</td>
+							<td>Livre</td>
+							<td>90</td>
+							<td>3</td>
+							<td>ESTADUAL : RJ : Procuradoria : Tributaria</td>
+							<td>21/03/2026</td>
+							<td data-status="laranja">Existem pendencias</td>
+							<td>AGENDADO -&gt; 24/03/2026</td>
+							<td>
+								<form class="tabela-acoes" aria-label="Acoes do registro BC CONCESSOES E PARTICIPACOES LTDA">
+									<nav id="acoes-linha-1" class="tabela-acoes__lista" aria-label="Opcoes para BC CONCESSOES E PARTICIPACOES LTDA">
+										<header class="tabela-acoes__cabecalho">
+											<strong>Opcoes para:</strong>
+											<button type="button" class="icone tabela-acoes__fechar" data-menu-close aria-label="Fechar opcoes desta linha">close</button>
+										</header>
+										<button type="button" value="painel" aria-label="Painel de controle" title="Painel de controle" data-tone="cyan">
+											<span class="icone" aria-hidden="true">space_dashboard</span>
+											<span>Painel de controle</span>
+										</button>
+										<button type="button" value="visualizar" aria-label="Visualizar documento" title="Visualizar documento" data-tone="blue">
+											<span class="icone" aria-hidden="true">document_scanner</span>
+											<span>Visualizar documento</span>
+										</button>
+										<button type="button" value="consultar" aria-label="Consultar certidao" title="Consultar certidao" data-tone="sage">
+											<span class="icone" aria-hidden="true">replay</span>
+											<span>Consultar certidao</span>
+										</button>
+										<button type="button" value="salvar" aria-label="Salvar certidao" title="Salvar certidao" data-tone="green">
+											<span class="icone" aria-hidden="true">save_alt</span>
+											<span>Salvar certidao</span>
+										</button>
+										<button type="button" value="historico" aria-label="Visualizar historico" title="Visualizar historico" data-tone="violet">
+											<span class="icone" aria-hidden="true">source</span>
+											<span>Visualizar historico</span>
+										</button>
+										<button type="button" value="pendencias" aria-label="Declarar pendencias" title="Declarar pendencias" data-tone="emerald">
+											<span class="icone" aria-hidden="true">post_add</span>
+											<span>Declarar pendencias</span>
+										</button>
+										<button type="button" value="arquivo" aria-label="Carregar certidao" title="Carregar certidao" data-tone="sky">
+											<span class="icone" aria-hidden="true">attach_file_add</span>
+											<span>Carregar certidao</span>
+										</button>
+										<button type="button" value="observacoes" aria-label="Observacoes vencidas" title="Observacoes vencidas" data-tone="slate">
+											<span class="icone" aria-hidden="true">report</span>
+											<span>Observacoes vencidas</span>
+										</button>
+										<button type="button" value="controle" aria-label="Editar controle" title="Editar controle" data-tone="amber">
+											<span class="icone" aria-hidden="true">tune</span>
+											<span>Editar controle</span>
+										</button>
+										<button type="button" value="editar" aria-label="Editar certidao" title="Editar certidao" data-tone="orange">
+											<span class="icone" aria-hidden="true">mode_edit_outline</span>
+											<span>Editar certidao</span>
+										</button>
+										<button type="button" value="desativar" aria-label="Desativar controle" title="Desativar controle" data-tone="red">
+											<span class="icone" aria-hidden="true">timer_off</span>
+											<span>Desativar controle</span>
+										</button>
+									</nav>
+									<button type="button" class="icone tabela-acoes__toggle" data-menu-toggle aria-haspopup="true" aria-expanded="false" aria-controls="acoes-linha-1" aria-label="Abrir opcoes da linha">more_horiz</button>
+								</form>
+							</td>
+						</tr>
+                        <tr class="tr-even" tabindex="2" data-id="a9d2ee2b5cd1c7e1b2f12345" data-iddocumento="695324861474d716005d65f3"
+                            data-filtro="em-dia" data-tipo="OK" data-identificador="FISCAL"
+                            data-opcoes="painel_certidao,editar_certidao,consultar_certidao,salvar,desativar_certidao,">
+                            <td>
+                                <div class="radio-checkbox-container">
+                                    <label><input type="checkbox" name="opcoes" value="b"><span></span></label>
+                                </div>
+                            </td>
+                            <td>ACME COMERCIO LTDA<p hidden>ACME COMERCIO LTDA</p></td>
+                            <td>12.345.678/0001-90</td>
+                            <td>ESTADUAL : SP : Fazenda</td>
+                            <td>Tributaria</td>
+                            <td>OK</td>
+                            <td>05/02/2024</td>
+                            <td>05/02/2025</td>
+                            <td data-status="verde">ativo</td>
+                            <td>2450</td>
+                            <td>ESTADUAL</td>
+                            <td>Manual</td>
+                            <td>10/11/2024 09:12</td>
+                            <td>ANUAL</td>
+                            <td>CICLO</td>
+                            <td>Livre</td>
+                            <td>365</td>
+                            <td>1</td>
+                            <td>ESTADUAL : SP : Fazenda : Tributaria</td>
+                            <td>22/11/2025</td>
+                            <td data-status="verde">sem pendencias</td>
+                            <td>AGENDADO -&gt; 22/11/2025</td>
+                            <td>
+                                <form class="tabela-acoes" aria-label="Acoes do registro ACME COMERCIO LTDA">
+                                    <nav id="acoes-linha-2" class="tabela-acoes__lista" aria-label="Opcoes para ACME COMERCIO LTDA">
+                                        <header class="tabela-acoes__cabecalho">
+                                            <strong>Opcoes para:</strong>
+                                            <button type="button" class="icone tabela-acoes__fechar" data-menu-close aria-label="Fechar opcoes desta linha">close</button>
+                                        </header>
+                                        <button type="button" value="revisao" aria-label="Abrir painel de revisao" title="Abrir painel de revisao" data-tone="cyan">
+                                            <span class="icone" aria-hidden="true">analytics</span>
+                                            <span>Painel</span>
+                                        </button>
+                                        <button type="button" value="editar" aria-label="Editar certidao" title="Editar certidao" data-tone="orange">
+                                            <span class="icone" aria-hidden="true">mode_edit_outline</span>
+                                            <span>Editar</span>
+                                        </button>
+                                        <button type="button" value="salvar" aria-label="Salvar certidao" title="Salvar certidao" data-tone="green">
+                                            <span class="icone" aria-hidden="true">save_alt</span>
+                                            <span>Salvar</span>
+                                        </button>
+                                        <button type="button" value="consultar" aria-label="Consultar certidao" title="Consultar certidao" data-tone="sage">
+                                            <span class="icone" aria-hidden="true">replay</span>
+                                            <span>Consultar</span>
+                                        </button>
+                                        <button type="button" value="acompanhar" aria-label="Acompanhar" title="Acompanhar" data-tone="slate">
+                                            <span class="icone" aria-hidden="true">monitor_heart</span>
+                                            <span>Acompanhar</span>
+                                        </button>
+                                    </nav>
+                                    <button type="button" class="icone tabela-acoes__toggle" data-menu-toggle aria-haspopup="true" aria-expanded="false" aria-controls="acoes-linha-2" aria-label="Abrir opcoes da linha">more_horiz</button>
+                                </form>
+                            </td>
+                        </tr>
+                        <tr class="tr-odd tr-ativa" tabindex="3" data-id="b9c3ee2b5cd1c7e1b2f12346" data-iddocumento="695324861474d716005d65f4"
+                            data-filtro="alerta" data-tipo="ALERTA" data-identificador="TRIBUTARIO"
+                            data-opcoes="painel_certidao,editar_certidao,consultar_certidao,salvar,acompanhar,">
+                            <td>
+                                <div class="radio-checkbox-container">
+                                    <label><input type="checkbox" name="opcoes" value="c"><span></span></label>
+                                </div>
+                            </td>
+                            <td>BRASIL LOGISTICA<p hidden>BRASIL LOGISTICA S.A.</p></td>
+                            <td>98.765.432/0001-11</td>
+                            <td>MUNICIPAL : RJ : Tributos</td>
+                            <td>Certidao</td>
+                            <td>ALERTA</td>
+                            <td>15/08/2024</td>
+                            <td>15/08/2025</td>
+                            <td data-status="laranja">vencendo</td>
+                            <td>3100</td>
+                            <td>MUNICIPAL</td>
+                            <td>Automatizado</td>
+                            <td>03/10/2024 14:35</td>
+                            <td>SEMANAL</td>
+                            <td>FIXO</td>
+                            <td>Livre</td>
+                            <td>7</td>
+                            <td>2</td>
+                            <td>MUNICIPAL : RJ : Tributos : Certidao</td>
+                            <td>15/08/2025</td>
+                            <td data-status="laranja">pendencias</td>
+                            <td>ABERTO</td>
+                            <td>
+                                <form class="tabela-acoes" aria-label="Acoes do registro BRASIL LOGISTICA S.A.">
+                                    <nav id="acoes-linha-3" class="tabela-acoes__lista" aria-label="Opcoes para BRASIL LOGISTICA S.A.">
+                                        <header class="tabela-acoes__cabecalho">
+                                            <strong>Opcoes para:</strong>
+                                            <button type="button" class="icone tabela-acoes__fechar" data-menu-close aria-label="Fechar opcoes desta linha">close</button>
+                                        </header>
+                                        <button type="button" value="revisao" aria-label="Abrir painel de revisao" title="Abrir painel de revisao" data-tone="cyan">
+                                            <span class="icone" aria-hidden="true">analytics</span>
+                                            <span>Revisao</span>
+                                        </button>
+                                        <button type="button" value="editar" aria-label="Editar certidao" title="Editar certidao" data-tone="orange">
+                                            <span class="icone" aria-hidden="true">mode_edit_outline</span>
+                                            <span>Editar</span>
+                                        </button>
+                                        <button type="button" value="consultar" aria-label="Consultar certidao" title="Consultar certidao" data-tone="sage">
+                                            <span class="icone" aria-hidden="true">replay</span>
+                                            <span>Consultar</span>
+                                        </button>
+                                        <button type="button" value="acompanhar" aria-label="Acompanhar" title="Acompanhar" data-tone="slate">
+                                            <span class="icone" aria-hidden="true">monitor_heart</span>
+                                            <span>Acompanhar</span>
+                                        </button>
+                                    </nav>
+                                    <button type="button" class="icone tabela-acoes__toggle" data-menu-toggle aria-haspopup="true" aria-expanded="false" aria-controls="acoes-linha-3" aria-label="Abrir opcoes da linha">more_horiz</button>
+                                </form>
+                            </td>
+                        </tr>
+                        <tr class="tr-even" tabindex="4" data-id="c9d4ee2b5cd1c7e1b2f12347" data-iddocumento="695324861474d716005d65f5"
+                            data-filtro="alerta" data-tipo="PENDENTE" data-identificador="CONFORMIDADE"
+                            data-opcoes="painel_certidao,editar_certidao,consultar_certidao,salvar,desativar_certidao,">
+                            <td>
+                                <div class="radio-checkbox-container">
+                                    <label><input type="checkbox" name="opcoes" value="d"><span></span></label>
+                                </div>
+                            </td>
+                            <td>DELTA ENGENHARIA<p hidden>DELTA ENGENHARIA E CONSTRUCAO LTDA</p></td>
+                            <td>77.111.222/0001-55</td>
+                            <td>ESTADUAL : MG : Obras</td>
+                            <td>Exame</td>
+                            <td>PENDENTE</td>
+                            <td>01/12/2024</td>
+                            <td>01/12/2025</td>
+                            <td data-status="vermelho">atrasado</td>
+                            <td>4120</td>
+                            <td>ESTADUAL</td>
+                            <td>Manual</td>
+                            <td>18/12/2024 08:25</td>
+                            <td>TRIMESTRAL</td>
+                            <td>CICLO</td>
+                            <td>Livre</td>
+                            <td>90</td>
+                            <td>5</td>
+                            <td>ESTADUAL : MG : Obras : Exame</td>
+                            <td>01/12/2025</td>
+                            <td data-status="vermelho">documento faltante</td>
+                            <td>AGENDADO -&gt; 01/12/2025</td>
+                            <td>
+                                <form class="tabela-acoes" aria-label="Acoes do registro DELTA ENGENHARIA E CONSTRUCAO LTDA">
+                                    <nav id="acoes-linha-4" class="tabela-acoes__lista" aria-label="Opcoes para DELTA ENGENHARIA E CONSTRUCAO LTDA">
+                                        <header class="tabela-acoes__cabecalho">
+                                            <strong>Opcoes para:</strong>
+                                            <button type="button" class="icone tabela-acoes__fechar" data-menu-close aria-label="Fechar opcoes desta linha">close</button>
+                                        </header>
+                                        <button type="button" value="editar" aria-label="Editar certidao" title="Editar certidao" data-tone="orange">
+                                            <span class="icone" aria-hidden="true">mode_edit_outline</span>
+                                            <span>Editar</span>
+                                        </button>
+                                        <button type="button" value="salvar" aria-label="Salvar certidao" title="Salvar certidao" data-tone="green">
+                                            <span class="icone" aria-hidden="true">save_alt</span>
+                                            <span>Salvar</span>
+                                        </button>
+                                        <button type="button" value="consultar" aria-label="Consultar certidao" title="Consultar certidao" data-tone="sage">
+                                            <span class="icone" aria-hidden="true">replay</span>
+                                            <span>Consultar</span>
+                                        </button>
+                                    </nav>
+                                    <button type="button" class="icone tabela-acoes__toggle" data-menu-toggle aria-haspopup="true" aria-expanded="false" aria-controls="acoes-linha-4" aria-label="Abrir opcoes da linha">more_horiz</button>
+                                </form>
+                            </td>
+                        </tr>
+                        <tr class="tr-odd tr-inativa" tabindex="5" data-id="d9e5ee2b5cd1c7e1b2f12348" data-iddocumento="695324861474d716005d65f6"
+                            data-filtro="arquivado" data-tipo="ARQUIVADO" data-identificador="EMPRESARIAL"
+                            data-opcoes="painel_certidao,editar_certidao,consultar_certidao,acompanhar,">
+                            <td>
+                                <div class="radio-checkbox-container">
+                                    <label><input type="checkbox" name="opcoes" value="e"><span></span></label>
+                                </div>
+                            </td>
+                            <td>ELITE SISTEMAS<p hidden>ELITE SISTEMAS SOFTWARE LTDA</p></td>
+                            <td>55.333.444/0001-23</td>
+                            <td>FEDERAL : DF : Registros</td>
+                            <td>Fiscal</td>
+                            <td>ARQUIVADO</td>
+                            <td>20/01/2023</td>
+                            <td>20/01/2024</td>
+                            <td data-status="vermelho">encerrado</td>
+                            <td>5200</td>
+                            <td>FEDERAL</td>
+                            <td>Manual</td>
+                            <td>11/03/2024 17:00</td>
+                            <td>ANUAL</td>
+                            <td>CICLO</td>
+                            <td>Livre</td>
+                            <td>365</td>
+                            <td>0</td>
+                            <td>FEDERAL : DF : Registros : Fiscal</td>
+                            <td>20/01/2024</td>
+                            <td data-status="vermelho">sem atualizacao</td>
+                            <td>FECHADO</td>
+                            <td>
+                                <form class="tabela-acoes" aria-label="Acoes do registro ELITE SISTEMAS SOFTWARE LTDA">
+                                    <nav id="acoes-linha-5" class="tabela-acoes__lista" aria-label="Opcoes para ELITE SISTEMAS SOFTWARE LTDA">
+                                        <header class="tabela-acoes__cabecalho">
+                                            <strong>Opcoes para:</strong>
+                                            <button type="button" class="icone tabela-acoes__fechar" data-menu-close aria-label="Fechar opcoes desta linha">close</button>
+                                        </header>
+                                        <button type="button" value="editar" aria-label="Editar certidao" title="Editar certidao" data-tone="orange">
+                                            <span class="icone" aria-hidden="true">mode_edit_outline</span>
+                                            <span>Editar</span>
+                                        </button>
+                                        <button type="button" value="consultar" aria-label="Consultar certidao" title="Consultar certidao" data-tone="sage">
+                                            <span class="icone" aria-hidden="true">replay</span>
+                                            <span>Consultar</span>
+                                        </button>
+                                        <button type="button" value="acompanhar" aria-label="Acompanhar" title="Acompanhar" data-tone="slate">
+                                            <span class="icone" aria-hidden="true">monitor_heart</span>
+                                            <span>Acompanhar</span>
+                                        </button>
+                                    </nav>
+                                    <button type="button" class="icone tabela-acoes__toggle" data-menu-toggle aria-haspopup="true" aria-expanded="false" aria-controls="acoes-linha-5" aria-label="Abrir opcoes da linha">more_horiz</button>
+                                </form>
+                            </td>
+                        </tr>
+                    </tbody>
+					<tfoot>
+						<tr>
+							<th scope="col">Selecionar</th>
+							<th scope="col">Razao social</th>
+							<th scope="col">CNPJ</th>
+							<th scope="col">Certidao</th>
+							<th scope="col">Tipo</th>
+							<th scope="col">Situacao</th>
+							<th scope="col">Emissao</th>
+							<th scope="col" aria-sort="descending">Validade</th>
+							<th scope="col">Status</th>
+							<th scope="col">Cod.</th>
+							<th scope="col">Pasta</th>
+							<th scope="col">Metodo</th>
+							<th scope="col">Obtida</th>
+							<th scope="col">Periodicidade</th>
+							<th scope="col">Modo</th>
+							<th scope="col">Renovacao</th>
+							<th scope="col">Intervalo</th>
+							<th scope="col">Aguardando</th>
+							<th scope="col">Referencia</th>
+							<th scope="col">Consulta</th>
+							<th scope="col">Mensagem</th>
+							<th scope="col">Agenda</th>
+							<th scope="col">Opcoes</th>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
 
-				</thead>
-				<tbody>
-					<tr tabindex="1" data-id="696aa93f313dca7dddd93e26"
-						data-iddocumento="696aa93f313dca7dddd93e26"
-						data-identificador="MOBILIARIA"
-						data-opcoes="visualizar_documento, certidao_salvar,mini_historico,">
-						<td>
-							<fieldset class="effect" required>
-							<legend></legend>
-							<div class="radio-checkbox-container">
-								<label> <input type="checkbox" name="opcoes" value="idRow"
-									required> <span></span>
-								</label>
-							</div>
-						</fieldset>	
-						</td>
-						<td>CLARO S.A.</td>
-						<td>40.432.544/0845-70</td>
-						<td>MUNICIPAL : BA : SALVADOR : PGM/PREFEITURA : MOBILIÁRIA</td>
-						<td>16/01/2026 18:10</td>
-						<td>
-							<div>
-								<span data-titulo="Visualizar documento">document_scanner</span><span
-									data-titulo="Salvar">save_alt</span><span
-									data-titulo="Histórico">source</span> <label
-									for="opcoesTrEntrada696aa93f313dca7dddd93e26"> <input
-									id="opcoesTrEntrada696aa93f313dca7dddd93e26"
-									name="opcoesTrEntrada" value="true" type="checkbox">
-								</label>
-							</div>
-						</td>
-					</tr>
-				</tbody>
-				<tfoot>
-					<tr>
-						<th>Selecionar</th>
-						<th>Razão Social</th>
-						<th>CNPJ</th>
-						<th>Certidão</th>
-						<th>Emissão</th>
-						<th>Opções</th>
-					</tr>
-					<tr>
-						<th colspan="2"><p>Exibindo de 1 até 2 de 2 registros<p></th>
-						<th colspan="4"><menu><button class="icone">navigate_before</button>
-							<button data-pagina="1" class="ativo">01</button>
-							<button class="icone">navigate_next</button></menu></th>
-					</tr>
-				</tfoot>
-			</table>
+			<form class="paginacao">
+				<span>Exibindo de 1 ate 10 de 303 registros</span>
+				<nav aria-label="Paginacao da tabela">
+					<button type="button" aria-label="Pagina anterior">navigate_before</button>
+					<button type="button" data-pagina="1" class="ativo" aria-current="page">01</button>
+					<button type="button" data-pagina="2">02</button>
+					<button type="button" data-pagina="3">03</button>
+					<button type="button" data-pagina="4">04</button>
+					<button type="button" data-pagina="5">05</button>
+					<button type="button" data-pagina="6">06</button>
+					<button type="button" data-pagina="7">07</button>
+					<button type="button" aria-label="Mais paginas">more_horiz</button>
+					<button type="button" data-pagina="31">31</button>
+					<button type="button" aria-label="Proxima pagina">navigate_next</button>
+				</nav>
+			</form>
 		</section>
 
-		<section role="tabpanel" id="panel-empresas"
-			aria-labelledby="tab-empresas" hidden>
-			<!-- conteúdo empresas -->
+		<section role="tabpanel" id="panel-empresas" aria-labelledby="tab-empresas" hidden>
+			<!-- conteudo empresas -->
 		</section>
 
-		<section role="tabpanel" id="panel-certidoes"
-			aria-labelledby="tab-certidoes" hidden>
-			<!-- conteúdo certidões -->
+		<section role="tabpanel" id="panel-certidoes" aria-labelledby="tab-certidoes" hidden>
+			<!-- conteudo certidoes -->
 		</section>
 	</main>
-
 
 	<footer>
 		<p>&copy; 2025 - Sistema Dashboard</p>
 	</footer>
-	<dialog>
-	<form method="dialog" class="tabs">
-		<header>
-			<h2>Cadastro de Empresa</h2>
-			<button aria-label="Fechar modal">
-				<span>close</span>
-			</button>
-		</header>
-
-		<nav role="tablist" aria-label="Seções do formulário">
-			<button type="button" role="tab" aria-selected="true">
-				<span>badge</span>
-				<p>Identificação</p>
-			</button>
-			<button type="button" role="tab" aria-selected="false">
-				<span>call</span>
-				<p>Contato</p>
-			</button>
-			<button type="button" role="tab" aria-selected="false">
-				<span>location_on</span>
-				<p>Endereço</p>
-			</button>
-			<button type="button" role="tab" aria-selected="false">
-				<span>business_center</span>
-				<p>Atividades</p>
-			</button>
-			<button type="button" role="tab" aria-selected="false">
-				<span>receipt_long</span>
-				<p>Inscrições</p>
-			</button>
-			<button type="button" role="tab" aria-selected="false">
-				<span>upload_file</span>
-				<p>Anexos</p>
-			</button>
-		</nav>
-
-		<main>
-			<!-- Identificação -->
-			<section role="tabpanel">
-				<fieldset>
-					<legend>Identificação</legend>
-					<div class="box-4">
-						<fieldset class="effect" required>
-							<legend>Escolha uma opção</legend>
-
-							<div class="radio-checkbox-container">
-								<label> <input type="radio" name="opcao" value="a"
-									required> <span></span>Opção A
-								</label> <label> <input type="radio" name="opcao" value="b">
-									<span></span>Opção B
-								</label> <label> <input type="radio" name="opcao" value="c">
-									<span></span>Opção C
-								</label>
-							</div>
-
-							<span id="erro-opcao">Escolha uma das opções</span>
-						</fieldset>
-					</div>
-					<div class="box-4">
-						<fieldset class="effect" required>
-							<legend>Escolha uma ou mais opções</legend>
-
-							<div class="radio-checkbox-container">
-								<label> <input type="checkbox" name="opcoes" value="a"
-									required> <span></span>Opção A
-								</label> <label> <input type="checkbox" name="opcoes" value="b">
-									<span></span>Opção B
-								</label> <label> <input type="checkbox" name="opcoes" value="c">
-									<span></span>Opção C
-								</label>
-							</div>
-
-							<span id="erro-opcoes">Escolha uma ou mais opções</span>
-						</fieldset>
-					</div>
-					<div class="box-4">
-						<fieldset class="effect" required>
-							<legend>Escolha uma opção</legend>
-
-							<div class="select-container" tabindex="0" data-select
-								data-name="opcoes">
-
-
-								<label> <input type="radio" name="opcoes" value="a"
-									required checked> Opção A
-								</label> <label> <input type="radio" name="opcoes" value="b">
-									Opção B
-								</label> <label> <input type="radio" name="opcoes" value="c">
-									Opção C
-								</label>
-							</div>
-
-							<span id="erro-opcoes">Escolha uma opção</span>
-						</fieldset>
-					</div>
-
-					<div class="box-4">
-						<span class="effect"> <input type="text" id="razao"
-							name="razao" placeholder="Razão social" required minlength="3"
-							maxlength="150" pattern="^[\wÀ-ÿ\s]{3,150}$"
-							aria-describedby="erro-razao" /> <label for="razao">Razão
-								Social</label> <span id="erro-razao">Informe a razão social (3 a
-								150 caracteres).</span>
-						</span>
-					</div>
-
-					<div class="box-4">
-						<span class="effect"> <input type="text" id="fantasia"
-							name="fantasia" placeholder="Nome fantasia" maxlength="100"
-							pattern="^[\wÀ-ÿ\s]{1,100}$" aria-describedby="erro-fantasia" />
-							<label for="fantasia">Nome Fantasia</label> <span
-							id="erro-fantasia">Informe um nome fantasia com até 100
-								caracteres.</span>
-						</span>
-					</div>
-
-					<div class="box-2">
-						<span class="effect"> <input type="text" id="cnpj"
-							name="cnpj" placeholder="CNPJ" required
-							pattern="\d{2}\.\d{3}\.\d{3}/\d{4}-\d{2}"
-							aria-describedby="erro-cnpj" /> <label for="cnpj">CNPJ</label> <span
-							id="erro-cnpj">Informe um CNPJ válido (ex:
-								00.000.000/0000-00).</span>
-						</span>
-					</div>
-
-					<div class="box-2">
-						<span class="effect"> <select id="natureza" name="natureza"
-							required aria-describedby="erro-natureza">
-								<option hidden selected disabled>Selecione</option>
-								<option value="EMPRESA_INDIVIDUAL">Empresa Individual</option>
-								<option value="SOCIEDADE_LIMITADA">Sociedade Limitada</option>
-								<option value="SOCIEDADE_ANONIMA">Sociedade Anônima</option>
-								<option value="ASSOCIACAO_PRIVADA">Associação Privada</option>
-								<option value="COOPERATIVA">Cooperativa</option>
-						</select> <label for="natureza">Natureza Jurídica</label> <span
-							id="erro-natureza">Selecione a natureza jurídica.</span>
-						</span>
-					</div>
-
-					<div class="box-2">
-						<span class="effect"> <select id="porte" name="porte"
-							required aria-describedby="erro-porte">
-								<option hidden selected disabled>Selecione</option>
-								<option value="MEI">MEI</option>
-								<option value="ME">Micro Empresa</option>
-								<option value="EPP">Empresa de Pequeno Porte</option>
-								<option value="MEDIA">Média</option>
-								<option value="GRANDE">Grande</option>
-								<option value="PUBLICA">Pública</option>
-								<option value="DEMAIS">Demais</option>
-						</select> <label for="porte">Porte</label> <span id="erro-porte">Selecione
-								o porte da empresa.</span>
-						</span>
-					</div>
-					<div class="upload-area">
-						<span class="label">Cartão CNPJ</span> <label for="arquivo">
-							<input type="file" id="arquivo" name="arquivo" hidden> <span
-							class="icone material-symbols-outlined">upload_file</span>
-							<p>Arraste ou clique para enviar</p> <output id="arquivo-nome">Nenhum
-								arquivo</output>
-						</label>
-					</div>
-				</fieldset>
-			</section>
-
-			<!-- Contato -->
-			<section hidden role="tabpanel">
-				<fieldset>
-					<legend>Telefones</legend>
-					<div class="box-4">
-						<span class="effect"> <input type="tel" id="numero"
-							name="numero" required pattern="\(\d{2}\)\s?\d{4,5}-\d{4}"
-							minlength="14" maxlength="15" placeholder="(11) 91234-5678">
-							<label for="numero">Número</label> <span id="erro-numero">Informe
-								um número válido no formato (11) 91234-5678</span>
-						</span>
-					</div>
-
-					<div class="box-2">
-						<span class="effect"> <select id="tipo" name="tipo"
-							required>
-								<option value="">Selecione</option>
-								<option value="FIXO">Fixo</option>
-								<option value="MOVEL">Móvel</option>
-								<option value="WHATSAPP">WhatsApp</option>
-						</select> <label for="tipo">Tipo</label><span id="erro-tipo">Selecione
-								o tipo</span>
-						</span>
-					</div>
-
-					<div class="box-2">
-						<span class="effect"> <select id="categoria"
-							name="categoria" required>
-								<option value="">Selecione</option>
-								<option value="PRIMARIO">Primário</option>
-								<option value="SECUNDARIO">Secundário</option>
-								<option value="CONTATO" data-reflexo="contato">Contato</option>
-						</select> <label for="categoria">Categoria</label> <span
-							id="erro-categoria">Selecione a categoria</span>
-						</span>
-					</div>
-					<div class="box-4">
-						<span class="effect"> <input type="text" id="contato"
-							name="contato" maxlength="100"
-							placeholder="Nome do contato (opcional)"><label
-							for="contato">Contato</label>
-						</span>
-					</div>
-				</fieldset>
-			</section>
-
-			<!-- Endereço -->
-			<section hidden role="tabpanel">
-				<fieldset>
-					<legend>Endereço Principal</legend>
-					<div class="box-2">
-						<span class="effect"> <input type="text" id="cep"
-							name="cep" placeholder="CEP" required pattern="\d{5}-\d{3}"
-							aria-describedby="erro-cep" /> <label for="cep">CEP</label> <span
-							id="erro-cep">Informe o CEP (ex: 00000-000).</span>
-						</span>
-						<button>
-							<span>search</span>
-						</button>
-					</div>
-					<div class="box-3">
-						<span class="effect"> <input type="text" id="logradouro"
-							name="logradouro" placeholder="Rua / Avenida" required
-							minlength="3" maxlength="100" aria-describedby="erro-logradouro" />
-							<label for="logradouro">Logradouro</label> <span
-							id="erro-logradouro">Informe o logradouro (3 a 100
-								caracteres).</span>
-						</span>
-					</div>
-
-					<div class="box-1">
-						<span class="effect"> <input type="text" id="numero"
-							name="numero" placeholder="Número" required minlength="1"
-							maxlength="10" aria-describedby="erro-numero" /> <label
-							for="numero">Número</label> <span id="erro-numero">Informe
-								o número (até 10 caracteres).</span>
-						</span>
-					</div>
-
-					<div class="box-2">
-						<span class="effect"> <input type="text" id="complemento"
-							name="complemento" placeholder="Complemento" maxlength="50"
-							aria-describedby="erro-complemento" /> <label for="complemento">Complemento</label>
-							<span id="erro-complemento">Complemento (opcional, até 50
-								caracteres).</span>
-						</span>
-					</div>
-
-					<div class="box-2">
-						<span class="effect"> <input type="text" id="bairro"
-							name="bairro" placeholder="Bairro" required minlength="3"
-							maxlength="50" aria-describedby="erro-bairro" /> <label
-							for="bairro">Bairro</label> <span id="erro-bairro">Informe
-								o bairro (3 a 50 caracteres).</span>
-						</span>
-					</div>
-					<div class="box-3">
-						<span class="effect"> <input type="text" id="municipio"
-							name="municipio" placeholder="Cidade" required minlength="3"
-							maxlength="50" aria-describedby="erro-municipio" /> <label
-							for="municipio">Município</label> <span id="erro-municipio">Informe
-								a cidade (3 a 50 caracteres).</span>
-						</span>
-					</div>
-
-					<div class="box-1">
-						<span class="effect"> <input type="text" id="uf" name="uf"
-							placeholder="UF" required pattern="[A-Z]{2}" maxlength="2"
-							aria-describedby="erro-uf" /> <label for="uf">UF</label> <span
-							id="erro-uf">Informe a UF (ex: SP, RJ).</span>
-						</span>
-					</div>
-
-				</fieldset>
-			</section>
-		</main>
-
-		<footer>
-			<button type="reset">
-				<span>delete</span>
-				<p>Limpar</p>
-			</button>
-			<span id="erro-formulario">Preencha todas as informações
-				obrigatórias do formulário para liberar a opção de salvar</span>
-			<button type="submit">
-				<span>check</span>
-				<p>Salvar</p>
-			</button>
-		</footer>
-	</form>
-	</dialog>
-	<script>
-
-</script>
 </body>
+
 </html>

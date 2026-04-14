@@ -1,0 +1,318 @@
+main[data-dashboard="certidoes"] > header {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(18rem, 24rem);
+	align-items: end;
+	gap: 1rem 1.5rem;
+}
+
+main[data-dashboard="certidoes"] > header > div {
+	display: grid;
+	gap: 0.35rem;
+}
+
+main[data-dashboard="certidoes"] > header > div > p,
+main[data-dashboard="certidoes"] .metricas > .painel > p,
+main[data-dashboard="certidoes"] .dupla > :first-child > header p,
+main[data-dashboard="certidoes"] > article[data-listagem] > header p {
+	font-size: 0.78rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--text-color-inactive);
+}
+
+main[data-dashboard="certidoes"] > header h1 {
+	font-size: clamp(2rem, 3vw, 2.8rem);
+}
+
+main[data-dashboard="certidoes"] > header small,
+main[data-dashboard="certidoes"] .metricas > .painel > small,
+main[data-dashboard="certidoes"] .dupla > :first-child > header small,
+main[data-dashboard="certidoes"] > article[data-listagem] > header small,
+main[data-dashboard="certidoes"] .tabela-container > form:first-child fieldset p {
+	color: var(--text-color-inactive);
+}
+
+main[data-dashboard="certidoes"] > header form {
+	padding: 0;
+	display: flex;
+	align-items: flex-end;
+	justify-content: flex-end;
+	gap: 0.75rem;
+	flex-wrap: nowrap;
+}
+
+main[data-dashboard="certidoes"] > header form > .effect {
+	flex: 1 1 0;
+}
+
+main[data-dashboard="certidoes"] > header form > button,
+main[data-dashboard="certidoes"] .tabela-container > form:first-child > button {
+	min-height: 2.75rem;
+	white-space: nowrap;
+}
+
+main[data-dashboard="certidoes"] .metricas {
+	grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+main[data-dashboard="certidoes"] .metricas[data-mes] {
+	grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+main[data-dashboard="certidoes"] .metricas > .painel {
+	align-content: start;
+	min-height: 9.5rem;
+}
+
+main[data-dashboard="certidoes"] .metricas > .painel > strong {
+	font-size: clamp(2rem, 2.6vw, 2.6rem);
+	line-height: 1;
+	color: var(--text-color-title);
+}
+
+main[data-dashboard="certidoes"] .metricas > .painel[data-tone="total"] {
+	--painel-accent: var(--color-primary);
+}
+
+main[data-dashboard="certidoes"] .metricas > .painel[data-tone="validas"] {
+	--painel-accent: var(--color-success);
+}
+
+main[data-dashboard="certidoes"] .metricas > .painel[data-tone="vencidas"] {
+	--painel-accent: var(--cor-vermelho);
+}
+
+main[data-dashboard="certidoes"] .metricas > .painel[data-tone="alertas"] {
+	--painel-accent: var(--color-warning);
+}
+
+main[data-dashboard="certidoes"] .metricas > .painel[data-tone="pendencias"] {
+	--painel-accent: var(--color-pink);
+}
+
+main[data-dashboard="certidoes"] .metricas > .painel[data-tone="renovando"] {
+	--painel-accent: var(--color-info);
+}
+
+main[data-dashboard="certidoes"] .metricas > .painel[data-tone="mes-total"] {
+	--painel-accent: var(--color-indigo);
+}
+
+main[data-dashboard="certidoes"] .metricas > .painel[data-tone="mes-importadas"] {
+	--painel-accent: var(--color-teal);
+}
+
+main[data-dashboard="certidoes"] .metricas > .painel[data-tone="mes-pendencias"] {
+	--painel-accent: var(--color-orange-soft);
+}
+
+main[data-dashboard="certidoes"] .metricas > .painel[data-tone="mes-revisao"] {
+	--painel-accent: var(--color-cyan);
+}
+
+main[data-dashboard="certidoes"] .metricas > .painel[data-tone="mes-falhas"] {
+	--painel-accent: var(--cor-vermelho);
+}
+
+main[data-dashboard="certidoes"] .dupla {
+	grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.85fr);
+}
+
+main[data-dashboard="certidoes"] .dupla > :first-child > ol {
+	display: grid;
+	gap: 0.75rem;
+}
+
+main[data-dashboard="certidoes"] .dupla > :first-child > ol > li {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) auto;
+	align-items: center;
+	gap: 0.35rem 1rem;
+	padding: 0.9rem 1rem;
+	border-radius: 0.9rem;
+	background-color: rgba(255, 255, 255, 0.04);
+}
+
+main[data-dashboard="certidoes"] .dupla > :first-child > ol > li > div {
+	display: grid;
+	gap: 0.15rem;
+	min-width: 0;
+}
+
+main[data-dashboard="certidoes"] .dupla > :first-child > ol > li strong,
+main[data-dashboard="certidoes"] .dupla > aside > strong,
+main[data-dashboard="certidoes"] .tabela-container legend,
+main[data-dashboard="certidoes"] > article[data-listagem] th,
+main[data-dashboard="certidoes"] > article[data-listagem] td {
+	color: var(--text-color-title);
+}
+
+main[data-dashboard="certidoes"] .dupla > :first-child > ol > li span {
+	color: var(--text-color-inactive);
+}
+
+main[data-dashboard="certidoes"] .dupla > :first-child > ol > li small {
+	font-weight: 700;
+	color: var(--color-warning-pastel);
+}
+
+main[data-dashboard="certidoes"] .dupla > aside {
+	align-content: space-between;
+	background:
+		radial-gradient(circle at top right, rgba(255, 145, 77, 0.22), transparent 42%),
+		linear-gradient(180deg, rgba(25, 118, 210, 0.12), transparent 75%),
+		var(--background-color-card);
+}
+
+main[data-dashboard="certidoes"] .dupla > aside > p:first-of-type {
+	font-size: 0.82rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--text-color-inactive);
+}
+
+main[data-dashboard="certidoes"] .dupla > aside > strong {
+	font-size: clamp(3.2rem, 6vw, 4.8rem);
+	line-height: 0.95;
+}
+
+main[data-dashboard="certidoes"] .dupla > aside > p:last-of-type {
+	max-width: 22rem;
+}
+
+main[data-dashboard="certidoes"] .dupla > aside > dl {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 0.85rem;
+}
+
+main[data-dashboard="certidoes"] .dupla > aside > dl > div {
+	display: grid;
+	gap: 0.15rem;
+	padding-top: 0.75rem;
+	border-top: 0.0625rem solid rgba(255, 255, 255, 0.12);
+}
+
+main[data-dashboard="certidoes"] .dupla > aside dt {
+	font-size: 0.82rem;
+	color: var(--text-color-inactive);
+}
+
+main[data-dashboard="certidoes"] .dupla > aside dd {
+	font-size: 1.35rem;
+	font-weight: 700;
+	color: var(--text-color-title);
+}
+
+main[data-dashboard="certidoes"] > article[data-listagem] {
+	overflow: auto;
+}
+
+main[data-dashboard="certidoes"] > article[data-listagem] > table td:last-child,
+main[data-dashboard="certidoes"] > article[data-listagem] > table th:last-child,
+main[data-dashboard="certidoes"] > article[data-listagem] > table td:nth-last-child(2),
+main[data-dashboard="certidoes"] > article[data-listagem] > table th:nth-last-child(2) {
+	text-align: center;
+}
+
+main[data-dashboard="certidoes"] .tabela-container > form:first-child {
+	display: grid;
+	grid-template-columns: minmax(0, 1.4fr) minmax(13rem, 1fr) minmax(12rem, 0.85fr) auto;
+	align-items: end;
+	gap: 1rem;
+}
+
+main[data-dashboard="certidoes"] .tabela-container > form:first-child fieldset {
+	padding: 0;
+	display: grid;
+	gap: 0.25rem;
+}
+
+main[data-dashboard="certidoes"] .tabela-container > form:first-child legend {
+	margin-bottom: 0;
+}
+
+main[data-dashboard="certidoes"] .tabela tbody td:first-child .radio-checkbox-container {
+	justify-content: center;
+	padding: 0 !important;
+}
+
+main[data-dashboard="certidoes"] .tabela tbody td:first-child .radio-checkbox-container label {
+	justify-content: center;
+}
+
+main[data-dashboard="certidoes"] .tabela tbody td:last-child > nav {
+	display: flex;
+	justify-content: flex-end;
+	gap: 0.4rem;
+}
+
+main[data-dashboard="certidoes"] .tabela :is(th:last-child, td:last-child) {
+	min-width: 8rem;
+}
+
+main[data-dashboard="certidoes"] .tabela tbody td:last-child > nav > button {
+	width: 2rem;
+	height: 2rem;
+	padding: 0;
+	justify-content: center;
+}
+
+main[data-dashboard="certidoes"] .tabela tfoot th {
+	text-align: left;
+}
+
+main[data-dashboard="certidoes"] form.paginacao [aria-current="page"] {
+	background-color: rgba(255, 145, 77, 0.16);
+	border-color: var(--color-primary);
+	color: var(--color-primary);
+}
+
+@media (max-width: 1180px) {
+	main[data-dashboard="certidoes"] .metricas {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+
+	main[data-dashboard="certidoes"] .metricas[data-mes] {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 980px) {
+	main[data-dashboard="certidoes"] > header,
+	main[data-dashboard="certidoes"] .dupla,
+	main[data-dashboard="certidoes"] .tabela-container > form:first-child {
+		grid-template-columns: 1fr;
+	}
+
+	main[data-dashboard="certidoes"] > header form {
+		justify-content: stretch;
+		flex-wrap: wrap;
+	}
+}
+
+@media (max-width: 720px) {
+	main[data-dashboard="certidoes"] {
+		padding: 0.75rem;
+	}
+
+	main[data-dashboard="certidoes"] .metricas,
+	main[data-dashboard="certidoes"] .metricas[data-mes],
+	main[data-dashboard="certidoes"] .dupla > aside > dl {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 560px) {
+	main[data-dashboard="certidoes"] .metricas,
+	main[data-dashboard="certidoes"] .metricas[data-mes],
+	main[data-dashboard="certidoes"] .dupla > aside > dl {
+		grid-template-columns: 1fr;
+	}
+
+	main[data-dashboard="certidoes"] > article[data-listagem] > table {
+		min-width: 30rem;
+	}
+}

@@ -57,6 +57,120 @@
 
 	/* === TEXTOS SOBRE FUNDOS COLORIDOS === */
 	--text-on-primary: #111111;
+
+	/*
+	 * === COMPONENTE TABELA ===
+	 * Estas variaveis alimentam a camada visual da tabela.
+	 * `table.css` organiza a estrutura e `effect1.css` aplica os tons usando
+	 * exatamente este contrato de variaveis.
+	 */
+	--table-surface: var(--background-color-container);
+	--table-surface-overlay: rgba(255, 255, 255, 0.02);
+	--table-header-bg: #1F1F1F;
+	--table-header-text: var(--text-color-title);
+	--table-footer-bg: #1F1F1F;
+	--table-footer-text: var(--text-color-inactive);
+	--table-divider: rgba(255, 255, 255, 0.08);
+	--table-row-odd-bg: #252525;
+	--table-row-odd-hover: #303030;
+	--table-row-even-bg: #2D2D2D;
+	--table-row-even-hover: #373737;
+	--table-row-active-bg: #392F28;
+	--table-row-active-hover: #45372E;
+	--table-row-inactive-bg: #272727;
+	--table-row-inactive-hover: #303030;
+	--table-filter-field-border: rgba(255, 255, 255, 0.2);
+	--table-filter-toggle-bg: rgba(255, 255, 255, 0.04);
+	--table-filter-toggle-border: var(--border-color);
+	--table-filter-toggle-text: var(--text-color-inactive);
+	--table-filter-toggle-active-bg: rgba(255, 145, 77, 0.12);
+	--table-filter-toggle-active-border: var(--color-primary);
+	--table-filter-toggle-active-text: var(--color-primary);
+	--table-filter-panel-bg: #2B2B2B;
+	--table-filter-panel-border: rgba(255, 255, 255, 0.12);
+	--table-filter-panel-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.28);
+	--table-filter-option-bg: rgba(255, 255, 255, 0.04);
+	--table-filter-option-active-bg: rgba(255, 145, 77, 0.12);
+	--table-filter-option-active-text: var(--color-primary);
+	--table-menu-bg: rgba(44, 44, 44, 0.99);
+	--table-menu-border: rgba(255, 255, 255, 0.08);
+	--table-menu-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.28);
+	--table-menu-item-bg: rgba(255, 255, 255, 0.05);
+	--table-menu-item-hover-bg: rgba(255, 145, 77, 0.12);
+	--table-menu-item-hover-border: var(--color-primary);
+	--table-status-danger: #FF5D5D;
+	--table-status-warning: #FFB454;
+	--table-status-success: #57D98C;
+	--table-tone-cyan: #34B7B0;
+	--table-tone-blue: #4B7CF0;
+	--table-tone-sage: #97A96F;
+	--table-tone-green: #1FBF7A;
+	--table-tone-violet: #7760DD;
+	--table-tone-emerald: #22B78B;
+	--table-tone-sky: #2F8ED8;
+	--table-tone-slate: #607286;
+	--table-tone-amber: #E0A038;
+	--table-tone-orange: #F39A2A;
+	--table-tone-red: #D95353;
+
+	/*
+	 * === COMPONENTE GRAFICO ===
+	 * `grafico.css` usa estas variaveis para card, grade, eixos, legenda,
+	 * filtros do grafico e series coloridas sem precisar fixar paleta no componente.
+	 */
+	--chart-surface: var(--background-color-card);
+	--chart-surface-overlay: rgba(255, 255, 255, 0.03);
+	--chart-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.14);
+	--chart-border: rgba(255, 255, 255, 0.08);
+	--chart-grid: rgba(255, 255, 255, 0.1);
+	--chart-axis: rgba(255, 255, 255, 0.18);
+	--chart-text: var(--text-color-title);
+	--chart-text-muted: var(--text-color-inactive);
+	--chart-control-bg: rgba(255, 255, 255, 0.04);
+	--chart-control-overlay: rgba(255, 255, 255, 0.02);
+	--chart-control-border: rgba(255, 255, 255, 0.08);
+	--chart-control-text: var(--text-color-body);
+	--chart-control-active-bg: rgba(255, 145, 77, 0.12);
+	--chart-control-active-border: rgba(255, 145, 77, 0.32);
+	--chart-control-active-text: var(--color-primary);
+	--chart-track: rgba(255, 255, 255, 0.08);
+	--chart-scroll-thumb: var(--color-primary);
+	--chart-series-1: var(--color-primary);
+	--chart-series-1-soft: rgba(255, 145, 77, 0.16);
+	--chart-series-2: var(--color-success);
+	--chart-series-2-soft: rgba(46, 125, 50, 0.16);
+	--chart-series-3: var(--color-info);
+	--chart-series-3-soft: rgba(25, 118, 210, 0.16);
+	--chart-series-4: var(--color-warning);
+	--chart-series-4-soft: rgba(249, 168, 38, 0.16);
+	--chart-series-5: var(--color-pink);
+	--chart-series-5-soft: rgba(240, 98, 146, 0.16);
+	--chart-series-6: var(--color-cyan);
+	--chart-series-6-soft: rgba(77, 208, 225, 0.16);
+
+	/*
+	 * === COMPONENTE IMAGEM ===
+	 * `imagem.css` organiza a estrutura do editor e do Cropper.js usando este
+	 * contrato de variaveis para manter tema e customizacao fora do componente.
+	 */
+	--image-editor-surface: var(--background-color-card);
+	--image-editor-panel: #242424;
+	--image-editor-border: rgba(255, 255, 255, 0.08);
+	--image-editor-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.22);
+	--image-editor-overlay: rgba(255, 255, 255, 0.03);
+	--image-editor-text: var(--text-color-title);
+	--image-editor-muted: var(--text-color-inactive);
+	--image-editor-action-bg: rgba(255, 255, 255, 0.04);
+	--image-editor-action-border: rgba(255, 255, 255, 0.12);
+	--image-editor-action-text: var(--text-color-body);
+	--image-editor-action-hover-bg: rgba(255, 145, 77, 0.12);
+	--image-editor-action-hover-border: var(--color-primary);
+	--image-editor-action-hover-text: var(--color-primary);
+	--image-editor-crop-accent: var(--color-primary);
+	--image-editor-crop-grid: rgba(255, 255, 255, 0.72);
+	--image-editor-crop-backdrop: rgba(0, 0, 0, 0.48);
+	--image-editor-checker-a: rgba(255, 255, 255, 0.03);
+	--image-editor-checker-b: rgba(255, 255, 255, 0.07);
 }
 
 /* --- VariÃ¡veis de Cor (Tema Claro Opcional) --- */
@@ -69,7 +183,104 @@
 	--text-color-body: #333333;
 	--text-color-inactive: #888888;
 	--border-color: #CCCCCC;
-	
+
+	--table-surface: #F7F7F7;
+	--table-surface-overlay: rgba(17, 17, 17, 0.02);
+	--table-header-bg: #FFFFFF;
+	--table-header-text: var(--text-color-title);
+	--table-footer-bg: #FFFFFF;
+	--table-footer-text: var(--text-color-inactive);
+	--table-divider: rgba(17, 17, 17, 0.08);
+	--table-row-odd-bg: #FFFFFF;
+	--table-row-odd-hover: #F6F6F6;
+	--table-row-even-bg: #FCFCFC;
+	--table-row-even-hover: #F1F1F1;
+	--table-row-active-bg: #FFF4EA;
+	--table-row-active-hover: #FFEAD8;
+	--table-row-inactive-bg: #F3F3F3;
+	--table-row-inactive-hover: #ECECEC;
+	--table-filter-field-border: rgba(17, 17, 17, 0.14);
+	--table-filter-toggle-bg: rgba(17, 17, 17, 0.03);
+	--table-filter-toggle-border: rgba(17, 17, 17, 0.12);
+	--table-filter-toggle-text: var(--text-color-inactive);
+	--table-filter-toggle-active-bg: rgba(255, 145, 77, 0.12);
+	--table-filter-toggle-active-border: var(--color-primary);
+	--table-filter-toggle-active-text: #C95C1A;
+	--table-filter-panel-bg: #FFFFFF;
+	--table-filter-panel-border: rgba(17, 17, 17, 0.08);
+	--table-filter-panel-shadow: 0 1rem 2rem rgba(17, 17, 17, 0.12);
+	--table-filter-option-bg: rgba(17, 17, 17, 0.03);
+	--table-filter-option-active-bg: rgba(255, 145, 77, 0.12);
+	--table-filter-option-active-text: #C95C1A;
+	--table-menu-bg: rgba(255, 255, 255, 0.98);
+	--table-menu-border: rgba(17, 17, 17, 0.08);
+	--table-menu-shadow: 0 1rem 2rem rgba(17, 17, 17, 0.12);
+	--table-menu-item-bg: rgba(17, 17, 17, 0.03);
+	--table-menu-item-hover-bg: rgba(255, 145, 77, 0.12);
+	--table-menu-item-hover-border: var(--color-primary);
+	--table-status-danger: #D44C4C;
+	--table-status-warning: #CC8826;
+	--table-status-success: #228B5A;
+	--table-tone-cyan: #2C9C96;
+	--table-tone-blue: #3E6FDE;
+	--table-tone-sage: #83955E;
+	--table-tone-green: #1F9C68;
+	--table-tone-violet: #6950CE;
+	--table-tone-emerald: #1F9874;
+	--table-tone-sky: #287DBF;
+	--table-tone-slate: #526171;
+	--table-tone-amber: #C98A2F;
+	--table-tone-orange: #DA8422;
+	--table-tone-red: #C84B4B;
+
+	--chart-surface: #FFFFFF;
+	--chart-surface-overlay: rgba(17, 17, 17, 0.02);
+	--chart-shadow: 0 1rem 2rem rgba(17, 17, 17, 0.08);
+	--chart-border: rgba(17, 17, 17, 0.08);
+	--chart-grid: rgba(17, 17, 17, 0.08);
+	--chart-axis: rgba(17, 17, 17, 0.16);
+	--chart-text: var(--text-color-title);
+	--chart-text-muted: var(--text-color-inactive);
+	--chart-control-bg: rgba(17, 17, 17, 0.03);
+	--chart-control-overlay: rgba(17, 17, 17, 0.02);
+	--chart-control-border: rgba(17, 17, 17, 0.08);
+	--chart-control-text: var(--text-color-body);
+	--chart-control-active-bg: rgba(255, 145, 77, 0.12);
+	--chart-control-active-border: rgba(255, 145, 77, 0.24);
+	--chart-control-active-text: #C95C1A;
+	--chart-track: rgba(17, 17, 17, 0.08);
+	--chart-scroll-thumb: var(--color-primary);
+	--chart-series-1: #E06C1E;
+	--chart-series-1-soft: rgba(224, 108, 30, 0.12);
+	--chart-series-2: #2E7D32;
+	--chart-series-2-soft: rgba(46, 125, 50, 0.12);
+	--chart-series-3: #1976D2;
+	--chart-series-3-soft: rgba(25, 118, 210, 0.12);
+	--chart-series-4: #D3921E;
+	--chart-series-4-soft: rgba(211, 146, 30, 0.12);
+	--chart-series-5: #C44F7C;
+	--chart-series-5-soft: rgba(196, 79, 124, 0.12);
+	--chart-series-6: #2D9FAF;
+	--chart-series-6-soft: rgba(45, 159, 175, 0.12);
+
+	--image-editor-surface: #FFFFFF;
+	--image-editor-panel: #F7F7F7;
+	--image-editor-border: rgba(17, 17, 17, 0.08);
+	--image-editor-shadow: 0 1rem 2rem rgba(17, 17, 17, 0.10);
+	--image-editor-overlay: rgba(17, 17, 17, 0.02);
+	--image-editor-text: var(--text-color-title);
+	--image-editor-muted: var(--text-color-inactive);
+	--image-editor-action-bg: rgba(17, 17, 17, 0.03);
+	--image-editor-action-border: rgba(17, 17, 17, 0.10);
+	--image-editor-action-text: var(--text-color-body);
+	--image-editor-action-hover-bg: rgba(255, 145, 77, 0.12);
+	--image-editor-action-hover-border: var(--color-primary);
+	--image-editor-action-hover-text: #C95C1A;
+	--image-editor-crop-accent: var(--color-primary);
+	--image-editor-crop-grid: rgba(17, 17, 17, 0.38);
+	--image-editor-crop-backdrop: rgba(17, 17, 17, 0.35);
+	--image-editor-checker-a: rgba(17, 17, 17, 0.03);
+	--image-editor-checker-b: rgba(17, 17, 17, 0.06);
 }
 
 /* --- Layout Principal da PÃ¡gina --- */
@@ -105,25 +316,25 @@ body > footer {
 
 /* --- Sidebar Layout --- */
 body {
-	grid-template-columns: var(--sidebar-width-closed, 5.5rem) 1fr;
+	grid-template-columns: var(--sidebar-width-closed, 4.75rem) 1fr;
 }
 
 body:has(.sidebar[data-open="true"]) {
-	grid-template-columns: var(--sidebar-width-open, 21rem) 1fr;
+	grid-template-columns: var(--sidebar-width-open, 18.5rem) 1fr;
 }
 
 .sidebar {
-	width: var(--sidebar-width-closed, 5.5rem);
+	width: var(--sidebar-width-closed, 4.75rem);
 }
 
 .sidebar[data-open="true"] {
-	width: var(--sidebar-width-open, 21rem);
+	width: var(--sidebar-width-open, 18.5rem);
 }
 
 .sidebar > header,
 .sidebar > footer {
-	padding: 1rem;
-	gap: 0.75rem;
+	padding: 0.75rem;
+	gap: 0.625rem;
 }
 
 .sidebar .brand,
@@ -132,59 +343,122 @@ body:has(.sidebar[data-open="true"]) {
 .sidebar > nav > ul > li > ul a,
 .sidebar > footer nav a,
 .sidebar > footer form button {
-	gap: 0.75rem;
-	padding: 0.875rem 1rem;
+	gap: 0.625rem;
+	padding: 0.6875rem 0.875rem;
 }
 
 .sidebar .brand {
-	min-height: 4.5rem;
+	min-height: 3.75rem;
 }
 
 .sidebar .brand img {
-	width: 2rem;
-	height: 2rem;
-	flex: 0 0 2rem;
+	width: 1.75rem;
+	height: 1.75rem;
+	flex: 0 0 1.75rem;
 }
 
 .sidebar .toggle {
-	min-height: 3.25rem;
+	min-height: 2.875rem;
 }
 
 .sidebar > nav > ul {
-	padding: 0.5rem 1rem 1rem;
-	gap: 0.25rem;
+	padding: 0.375rem 0.75rem 0.75rem;
+	gap: 0.1875rem;
 }
 
 .sidebar > nav > ul > li {
-	gap: 0.25rem;
+	gap: 0.1875rem;
 }
 
 .sidebar > nav > ul > li > ul {
-	padding-left: 3.75rem;
+	padding-left: 3rem;
 	gap: 0.125rem;
 }
 
 .sidebar > nav > ul > li > ul a {
-	min-height: 2.75rem;
-	padding-block: 0.625rem;
+	min-height: 2.375rem;
+	padding-block: 0.5rem;
 }
 
 .sidebar > footer > section {
-	gap: 0.25rem;
-	padding: 1rem;
+	gap: 0.1875rem;
+	padding: 0.875rem;
+}
+
+.sidebar > footer > .user-summary {
+	flex-direction: row;
+	align-items: center;
+	gap: 0.75rem;
+	padding-top: 1rem;
+	margin-top: 0.75rem;
+	border-top: 0.125rem solid var(--border-color);
+	background: transparent;
+	border-radius: 0;
+}
+
+.sidebar > footer > .user-summary > img {
+	width: 2.75rem;
+	height: 2.75rem;
+	flex: 0 0 2.75rem;
+	border-radius: 999px;
+	object-fit: cover;
+	background-color: var(--background-color-card);
+}
+
+.sidebar > footer > .user-summary > .user-summary__content {
+	display: flex;
+	flex-direction: column;
+	min-width: 0;
+	gap: 0.125rem;
+}
+
+.sidebar > footer > .user-summary strong,
+.sidebar > footer > .user-summary span {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.sidebar > footer > .user-summary span {
+	color: var(--text-color-inactive);
+	font-size: 0.875rem;
+}
+
+.sidebar > footer > .user-summary > .user-summary__logout {
+	margin-left: auto;
+	padding: 0;
+	border: 0;
+}
+
+.sidebar > footer > .user-summary > .user-summary__logout button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 2.5rem;
+	height: 2.5rem;
+	padding: 0;
+	border: 0.125rem solid transparent;
+	border-radius: 0.875rem;
+	background-color: transparent;
+	color: var(--text-color-body);
+}
+
+.sidebar > footer > .user-summary > .user-summary__logout button:hover {
+	background-color: var(--background-color-container);
+}
+
+.sidebar > footer > .user-summary > .user-summary__logout button:focus-visible {
+	outline: 0.125rem solid var(--color-primary);
+	outline-offset: 0.125rem;
 }
 
 .sidebar > footer nav > ul {
-	gap: 0.25rem;
-}
-
-.sidebar > footer form {
-	padding: 0;
+	gap: 0.1875rem;
 }
 
 .sidebar[data-open="false"] > header,
 .sidebar[data-open="false"] > footer {
-	padding-inline: 0.75rem;
+	padding-inline: 0.625rem;
 	align-items: center;
 }
 
@@ -194,14 +468,14 @@ body:has(.sidebar[data-open="true"]) {
 .sidebar[data-open="false"] > footer nav a,
 .sidebar[data-open="false"] > footer form button {
 	justify-content: center;
-	padding-inline: 0.5rem;
+	padding-inline: 0.375rem;
 }
 
 .sidebar[data-open="false"] > nav > ul {
-	padding-inline: 0.75rem;
+	padding-inline: 0.625rem;
 }
 
 .sidebar[data-open="false"] > footer > section {
 	align-items: center;
-	padding: 0.5rem;
+	padding: 0.375rem;
 }
